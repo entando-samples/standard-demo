@@ -1,0 +1,18 @@
+code: manageusers-bundle
+description: This is the manageusers bundle
+
+components:
+  plugins:
+    - plugins/manageusers-plugin.yaml
+
+  widgets:
+    - ui/widgets/manageusers/tableWidget/manageusers-table-widget-descriptor.yaml
+    - ui/widgets/manageusers/detailsWidget/manageusers-details-widget-descriptor.yaml
+    - ui/widgets/manageusers/formWidget/manageusers-form-widget-descriptor.yaml
+  # entando-needle-descriptor-add-widgets - Entando blueprint will add widget bundle files here
+
+  pageModels:
+
+  contentTypes:
+
+  contentModels:

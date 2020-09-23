@@ -1,0 +1,57 @@
+{
+  "error": {
+    "dataLoading": "Error during server connection"
+  },
+  "common": {
+    "couldNotFetchData": "Unfortunately we could not fetch entity data",
+    "notAuthenticated": "User is not authenticated.",
+    "loadingMore": "Loading more...",
+    "download": "Download file",
+    "dataDeleted": "Manageusers successfully deleted",
+    "dataResetted": "Data successfully resetted",
+    "yes": "Yes",
+    "no": "No",
+    "reset": "Reset"
+  },
+  "pagination": {
+    "ariaLabels": {
+      "firstPage": "first page",
+      "previousPage": "previous page",
+      "nextPage": "next page",
+      "lastPage": "last page"
+    }
+  },
+  "filters": {
+    "field": "Field",
+    "value": "Value",
+    "addFilter": "Add filter",
+    "clearFilters": "Clear filters",
+    "filter": "Filter",
+    "operator": "Operator",
+    "operators": {
+      "equals": "equals",
+      "in": "in",
+      "specified": "specified",
+      "unspecified": "unspecified",
+      "contains": "contains"
+    }
+  },
+  "entities": {
+    "manageusers": {
+      "deleteDialog": {
+        "title": "Delete manageusers",
+        "description": "Are you sure?"
+      },
+      "resetDialog": {
+        "title": "Reset notifications if they exists, otherwise create accounts, transactions and notifications",
+        "description": "Are you sure?"
+      },
+      "noItems": "No manageusers available",
+      "id": "ID",
+      "username": "Username",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email"
+    }
+  }
+}
