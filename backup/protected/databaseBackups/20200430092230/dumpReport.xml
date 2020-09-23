@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<backup>
+	<date>2020-04-30 09:22:30</date>
+	<requiredTime>170</requiredTime>
+	<subfolder>20200430092230</subfolder>
+	<componentsHistory>
+		<component code="entandoCore" date="2020-03-20 16:26:21" status="OK">
+			<schema status="OK">
+				<datasource name="portDataSource" status="OK">
+					<table name="sysconfig" />
+					<table name="categories" />
+					<table name="localstrings" />
+					<table name="pagemodels" />
+					<table name="pages" />
+					<table name="pages_metadata_online" />
+					<table name="pages_metadata_draft" />
+					<table name="widgetcatalog" />
+					<table name="guifragment" />
+					<table name="widgetconfig" />
+					<table name="widgetconfig_draft" />
+					<table name="uniquekeys" />
+				</datasource>
+				<datasource name="servDataSource" status="OK">
+					<table name="authgroups" />
+					<table name="authpermissions" />
+					<table name="authroles" />
+					<table name="authrolepermissions" />
+					<table name="authusers" />
+					<table name="authusergrouprole" />
+					<table name="api_oauth_consumers" />
+					<table name="api_oauth_tokens" />
+					<table name="apicatalog_methods" />
+					<table name="apicatalog_services" />
+					<table name="authuserprofiles" />
+					<table name="authuserprofilesearch" />
+					<table name="authuserprofileattrroles" />
+					<table name="actionlogrecords" />
+					<table name="actionlogrelations" />
+					<table name="actionloglikerecords" />
+					<table name="actionlogcommentrecords" />
+					<table name="dataobjectmodels" />
+					<table name="dataobjects" />
+					<table name="dataobjectrelations" />
+					<table name="dataobjectsearch" />
+					<table name="dataobjectattributeroles" />
+				</datasource>
+			</schema>
+			<data status="OK">
+				<datasource name="portDataSource" status="OK" />
+				<datasource name="servDataSource" status="OK" />
+			</data>
+			<postProcess status="NOT_AVAILABLE" />
+		</component>
+		<component code="jacms" date="2020-03-20 16:26:21" status="OK">
+			<schema status="OK">
+				<datasource name="portDataSource" status="OK">
+					<table name="contentmodels" />
+					<table name="contents" />
+					<table name="resources" />
+					<table name="resourcerelations" />
+					<table name="contentrelations" />
+					<table name="contentsearch" />
+					<table name="contentattributeroles" />
+					<table name="workcontentrelations" />
+					<table name="workcontentsearch" />
+					<table name="workcontentattributeroles" />
+				</datasource>
+				<datasource name="servDataSource" status="NOT_AVAILABLE" />
+			</schema>
+			<data status="OK">
+				<datasource name="portDataSource" status="OK" />
+				<datasource name="servDataSource" status="NOT_AVAILABLE" />
+			</data>
+			<postProcess status="NOT_AVAILABLE" />
+		</component>
+		<component code="jprestapi" date="2020-03-20 16:26:21" status="OK">
+			<schema status="OK">
+				<datasource name="portDataSource" status="NOT_AVAILABLE" />
+				<datasource name="servDataSource" status="NOT_AVAILABLE" />
+			</schema>
+			<data status="OK">
+				<datasource name="portDataSource" status="NOT_AVAILABLE" />
+				<datasource name="servDataSource" status="NOT_AVAILABLE" />
+			</data>
+			<postProcess status="NOT_AVAILABLE" />
+		</component>
+		<component code="entando-admin-console" date="2020-03-20 16:26:21" status="OK">
+			<schema status="OK">
+				<datasource name="portDataSource" status="NOT_AVAILABLE" />
+				<datasource name="servDataSource" status="OK">
+					<table name="authusershortcuts" />
+				</datasource>
+			</schema>
+			<data status="OK">
+				<datasource name="portDataSource" status="NOT_AVAILABLE" />
+				<datasource name="servDataSource" status="OK" />
+			</data>
+			<postProcess status="NOT_AVAILABLE" />
+		</component>
+		<component code="entando-portal-ui" date="2020-03-20 16:26:21" status="OK">
+			<schema status="OK">
+				<datasource name="portDataSource" status="NOT_AVAILABLE" />
+				<datasource name="servDataSource" status="NOT_AVAILABLE" />
+			</schema>
+			<data status="OK">
+				<datasource name="portDataSource" status="NOT_AVAILABLE" />
+				<datasource name="servDataSource" status="NOT_AVAILABLE" />
+			</data>
+			<postProcess status="NOT_AVAILABLE" />
+		</component>
+		<component code="jpkiebpm" date="2020-03-20 16:26:21" status="OK">
+			<schema status="OK">
+				<datasource name="portDataSource" status="NOT_AVAILABLE" />
+				<datasource name="servDataSource" status="OK">
+					<table name="jpkiebpm_kieformoverride" />
+					<table name="jpkiebpm_widgetinfo" />
+				</datasource>
+			</schema>
+			<data status="OK">
+				<datasource name="portDataSource" status="OK" />
+				<datasource name="servDataSource" status="OK" />
+			</data>
+			<postProcess status="NOT_AVAILABLE" />
+		</component>
+		<component code="entando-app-view-cms-default" date="2020-03-20 16:26:21" status="OK">
+			<schema status="OK">
+				<datasource name="portDataSource" status="NOT_AVAILABLE" />
+				<datasource name="servDataSource" status="NOT_AVAILABLE" />
+			</schema>
+			<data status="OK">
+				<datasource name="portDataSource" status="OK" />
+				<datasource name="servDataSource" status="NOT_AVAILABLE" />
+			</data>
+			<postProcess status="NOT_AVAILABLE" />
+		</component>
+	</componentsHistory>
+	<datasource name="portDataSource">
+		<table name="categories" requiredTime="2" rows="1" />
+		<table name="contentattributeroles" requiredTime="3" rows="0" />
+		<table name="contentmodels" requiredTime="6" rows="13" />
+		<table name="contentrelations" requiredTime="3" rows="52" />
+		<table name="contents" requiredTime="4" rows="25" />
+		<table name="contentsearch" requiredTime="4" rows="3" />
+		<table name="guifragment" requiredTime="3" rows="82" />
+		<table name="localstrings" requiredTime="3" rows="274" />
+		<table name="pagemodels" requiredTime="2" rows="4" />
+		<table name="pages" requiredTime="2" rows="20" />
+		<table name="pages_metadata_draft" requiredTime="4" rows="20" />
+		<table name="pages_metadata_online" requiredTime="3" rows="19" />
+		<table name="resourcerelations" requiredTime="2" rows="0" />
+		<table name="resources" requiredTime="3" rows="20" />
+		<table name="sysconfig" requiredTime="3" rows="11" />
+		<table name="uniquekeys" requiredTime="1" rows="1" />
+		<table name="widgetcatalog" requiredTime="2" rows="58" />
+		<table name="widgetconfig" requiredTime="2" rows="46" />
+		<table name="widgetconfig_draft" requiredTime="2" rows="51" />
+		<table name="workcontentattributeroles" requiredTime="2" rows="0" />
+		<table name="workcontentrelations" requiredTime="2" rows="0" />
+		<table name="workcontentsearch" requiredTime="3" rows="3" />
+	</datasource>
+	<datasource name="servDataSource">
+		<table name="actionlogcommentrecords" requiredTime="3" rows="0" />
+		<table name="actionloglikerecords" requiredTime="2" rows="0" />
+		<table name="actionlogrecords" requiredTime="24" rows="367" />
+		<table name="actionlogrelations" requiredTime="3" rows="207" />
+		<table name="api_oauth_consumers" requiredTime="2" rows="1" />
+		<table name="api_oauth_tokens" requiredTime="2" rows="0" />
+		<table name="apicatalog_methods" requiredTime="3" rows="0" />
+		<table name="apicatalog_services" requiredTime="2" rows="0" />
+		<table name="authgroups" requiredTime="3" rows="6" />
+		<table name="authpermissions" requiredTime="3" rows="10" />
+		<table name="authrolepermissions" requiredTime="4" rows="1" />
+		<table name="authroles" requiredTime="3" rows="1" />
+		<table name="authusergrouprole" requiredTime="3" rows="3" />
+		<table name="authuserprofileattrroles" requiredTime="3" rows="2" />
+		<table name="authuserprofiles" requiredTime="2" rows="2" />
+		<table name="authuserprofilesearch" requiredTime="2" rows="2" />
+		<table name="authusers" requiredTime="2" rows="1" />
+		<table name="authusershortcuts" requiredTime="6" rows="1" />
+		<table name="dataobjectattributeroles" requiredTime="3" rows="0" />
+		<table name="dataobjectmodels" requiredTime="3" rows="0" />
+		<table name="dataobjectrelations" requiredTime="3" rows="0" />
+		<table name="dataobjects" requiredTime="2" rows="0" />
+		<table name="dataobjectsearch" requiredTime="1" rows="0" />
+		<table name="jpkiebpm_kieformoverride" requiredTime="3" rows="0" />
+		<table name="jpkiebpm_widgetinfo" requiredTime="3" rows="0" />
+	</datasource>
+</backup>
+

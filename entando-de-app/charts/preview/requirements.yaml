@@ -1,0 +1,11 @@
+# !! File must end with empty line !!
+dependencies:
+- alias: operator
+  name: entando-k8s-controller-coordinator
+  repository: https://chartmuseum-jx.apps.serv.run
+  version: 6.0.55
+  condition: operator.deployLocally
+- alias: preview
+  name: entando-de-app
+  repository: file://../entando-de-app
+  version: 0.1.0-SNAPSHOT

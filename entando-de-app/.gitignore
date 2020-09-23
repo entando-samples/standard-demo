@@ -1,0 +1,6 @@
+*.log
+target
+.idea
+*.iml
+overlays/
+.DS_STORE

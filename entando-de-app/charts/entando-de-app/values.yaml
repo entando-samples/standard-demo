@@ -1,0 +1,10 @@
+# Default values for Maven projects.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+prepareInfrastructure: false
+app:
+  repository: docker.io/entando/entando-de-app
+  tag: 6.1.89
+  name: entando-de-app
+  webContext: "/entando-de-app"
+  replicaCount: 1
