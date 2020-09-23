@@ -1,0 +1,20 @@
+{
+  "common": {
+    "couldNotFetchData": "Unfortunately we could not get data for this user",
+    "widgetName": "{{widgetNamePlaceholder}}",
+    "name": "Name",
+    "value": "Value",
+    "loading": "Loading...",
+    "missingId": "Please provide seedscard ID",
+    "notAuthenticated": "Waiting for authorization...",
+    "download": "Download file"
+  },
+  "entities": {
+    "seedscard": {
+      "id": "ID",
+      "accountNumber": "entities.seedscard.accountNumber",
+      "balance": "entities.seedscard.balance",
+      "userId": "entities.seedscard.userId"
+    }
+  }
+}

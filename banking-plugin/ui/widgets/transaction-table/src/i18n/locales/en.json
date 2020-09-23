@@ -1,0 +1,45 @@
+{
+  "error": {
+    "dataLoading": "Error during server connection"
+  },
+  "common": {
+    "couldNotFetchData": "Unfortunately we could not fetch entity data",
+    "notAuthenticated": "User is not authenticated.",
+    "loadingMore": "Loading more...",
+    "download": "Download file"
+  },
+  "pagination": {
+    "ariaLabels": {
+      "firstPage": "first page",
+      "previousPage": "previous page",
+      "nextPage": "next page",
+      "lastPage": "last page"
+    }
+  },
+  "filters": {
+    "field": "Field",
+    "value": "Value",
+    "addFilter": "Add filter",
+    "clearFilters": "Clear filters",
+    "filter": "Filter",
+    "operator": "Operator",
+    "operators": {
+      "equals": "equals",
+      "in": "in",
+      "specified": "specified",
+      "unspecified": "unspecified",
+      "contains": "contains"
+    }
+  },
+  "entities": {
+    "seedscardtransaction": {
+      "noItems": "No transactions available for your accounts",
+      "id": "ID",
+      "date": "date",
+      "description": "description",
+      "amount": "amount",
+      "balance": "balance",
+      "accountID": "entities.seedscardtransaction.accountID"
+    }
+  }
+}
