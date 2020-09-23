@@ -1,0 +1,52 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "org.entando.demo.banking"
+    },
+    "bundleName": "banking-demo-bundle",
+    "dockerOrganization": "entandosamples",
+    "generateMicroFrontends": "ask",
+    "jhipsterVersion": "6.9.0",
+    "applicationType": "microservice",
+    "baseName": "banking",
+    "packageName": "org.entando.demo.banking",
+    "packageFolder": "org/entando/demo/banking",
+    "serverPort": "8081",
+    "authenticationType": "oauth2",
+    "cacheProvider": "caffeine",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "OTY2YTRhNjg4OGI1M2IxMmRmNTEwNDQ2ZWVhMmQ1OTY0ODcwMTdiNjgyMmJkYTJlZjEwMzQzOTZmOTZiZWI2Yzg1MTIzMTUxOWM2ZDcwYzk2Njc5NDYyMTY2ZjQ4OGY5MGFlODcxZGIzZmUwMGUxYmY2NWM0YmYzMDhjNjVjNDQ=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1600866071082,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "skipCheckLengthOfIdentifier": false,
+    "otherModules": [
+      {
+        "name": "generator-jhipster-entando",
+        "version": "6.2.0"
+      }
+    ],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "blueprints": [
+      {
+        "name": "generator-jhipster-entando",
+        "version": "6.2.0"
+      }
+    ],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
