@@ -39,6 +39,7 @@ public class CacheConfiguration {
             createCache(cm, "oAuth2Authentication");
             createCache(cm, org.entando.demo.banking.domain.Checking.class.getName());
             createCache(cm, org.entando.demo.banking.domain.Savings.class.getName());
+            createCache(cm, org.entando.demo.banking.domain.SavingsTransaction.class.getName());
             // jhipster-needle-caffeine-add-entry
         };
     }
