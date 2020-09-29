@@ -43,6 +43,7 @@ public class CacheConfiguration {
             createCache(cm, org.entando.demo.banking.domain.Creditcard.class.getName());
             createCache(cm, org.entando.demo.banking.domain.Creditcardtransaction.class.getName());
             createCache(cm, org.entando.demo.banking.domain.Checkingtransaction.class.getName());
+            createCache(cm, org.entando.demo.banking.domain.CreditCardUser.class.getName());
             // jhipster-needle-caffeine-add-entry
         };
     }
