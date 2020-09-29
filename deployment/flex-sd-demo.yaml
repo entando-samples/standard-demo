@@ -2,8 +2,6 @@
 # Source: preview/charts/operator/templates/ca-cert-secret.yaml
 apiVersion: v1
 data:
-  ca.crt: >-
-
 kind: Secret
 metadata:
   name: entando-ca-cert-secret
@@ -33,47 +31,55 @@ metadata:
   namespace: flex
 data:
   app-builder: >-
-    {"version":"6.1.164","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+    {"version":"6.1.201","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+  busybox: >-
+    {"version":"latest","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-avatar-plugin: >-
     {"version":"6.0.5","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-component-manager: >-
-    {"version":"6.0.57","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+    {"version":"6.2.8","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-de-app-eap: >-
-    {"version":"6.1.88","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+    {"version":"6.1.124","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-de-app-wildfly: >-
-    {"version":"6.1.88","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+    {"version":"6.1.124","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-k8s-app-controller: >-
-    {"version":"6.1.8","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+    {"version":"6.2.2","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-k8s-app-plugin-link-controller: >-
-    {"version":"6.1.1","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+    {"version":"6.1.2","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-k8s-cluster-infrastructure-controller: >-
-    {"version":"6.1.4","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+    {"version":"6.2.2","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-k8s-composite-app-controller: >-
-    {"version":"6.1.4","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+    {"version":"6.2.1","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-k8s-controller-coordinator: >-
-    {"version":"6.1.8","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+    {"version":"6.2.4","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-k8s-dbjob: >-
     {"version":"6.1.4","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-k8s-keycloak-controller: >-
-    {"version":"6.1.14","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+    {"version":"6.2.8","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-k8s-plugin-controller: >-
-    {"version":"6.1.3","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+    {"version":"6.2.2","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-k8s-service: >-
-    {"version":"6.0.20","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+    {"version":"6.2.0","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-keycloak: >-
-    {"version":"6.0.15","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+    {"version":"6.1.2","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-plugin-sidecar: >-
     {"version":"6.0.2","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-process-driven-plugin: >-
-    {"version":"6.0.50","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+    {"version":"6.0.51","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+  mysql-57-centos7: >-
+    {"version":"latest","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+  postgresql-96-centos7: >-
+    {"version":"latest","executable-type":"jvm","registry":"docker.io","organization":"entando"}
 
 ---
 # Source: preview/charts/operator/templates/k8s-service-serviceaccount.yaml
+
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: entando-k8s-service
   namespace: flex
+
 ---
 # Source: preview/charts/operator/templates/operator-serviceaccount.yaml
 apiVersion: v1
@@ -81,15 +87,19 @@ kind: ServiceAccount
 metadata:
   name: entando-operator
   namespace: flex
+
 ---
 # Source: preview/charts/operator/templates/plugin-serviceaccount.yaml
+
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: entando-plugin
   namespace: flex
+
 ---
 # Source: preview/charts/operator/templates/k8s-service-role.yaml
+
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
@@ -162,20 +172,7 @@ rules:
   - apiGroups:
       - entando.org
     resources:
-      - entandokeycloakservers
-      - entandokeycloakservers/finalizers
-      - entandoclusterinfrastructures
-      - entandoclusterinfrastructures/finalizers
-      - entandoapps
-      - entandoapps/finalizers
-      - entandoplugins
-      - entandoplugins/finalizers
-      - entandoapppluginlinks
-      - entandoapppluginlinks/finalizers
-      - entandodatabaseservices
-      - entandodatabaseservices/finalizers
-      - entandocompositeapps
-      - entandocompositeapps/finalizers
+      - "*"
     verbs:
       - "*"
   - apiGroups:
@@ -234,6 +231,7 @@ rules:
 
 ---
 # Source: preview/charts/operator/templates/plugin-role.yaml
+
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
@@ -256,8 +254,10 @@ rules:
       - get
       - delete
       - update
+
 ---
 # Source: preview/charts/operator/templates/k8s-service-rolebinding.yaml
+
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
@@ -289,6 +289,7 @@ subjects:
     namespace: flex
 ---
 # Source: preview/charts/operator/templates/plugin-rolebinding.yaml
+
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
@@ -313,7 +314,7 @@ metadata:
   namespace: flex
   labels:
     draft: draft-app
-    chart: "operator-6.1.9"
+    chart: "operator-6.2.5"
 spec:
   replicas: 1
   selector:
@@ -330,7 +331,7 @@ spec:
       volumes:
       containers:
         - name: operator
-          image: "docker.io/entando/entando-k8s-controller-coordinator:6.1.9"
+          image: "docker.io/entando/entando-k8s-controller-coordinator:6.2.5"
           imagePullPolicy: Always
           volumeMounts:
           env:
@@ -420,14 +421,15 @@ spec:
         replicas: 1
         standardServerImage: wildfly
         ingressPath: /entando-de-app
-        customServerImage: "docker.io/jwhite101/entando-de-app-wildfly:6.2.101"
+        parameters:
+          SPRING_PROFILES_ACTIVE: "default,swagger"
     - kind: "EntandoPlugin"
       metadata:
         name: "std-demo-customer"
       spec:
-        image: "docker.io/jwhite101/customer:0.0.1"
+        image: "docker.io/jwhite101/customer:0.0.3"
         replicas: 1
-        dbms: "postgresql"
+        dbms: none
         roles:
         - name: "customer-list"
           code: "customer-list"
@@ -449,9 +451,9 @@ spec:
       metadata:
         name: "standard-demo-banking"
       spec:
-        image: "docker.io/jwhite101/banking:0.0.1"
+        image: "docker.io/jwhite101/banking:0.0.2"
         replicas: 1
-        dbms: "postgresql"
+        dbms: none
         roles:
         - name: "task-list"
           code: "task-list"
@@ -469,6 +471,7 @@ spec:
         entandoAppName: "quickstart"
         entandoPluginNamespace: "flex"
         entandoPluginName: "standard-demo-banking"
+
 
 ---
 # Source: preview/templates/db-admin-secret.yaml
