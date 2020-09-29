@@ -17,6 +17,7 @@
     <include file="config/liquibase/changelog/20200929083356_added_entity_Checking.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200929084051_added_entity_Savings.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200929084559_added_entity_SavingsTransaction.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200929085117_added_entity_Creditcard.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>
