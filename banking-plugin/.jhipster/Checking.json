@@ -1,0 +1,29 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "banking",
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "accountNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "balance",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "userID",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20200929083356",
+  "dto": "no",
+  "searchEngine": false,
+  "service": "no",
+  "entityTableName": "checking",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "no",
+  "microserviceName": "banking"
+}

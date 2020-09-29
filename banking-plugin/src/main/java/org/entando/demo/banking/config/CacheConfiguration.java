@@ -37,6 +37,7 @@ public class CacheConfiguration {
     public JCacheManagerCustomizer cacheManagerCustomizer() {
         return cm -> {
             createCache(cm, "oAuth2Authentication");
+            createCache(cm, org.entando.demo.banking.domain.Checking.class.getName());
             // jhipster-needle-caffeine-add-entry
         };
     }
