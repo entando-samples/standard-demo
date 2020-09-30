@@ -1,10 +1,25 @@
 package org.entando.demo.banking.web.rest;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.Matchers.hasItem;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.List;
+import javax.persistence.EntityManager;
 import org.entando.demo.banking.BankingApp;
 import org.entando.demo.banking.config.TestSecurityConfiguration;
-import org.entando.demo.banking.domain.Creditcardtransaction;
-import org.entando.demo.banking.repository.CreditcardtransactionRepository;
-
+import org.entando.demo.banking.domain.CreditcardTransaction;
+import org.entando.demo.banking.repository.CreditcardTransactionRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,25 +29,14 @@ import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
-import javax.persistence.EntityManager;
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.hasItem;
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /**
- * Integration tests for the {@link CreditcardtransactionResource} REST controller.
+ * Integration tests for the {@link CreditcardTransactionResource} REST controller.
  */
 @SpringBootTest(classes = { BankingApp.class, TestSecurityConfiguration.class })
 @AutoConfigureMockMvc
 @WithMockUser
-public class CreditcardtransactionResourceIT {
+public class CreditcardTransactionResourceIT {
 
     private static final LocalDate DEFAULT_DATE = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_DATE = LocalDate.now(ZoneId.systemDefault());
@@ -50,7 +54,7 @@ public class CreditcardtransactionResourceIT {
     private static final Long UPDATED_ACCOUNT_ID = 2L;
 
     @Autowired
-    private CreditcardtransactionRepository creditcardtransactionRepository;
+    private CreditcardTransactionRepository creditcardTransactionRepository;
 
     @Autowired
     private EntityManager em;
@@ -58,7 +62,7 @@ public class CreditcardtransactionResourceIT {
     @Autowired
     private MockMvc restCreditcardtransactionMockMvc;
 
-    private Creditcardtransaction creditcardtransaction;
+    private CreditcardTransaction creditcardtransaction;
 
     /**
      * Create an entity for this test.
@@ -66,8 +70,8 @@ public class CreditcardtransactionResourceIT {
      * This is a static method, as tests for other entities might also need it,
      * if they test an entity which requires the current entity.
      */
-    public static Creditcardtransaction createEntity(EntityManager em) {
-        Creditcardtransaction creditcardtransaction = new Creditcardtransaction()
+    public static CreditcardTransaction createEntity(EntityManager em) {
+        CreditcardTransaction creditcardtransaction = new CreditcardTransaction()
             .date(DEFAULT_DATE)
             .description(DEFAULT_DESCRIPTION)
             .amount(DEFAULT_AMOUNT)
@@ -81,8 +85,8 @@ public class CreditcardtransactionResourceIT {
      * This is a static method, as tests for other entities might also need it,
      * if they test an entity which requires the current entity.
      */
-    public static Creditcardtransaction createUpdatedEntity(EntityManager em) {
-        Creditcardtransaction creditcardtransaction = new Creditcardtransaction()
+    public static CreditcardTransaction createUpdatedEntity(EntityManager em) {
+        CreditcardTransaction creditcardtransaction = new CreditcardTransaction()
             .date(UPDATED_DATE)
             .description(UPDATED_DESCRIPTION)
             .amount(UPDATED_AMOUNT)
@@ -99,7 +103,7 @@ public class CreditcardtransactionResourceIT {
     @Test
     @Transactional
     public void createCreditcardtransaction() throws Exception {
-        int databaseSizeBeforeCreate = creditcardtransactionRepository.findAll().size();
+        int databaseSizeBeforeCreate = creditcardTransactionRepository.findAll().size();
         // Create the Creditcardtransaction
         restCreditcardtransactionMockMvc.perform(post("/api/creditcardtransactions").with(csrf())
             .contentType(MediaType.APPLICATION_JSON)
@@ -107,20 +111,21 @@ public class CreditcardtransactionResourceIT {
             .andExpect(status().isCreated());
 
         // Validate the Creditcardtransaction in the database
-        List<Creditcardtransaction> creditcardtransactionList = creditcardtransactionRepository.findAll();
-        assertThat(creditcardtransactionList).hasSize(databaseSizeBeforeCreate + 1);
-        Creditcardtransaction testCreditcardtransaction = creditcardtransactionList.get(creditcardtransactionList.size() - 1);
-        assertThat(testCreditcardtransaction.getDate()).isEqualTo(DEFAULT_DATE);
-        assertThat(testCreditcardtransaction.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
-        assertThat(testCreditcardtransaction.getAmount()).isEqualTo(DEFAULT_AMOUNT);
-        assertThat(testCreditcardtransaction.getBalance()).isEqualTo(DEFAULT_BALANCE);
-        assertThat(testCreditcardtransaction.getAccountID()).isEqualTo(DEFAULT_ACCOUNT_ID);
+        List<CreditcardTransaction> creditcardTransactionList = creditcardTransactionRepository.findAll();
+        assertThat(creditcardTransactionList).hasSize(databaseSizeBeforeCreate + 1);
+        CreditcardTransaction testCreditcardTransaction = creditcardTransactionList
+            .get(creditcardTransactionList.size() - 1);
+        assertThat(testCreditcardTransaction.getDate()).isEqualTo(DEFAULT_DATE);
+        assertThat(testCreditcardTransaction.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
+        assertThat(testCreditcardTransaction.getAmount()).isEqualTo(DEFAULT_AMOUNT);
+        assertThat(testCreditcardTransaction.getBalance()).isEqualTo(DEFAULT_BALANCE);
+        assertThat(testCreditcardTransaction.getAccountID()).isEqualTo(DEFAULT_ACCOUNT_ID);
     }
 
     @Test
     @Transactional
     public void createCreditcardtransactionWithExistingId() throws Exception {
-        int databaseSizeBeforeCreate = creditcardtransactionRepository.findAll().size();
+        int databaseSizeBeforeCreate = creditcardTransactionRepository.findAll().size();
 
         // Create the Creditcardtransaction with an existing ID
         creditcardtransaction.setId(1L);
@@ -132,8 +137,8 @@ public class CreditcardtransactionResourceIT {
             .andExpect(status().isBadRequest());
 
         // Validate the Creditcardtransaction in the database
-        List<Creditcardtransaction> creditcardtransactionList = creditcardtransactionRepository.findAll();
-        assertThat(creditcardtransactionList).hasSize(databaseSizeBeforeCreate);
+        List<CreditcardTransaction> creditcardTransactionList = creditcardTransactionRepository.findAll();
+        assertThat(creditcardTransactionList).hasSize(databaseSizeBeforeCreate);
     }
 
 
@@ -141,7 +146,7 @@ public class CreditcardtransactionResourceIT {
     @Transactional
     public void getAllCreditcardtransactions() throws Exception {
         // Initialize the database
-        creditcardtransactionRepository.saveAndFlush(creditcardtransaction);
+        creditcardTransactionRepository.saveAndFlush(creditcardtransaction);
 
         // Get all the creditcardtransactionList
         restCreditcardtransactionMockMvc.perform(get("/api/creditcardtransactions?sort=id,desc"))
@@ -154,12 +159,12 @@ public class CreditcardtransactionResourceIT {
             .andExpect(jsonPath("$.[*].balance").value(hasItem(DEFAULT_BALANCE.intValue())))
             .andExpect(jsonPath("$.[*].accountID").value(hasItem(DEFAULT_ACCOUNT_ID.intValue())));
     }
-    
+
     @Test
     @Transactional
     public void getCreditcardtransaction() throws Exception {
         // Initialize the database
-        creditcardtransactionRepository.saveAndFlush(creditcardtransaction);
+        creditcardTransactionRepository.saveAndFlush(creditcardtransaction);
 
         // Get the creditcardtransaction
         restCreditcardtransactionMockMvc.perform(get("/api/creditcardtransactions/{id}", creditcardtransaction.getId()))
@@ -184,15 +189,15 @@ public class CreditcardtransactionResourceIT {
     @Transactional
     public void updateCreditcardtransaction() throws Exception {
         // Initialize the database
-        creditcardtransactionRepository.saveAndFlush(creditcardtransaction);
+        creditcardTransactionRepository.saveAndFlush(creditcardtransaction);
 
-        int databaseSizeBeforeUpdate = creditcardtransactionRepository.findAll().size();
+        int databaseSizeBeforeUpdate = creditcardTransactionRepository.findAll().size();
 
         // Update the creditcardtransaction
-        Creditcardtransaction updatedCreditcardtransaction = creditcardtransactionRepository.findById(creditcardtransaction.getId()).get();
+        CreditcardTransaction updatedCreditcardTransaction = creditcardTransactionRepository.findById(creditcardtransaction.getId()).get();
         // Disconnect from session so that the updates on updatedCreditcardtransaction are not directly saved in db
-        em.detach(updatedCreditcardtransaction);
-        updatedCreditcardtransaction
+        em.detach(updatedCreditcardTransaction);
+        updatedCreditcardTransaction
             .date(UPDATED_DATE)
             .description(UPDATED_DESCRIPTION)
             .amount(UPDATED_AMOUNT)
@@ -201,24 +206,25 @@ public class CreditcardtransactionResourceIT {
 
         restCreditcardtransactionMockMvc.perform(put("/api/creditcardtransactions").with(csrf())
             .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(updatedCreditcardtransaction)))
+            .content(TestUtil.convertObjectToJsonBytes(updatedCreditcardTransaction)))
             .andExpect(status().isOk());
 
         // Validate the Creditcardtransaction in the database
-        List<Creditcardtransaction> creditcardtransactionList = creditcardtransactionRepository.findAll();
-        assertThat(creditcardtransactionList).hasSize(databaseSizeBeforeUpdate);
-        Creditcardtransaction testCreditcardtransaction = creditcardtransactionList.get(creditcardtransactionList.size() - 1);
-        assertThat(testCreditcardtransaction.getDate()).isEqualTo(UPDATED_DATE);
-        assertThat(testCreditcardtransaction.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
-        assertThat(testCreditcardtransaction.getAmount()).isEqualTo(UPDATED_AMOUNT);
-        assertThat(testCreditcardtransaction.getBalance()).isEqualTo(UPDATED_BALANCE);
-        assertThat(testCreditcardtransaction.getAccountID()).isEqualTo(UPDATED_ACCOUNT_ID);
+        List<CreditcardTransaction> creditcardTransactionList = creditcardTransactionRepository.findAll();
+        assertThat(creditcardTransactionList).hasSize(databaseSizeBeforeUpdate);
+        CreditcardTransaction testCreditcardTransaction = creditcardTransactionList
+            .get(creditcardTransactionList.size() - 1);
+        assertThat(testCreditcardTransaction.getDate()).isEqualTo(UPDATED_DATE);
+        assertThat(testCreditcardTransaction.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
+        assertThat(testCreditcardTransaction.getAmount()).isEqualTo(UPDATED_AMOUNT);
+        assertThat(testCreditcardTransaction.getBalance()).isEqualTo(UPDATED_BALANCE);
+        assertThat(testCreditcardTransaction.getAccountID()).isEqualTo(UPDATED_ACCOUNT_ID);
     }
 
     @Test
     @Transactional
     public void updateNonExistingCreditcardtransaction() throws Exception {
-        int databaseSizeBeforeUpdate = creditcardtransactionRepository.findAll().size();
+        int databaseSizeBeforeUpdate = creditcardTransactionRepository.findAll().size();
 
         // If the entity doesn't have an ID, it will throw BadRequestAlertException
         restCreditcardtransactionMockMvc.perform(put("/api/creditcardtransactions").with(csrf())
@@ -227,17 +233,17 @@ public class CreditcardtransactionResourceIT {
             .andExpect(status().isBadRequest());
 
         // Validate the Creditcardtransaction in the database
-        List<Creditcardtransaction> creditcardtransactionList = creditcardtransactionRepository.findAll();
-        assertThat(creditcardtransactionList).hasSize(databaseSizeBeforeUpdate);
+        List<CreditcardTransaction> creditcardTransactionList = creditcardTransactionRepository.findAll();
+        assertThat(creditcardTransactionList).hasSize(databaseSizeBeforeUpdate);
     }
 
     @Test
     @Transactional
     public void deleteCreditcardtransaction() throws Exception {
         // Initialize the database
-        creditcardtransactionRepository.saveAndFlush(creditcardtransaction);
+        creditcardTransactionRepository.saveAndFlush(creditcardtransaction);
 
-        int databaseSizeBeforeDelete = creditcardtransactionRepository.findAll().size();
+        int databaseSizeBeforeDelete = creditcardTransactionRepository.findAll().size();
 
         // Delete the creditcardtransaction
         restCreditcardtransactionMockMvc.perform(delete("/api/creditcardtransactions/{id}", creditcardtransaction.getId()).with(csrf())
@@ -245,7 +251,7 @@ public class CreditcardtransactionResourceIT {
             .andExpect(status().isNoContent());
 
         // Validate the database contains one less item
-        List<Creditcardtransaction> creditcardtransactionList = creditcardtransactionRepository.findAll();
-        assertThat(creditcardtransactionList).hasSize(databaseSizeBeforeDelete - 1);
+        List<CreditcardTransaction> creditcardTransactionList = creditcardTransactionRepository.findAll();
+        assertThat(creditcardTransactionList).hasSize(databaseSizeBeforeDelete - 1);
     }
 }

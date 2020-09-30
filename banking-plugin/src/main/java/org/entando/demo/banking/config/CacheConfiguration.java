@@ -4,6 +4,8 @@ import com.github.benmanes.caffeine.jcache.configuration.CaffeineConfiguration;
 import java.util.OptionalLong;
 import java.util.concurrent.TimeUnit;
 
+import org.entando.demo.banking.domain.CheckingTransaction;
+import org.entando.demo.banking.domain.CreditcardTransaction;
 import org.hibernate.cache.jcache.ConfigSettings;
 import io.github.jhipster.config.JHipsterProperties;
 
@@ -41,8 +43,8 @@ public class CacheConfiguration {
             createCache(cm, org.entando.demo.banking.domain.Savings.class.getName());
             createCache(cm, org.entando.demo.banking.domain.SavingsTransaction.class.getName());
             createCache(cm, org.entando.demo.banking.domain.Creditcard.class.getName());
-            createCache(cm, org.entando.demo.banking.domain.Creditcardtransaction.class.getName());
-            createCache(cm, org.entando.demo.banking.domain.Checkingtransaction.class.getName());
+            createCache(cm, CreditcardTransaction.class.getName());
+            createCache(cm, CheckingTransaction.class.getName());
             createCache(cm, org.entando.demo.banking.domain.CreditCardUser.class.getName());
             createCache(cm, org.entando.demo.banking.domain.Alert.class.getName());
             createCache(cm, org.entando.demo.banking.domain.Statement.class.getName());

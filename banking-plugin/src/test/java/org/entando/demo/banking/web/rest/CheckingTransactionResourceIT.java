@@ -1,10 +1,25 @@
 package org.entando.demo.banking.web.rest;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.Matchers.hasItem;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.List;
+import javax.persistence.EntityManager;
 import org.entando.demo.banking.BankingApp;
 import org.entando.demo.banking.config.TestSecurityConfiguration;
-import org.entando.demo.banking.domain.Checkingtransaction;
-import org.entando.demo.banking.repository.CheckingtransactionRepository;
-
+import org.entando.demo.banking.domain.CheckingTransaction;
+import org.entando.demo.banking.repository.CheckingTransactionRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,25 +29,14 @@ import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
-import javax.persistence.EntityManager;
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.hasItem;
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /**
- * Integration tests for the {@link CheckingtransactionResource} REST controller.
+ * Integration tests for the {@link CheckingTransactionResource} REST controller.
  */
 @SpringBootTest(classes = { BankingApp.class, TestSecurityConfiguration.class })
 @AutoConfigureMockMvc
 @WithMockUser
-public class CheckingtransactionResourceIT {
+public class CheckingTransactionResourceIT {
 
     private static final LocalDate DEFAULT_DATE = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_DATE = LocalDate.now(ZoneId.systemDefault());
@@ -50,7 +54,7 @@ public class CheckingtransactionResourceIT {
     private static final Long UPDATED_ACCOUNT_ID = 2L;
 
     @Autowired
-    private CheckingtransactionRepository checkingtransactionRepository;
+    private CheckingTransactionRepository checkingTransactionRepository;
 
     @Autowired
     private EntityManager em;
@@ -58,7 +62,7 @@ public class CheckingtransactionResourceIT {
     @Autowired
     private MockMvc restCheckingtransactionMockMvc;
 
-    private Checkingtransaction checkingtransaction;
+    private CheckingTransaction checkingtransaction;
 
     /**
      * Create an entity for this test.
@@ -66,8 +70,8 @@ public class CheckingtransactionResourceIT {
      * This is a static method, as tests for other entities might also need it,
      * if they test an entity which requires the current entity.
      */
-    public static Checkingtransaction createEntity(EntityManager em) {
-        Checkingtransaction checkingtransaction = new Checkingtransaction()
+    public static CheckingTransaction createEntity(EntityManager em) {
+        CheckingTransaction checkingtransaction = new CheckingTransaction()
             .date(DEFAULT_DATE)
             .description(DEFAULT_DESCRIPTION)
             .amount(DEFAULT_AMOUNT)
@@ -81,8 +85,8 @@ public class CheckingtransactionResourceIT {
      * This is a static method, as tests for other entities might also need it,
      * if they test an entity which requires the current entity.
      */
-    public static Checkingtransaction createUpdatedEntity(EntityManager em) {
-        Checkingtransaction checkingtransaction = new Checkingtransaction()
+    public static CheckingTransaction createUpdatedEntity(EntityManager em) {
+        CheckingTransaction checkingtransaction = new CheckingTransaction()
             .date(UPDATED_DATE)
             .description(UPDATED_DESCRIPTION)
             .amount(UPDATED_AMOUNT)
@@ -99,7 +103,7 @@ public class CheckingtransactionResourceIT {
     @Test
     @Transactional
     public void createCheckingtransaction() throws Exception {
-        int databaseSizeBeforeCreate = checkingtransactionRepository.findAll().size();
+        int databaseSizeBeforeCreate = checkingTransactionRepository.findAll().size();
         // Create the Checkingtransaction
         restCheckingtransactionMockMvc.perform(post("/api/checkingtransactions").with(csrf())
             .contentType(MediaType.APPLICATION_JSON)
@@ -107,20 +111,20 @@ public class CheckingtransactionResourceIT {
             .andExpect(status().isCreated());
 
         // Validate the Checkingtransaction in the database
-        List<Checkingtransaction> checkingtransactionList = checkingtransactionRepository.findAll();
-        assertThat(checkingtransactionList).hasSize(databaseSizeBeforeCreate + 1);
-        Checkingtransaction testCheckingtransaction = checkingtransactionList.get(checkingtransactionList.size() - 1);
-        assertThat(testCheckingtransaction.getDate()).isEqualTo(DEFAULT_DATE);
-        assertThat(testCheckingtransaction.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
-        assertThat(testCheckingtransaction.getAmount()).isEqualTo(DEFAULT_AMOUNT);
-        assertThat(testCheckingtransaction.getBalance()).isEqualTo(DEFAULT_BALANCE);
-        assertThat(testCheckingtransaction.getAccountID()).isEqualTo(DEFAULT_ACCOUNT_ID);
+        List<CheckingTransaction> checkingTransactionList = checkingTransactionRepository.findAll();
+        assertThat(checkingTransactionList).hasSize(databaseSizeBeforeCreate + 1);
+        CheckingTransaction testCheckingTransaction = checkingTransactionList.get(checkingTransactionList.size() - 1);
+        assertThat(testCheckingTransaction.getDate()).isEqualTo(DEFAULT_DATE);
+        assertThat(testCheckingTransaction.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
+        assertThat(testCheckingTransaction.getAmount()).isEqualTo(DEFAULT_AMOUNT);
+        assertThat(testCheckingTransaction.getBalance()).isEqualTo(DEFAULT_BALANCE);
+        assertThat(testCheckingTransaction.getAccountID()).isEqualTo(DEFAULT_ACCOUNT_ID);
     }
 
     @Test
     @Transactional
     public void createCheckingtransactionWithExistingId() throws Exception {
-        int databaseSizeBeforeCreate = checkingtransactionRepository.findAll().size();
+        int databaseSizeBeforeCreate = checkingTransactionRepository.findAll().size();
 
         // Create the Checkingtransaction with an existing ID
         checkingtransaction.setId(1L);
@@ -132,8 +136,8 @@ public class CheckingtransactionResourceIT {
             .andExpect(status().isBadRequest());
 
         // Validate the Checkingtransaction in the database
-        List<Checkingtransaction> checkingtransactionList = checkingtransactionRepository.findAll();
-        assertThat(checkingtransactionList).hasSize(databaseSizeBeforeCreate);
+        List<CheckingTransaction> checkingTransactionList = checkingTransactionRepository.findAll();
+        assertThat(checkingTransactionList).hasSize(databaseSizeBeforeCreate);
     }
 
 
@@ -141,7 +145,7 @@ public class CheckingtransactionResourceIT {
     @Transactional
     public void getAllCheckingtransactions() throws Exception {
         // Initialize the database
-        checkingtransactionRepository.saveAndFlush(checkingtransaction);
+        checkingTransactionRepository.saveAndFlush(checkingtransaction);
 
         // Get all the checkingtransactionList
         restCheckingtransactionMockMvc.perform(get("/api/checkingtransactions?sort=id,desc"))
@@ -154,12 +158,12 @@ public class CheckingtransactionResourceIT {
             .andExpect(jsonPath("$.[*].balance").value(hasItem(DEFAULT_BALANCE.intValue())))
             .andExpect(jsonPath("$.[*].accountID").value(hasItem(DEFAULT_ACCOUNT_ID.intValue())));
     }
-    
+
     @Test
     @Transactional
     public void getCheckingtransaction() throws Exception {
         // Initialize the database
-        checkingtransactionRepository.saveAndFlush(checkingtransaction);
+        checkingTransactionRepository.saveAndFlush(checkingtransaction);
 
         // Get the checkingtransaction
         restCheckingtransactionMockMvc.perform(get("/api/checkingtransactions/{id}", checkingtransaction.getId()))
@@ -184,15 +188,15 @@ public class CheckingtransactionResourceIT {
     @Transactional
     public void updateCheckingtransaction() throws Exception {
         // Initialize the database
-        checkingtransactionRepository.saveAndFlush(checkingtransaction);
+        checkingTransactionRepository.saveAndFlush(checkingtransaction);
 
-        int databaseSizeBeforeUpdate = checkingtransactionRepository.findAll().size();
+        int databaseSizeBeforeUpdate = checkingTransactionRepository.findAll().size();
 
         // Update the checkingtransaction
-        Checkingtransaction updatedCheckingtransaction = checkingtransactionRepository.findById(checkingtransaction.getId()).get();
+        CheckingTransaction updatedCheckingTransaction = checkingTransactionRepository.findById(checkingtransaction.getId()).get();
         // Disconnect from session so that the updates on updatedCheckingtransaction are not directly saved in db
-        em.detach(updatedCheckingtransaction);
-        updatedCheckingtransaction
+        em.detach(updatedCheckingTransaction);
+        updatedCheckingTransaction
             .date(UPDATED_DATE)
             .description(UPDATED_DESCRIPTION)
             .amount(UPDATED_AMOUNT)
@@ -201,24 +205,24 @@ public class CheckingtransactionResourceIT {
 
         restCheckingtransactionMockMvc.perform(put("/api/checkingtransactions").with(csrf())
             .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(updatedCheckingtransaction)))
+            .content(TestUtil.convertObjectToJsonBytes(updatedCheckingTransaction)))
             .andExpect(status().isOk());
 
         // Validate the Checkingtransaction in the database
-        List<Checkingtransaction> checkingtransactionList = checkingtransactionRepository.findAll();
-        assertThat(checkingtransactionList).hasSize(databaseSizeBeforeUpdate);
-        Checkingtransaction testCheckingtransaction = checkingtransactionList.get(checkingtransactionList.size() - 1);
-        assertThat(testCheckingtransaction.getDate()).isEqualTo(UPDATED_DATE);
-        assertThat(testCheckingtransaction.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
-        assertThat(testCheckingtransaction.getAmount()).isEqualTo(UPDATED_AMOUNT);
-        assertThat(testCheckingtransaction.getBalance()).isEqualTo(UPDATED_BALANCE);
-        assertThat(testCheckingtransaction.getAccountID()).isEqualTo(UPDATED_ACCOUNT_ID);
+        List<CheckingTransaction> checkingTransactionList = checkingTransactionRepository.findAll();
+        assertThat(checkingTransactionList).hasSize(databaseSizeBeforeUpdate);
+        CheckingTransaction testCheckingTransaction = checkingTransactionList.get(checkingTransactionList.size() - 1);
+        assertThat(testCheckingTransaction.getDate()).isEqualTo(UPDATED_DATE);
+        assertThat(testCheckingTransaction.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
+        assertThat(testCheckingTransaction.getAmount()).isEqualTo(UPDATED_AMOUNT);
+        assertThat(testCheckingTransaction.getBalance()).isEqualTo(UPDATED_BALANCE);
+        assertThat(testCheckingTransaction.getAccountID()).isEqualTo(UPDATED_ACCOUNT_ID);
     }
 
     @Test
     @Transactional
     public void updateNonExistingCheckingtransaction() throws Exception {
-        int databaseSizeBeforeUpdate = checkingtransactionRepository.findAll().size();
+        int databaseSizeBeforeUpdate = checkingTransactionRepository.findAll().size();
 
         // If the entity doesn't have an ID, it will throw BadRequestAlertException
         restCheckingtransactionMockMvc.perform(put("/api/checkingtransactions").with(csrf())
@@ -227,17 +231,17 @@ public class CheckingtransactionResourceIT {
             .andExpect(status().isBadRequest());
 
         // Validate the Checkingtransaction in the database
-        List<Checkingtransaction> checkingtransactionList = checkingtransactionRepository.findAll();
-        assertThat(checkingtransactionList).hasSize(databaseSizeBeforeUpdate);
+        List<CheckingTransaction> checkingTransactionList = checkingTransactionRepository.findAll();
+        assertThat(checkingTransactionList).hasSize(databaseSizeBeforeUpdate);
     }
 
     @Test
     @Transactional
     public void deleteCheckingtransaction() throws Exception {
         // Initialize the database
-        checkingtransactionRepository.saveAndFlush(checkingtransaction);
+        checkingTransactionRepository.saveAndFlush(checkingtransaction);
 
-        int databaseSizeBeforeDelete = checkingtransactionRepository.findAll().size();
+        int databaseSizeBeforeDelete = checkingTransactionRepository.findAll().size();
 
         // Delete the checkingtransaction
         restCheckingtransactionMockMvc.perform(delete("/api/checkingtransactions/{id}", checkingtransaction.getId()).with(csrf())
@@ -245,7 +249,7 @@ public class CheckingtransactionResourceIT {
             .andExpect(status().isNoContent());
 
         // Validate the database contains one less item
-        List<Checkingtransaction> checkingtransactionList = checkingtransactionRepository.findAll();
-        assertThat(checkingtransactionList).hasSize(databaseSizeBeforeDelete - 1);
+        List<CheckingTransaction> checkingTransactionList = checkingTransactionRepository.findAll();
+        assertThat(checkingTransactionList).hasSize(databaseSizeBeforeDelete - 1);
     }
 }

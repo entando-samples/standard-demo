@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "creditcardtransaction")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Creditcardtransaction implements Serializable {
+public class CreditcardTransaction implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -52,7 +52,7 @@ public class Creditcardtransaction implements Serializable {
         return date;
     }
 
-    public Creditcardtransaction date(LocalDate date) {
+    public CreditcardTransaction date(LocalDate date) {
         this.date = date;
         return this;
     }
@@ -65,7 +65,7 @@ public class Creditcardtransaction implements Serializable {
         return description;
     }
 
-    public Creditcardtransaction description(String description) {
+    public CreditcardTransaction description(String description) {
         this.description = description;
         return this;
     }
@@ -78,7 +78,7 @@ public class Creditcardtransaction implements Serializable {
         return amount;
     }
 
-    public Creditcardtransaction amount(BigDecimal amount) {
+    public CreditcardTransaction amount(BigDecimal amount) {
         this.amount = amount;
         return this;
     }
@@ -91,7 +91,7 @@ public class Creditcardtransaction implements Serializable {
         return balance;
     }
 
-    public Creditcardtransaction balance(BigDecimal balance) {
+    public CreditcardTransaction balance(BigDecimal balance) {
         this.balance = balance;
         return this;
     }
@@ -104,7 +104,7 @@ public class Creditcardtransaction implements Serializable {
         return accountID;
     }
 
-    public Creditcardtransaction accountID(Long accountID) {
+    public CreditcardTransaction accountID(Long accountID) {
         this.accountID = accountID;
         return this;
     }
@@ -119,10 +119,10 @@ public class Creditcardtransaction implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Creditcardtransaction)) {
+        if (!(o instanceof CreditcardTransaction)) {
             return false;
         }
-        return id != null && id.equals(((Creditcardtransaction) o).id);
+        return id != null && id.equals(((CreditcardTransaction) o).id);
     }
 
     @Override

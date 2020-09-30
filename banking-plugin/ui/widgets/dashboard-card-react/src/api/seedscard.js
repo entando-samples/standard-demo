@@ -41,7 +41,7 @@ const executeFetch = (params = {}) => {
 export const getSeedscard = (params = {}) => {
   const { id, options, cardname } = params;
 
-  const url = `${DOMAIN}${DOMAIN.endsWith('/') ? '' : '/'}${cardname}/api/${cardname}s/${id}`;
+  const url = `${DOMAIN}${DOMAIN.endsWith('/') ? '' : '/'}banking/api/${cardname}s/${id}`;
 
   return executeFetch({ url, options });
 };
@@ -49,9 +49,7 @@ export const getSeedscard = (params = {}) => {
 export const getSeedscardByUserID = (params = {}) => {
   const { userID, options, cardname } = params;
 
-  const url = `${DOMAIN}${
-    DOMAIN.endsWith('/') ? '' : '/'
-  }${cardname}/api/${cardname}s/user/${userID}`;
+  const url = `${DOMAIN}${DOMAIN.endsWith('/') ? '' : '/'}banking/api/${cardname}s/user/${userID}`;
 
   return executeFetch({ url, options });
 };

@@ -50,7 +50,7 @@ class SeedscardDetailsContainer extends React.Component {
   fetchData({ firstCall }) {
     const { onError, t, keycloak, cardname, onDetail } = this.props;
     const authenticated = keycloak.initialized && keycloak.authenticated;
-    const userID = keycloak.idTokenParsed.sub;
+    const userID = keycloak.idTokenParsed.preferred_username;
 
     if (authenticated) {
       if (userID) {

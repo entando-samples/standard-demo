@@ -38,6 +38,9 @@ public class SavingsResourceIT {
     private static final BigDecimal DEFAULT_BALANCE = new BigDecimal(1);
     private static final BigDecimal UPDATED_BALANCE = new BigDecimal(2);
 
+    private static final String DEFAULT_USER_ID = "AAAAAAAAAA";
+    private static final String UPDATED_USER_ID = "BBBBBBBBBB";
+
     @Autowired
     private SavingsRepository savingsRepository;
 
@@ -58,7 +61,8 @@ public class SavingsResourceIT {
     public static Savings createEntity(EntityManager em) {
         Savings savings = new Savings()
             .accountNumber(DEFAULT_ACCOUNT_NUMBER)
-            .balance(DEFAULT_BALANCE);
+            .balance(DEFAULT_BALANCE)
+            .userID(DEFAULT_USER_ID);
         return savings;
     }
     /**
@@ -70,7 +74,8 @@ public class SavingsResourceIT {
     public static Savings createUpdatedEntity(EntityManager em) {
         Savings savings = new Savings()
             .accountNumber(UPDATED_ACCOUNT_NUMBER)
-            .balance(UPDATED_BALANCE);
+            .balance(UPDATED_BALANCE)
+            .userID(UPDATED_USER_ID);
         return savings;
     }
 
@@ -95,6 +100,7 @@ public class SavingsResourceIT {
         Savings testSavings = savingsList.get(savingsList.size() - 1);
         assertThat(testSavings.getAccountNumber()).isEqualTo(DEFAULT_ACCOUNT_NUMBER);
         assertThat(testSavings.getBalance()).isEqualTo(DEFAULT_BALANCE);
+        assertThat(testSavings.getUserID()).isEqualTo(DEFAULT_USER_ID);
     }
 
     @Test
@@ -129,7 +135,8 @@ public class SavingsResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(savings.getId().intValue())))
             .andExpect(jsonPath("$.[*].accountNumber").value(hasItem(DEFAULT_ACCOUNT_NUMBER)))
-            .andExpect(jsonPath("$.[*].balance").value(hasItem(DEFAULT_BALANCE.intValue())));
+            .andExpect(jsonPath("$.[*].balance").value(hasItem(DEFAULT_BALANCE.intValue())))
+            .andExpect(jsonPath("$.[*].userID").value(hasItem(DEFAULT_USER_ID)));
     }
     
     @Test
@@ -144,7 +151,8 @@ public class SavingsResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(savings.getId().intValue()))
             .andExpect(jsonPath("$.accountNumber").value(DEFAULT_ACCOUNT_NUMBER))
-            .andExpect(jsonPath("$.balance").value(DEFAULT_BALANCE.intValue()));
+            .andExpect(jsonPath("$.balance").value(DEFAULT_BALANCE.intValue()))
+            .andExpect(jsonPath("$.userID").value(DEFAULT_USER_ID));
     }
     @Test
     @Transactional
@@ -168,7 +176,8 @@ public class SavingsResourceIT {
         em.detach(updatedSavings);
         updatedSavings
             .accountNumber(UPDATED_ACCOUNT_NUMBER)
-            .balance(UPDATED_BALANCE);
+            .balance(UPDATED_BALANCE)
+            .userID(UPDATED_USER_ID);
 
         restSavingsMockMvc.perform(put("/api/savings").with(csrf())
             .contentType(MediaType.APPLICATION_JSON)
@@ -181,6 +190,7 @@ public class SavingsResourceIT {
         Savings testSavings = savingsList.get(savingsList.size() - 1);
         assertThat(testSavings.getAccountNumber()).isEqualTo(UPDATED_ACCOUNT_NUMBER);
         assertThat(testSavings.getBalance()).isEqualTo(UPDATED_BALANCE);
+        assertThat(testSavings.getUserID()).isEqualTo(UPDATED_USER_ID);
     }
 
     @Test

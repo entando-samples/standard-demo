@@ -29,6 +29,9 @@ public class Savings implements Serializable {
     @Column(name = "balance", precision = 21, scale = 2)
     private BigDecimal balance;
 
+    @Column(name = "user_id")
+    private String userID;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
@@ -63,6 +66,19 @@ public class Savings implements Serializable {
     public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public Savings userID(String userID) {
+        this.userID = userID;
+        return this;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
@@ -88,6 +104,7 @@ public class Savings implements Serializable {
             "id=" + getId() +
             ", accountNumber='" + getAccountNumber() + "'" +
             ", balance=" + getBalance() +
+            ", userID='" + getUserID() + "'" +
             "}";
     }
 }

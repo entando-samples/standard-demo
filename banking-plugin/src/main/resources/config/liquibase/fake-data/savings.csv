@@ -1,11 +1,5 @@
-id;account_number;balance
-1;Soap best-of-breed Customer-focused;4757
-2;plug-and-play Awesome Frozen Car;98610
-3;Internal parse redundant;20587
-4;Orchestrator;88943
-5;deposit;91636
-6;Division;38132
-7;scale;56365
-8;cross-platform JSON;5484
-9;Bahamas;29731
-10;Persevering;87928
+id;account_number;balance;user_id
+1;837451320974;578.35;admin
+2;123987648596;60111.87;fcb32e6b-bee9-4235-99d6-a759779c9de9
+3;869708956453;93855.11;151e1c4f-8ff6-4fff-b87b-78932105f5cd
+4;832637485987;25364.11;4aebf13b-8da1-474d-98c6-547c7d4f28cd

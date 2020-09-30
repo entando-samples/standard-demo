@@ -59,7 +59,7 @@ export const apiSeedscardtransactionsGet = async ({ filters = [], pagination, mo
   const param = cardname.replace(/\s+/g, '');
 
   const url = getUrl(
-    `${DOMAIN}${DOMAIN.endsWith('/') ? '' : '/'}${param}transaction/api/${param}transactions${
+    `${DOMAIN}${DOMAIN.endsWith('/') ? '' : '/'}banking/api/${param}transactions${
       mode === 'count' ? '/count' : ''
     }`,
     filterQuery,

@@ -19,7 +19,7 @@ scrape_configs:
     scrape_interval: 5s
 
     # scheme defaults to 'http'.
-    metrics_path: /services/banking/management/prometheus
+    metrics_path: /banking/management/prometheus
     static_configs:
       - targets:
           # On MacOS, replace localhost by host.docker.internal

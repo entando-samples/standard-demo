@@ -5,7 +5,7 @@ package org.entando.demo.banking.web.rest.schema;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kjetland.jackson.jsonSchema.JsonSchemaGenerator;
-import org.entando.demo.banking.domain.Checkingtransaction;
+import org.entando.demo.banking.domain.CheckingTransaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +25,7 @@ public class CheckingtransactionSchemaResource {
         ObjectMapper objectMapper = new ObjectMapper();
         JsonSchemaGenerator jsonSchemaGenerator = new JsonSchemaGenerator(objectMapper);
 
-        JsonNode jsonSchema = jsonSchemaGenerator.generateJsonSchema(Checkingtransaction.class);
+        JsonNode jsonSchema = jsonSchemaGenerator.generateJsonSchema(CheckingTransaction.class);
 
         return objectMapper.writeValueAsString(jsonSchema);
     }

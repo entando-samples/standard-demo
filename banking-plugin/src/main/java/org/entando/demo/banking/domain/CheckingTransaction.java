@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "checkingtransaction")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Checkingtransaction implements Serializable {
+public class CheckingTransaction implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -52,7 +52,7 @@ public class Checkingtransaction implements Serializable {
         return date;
     }
 
-    public Checkingtransaction date(LocalDate date) {
+    public CheckingTransaction date(LocalDate date) {
         this.date = date;
         return this;
     }
@@ -65,7 +65,7 @@ public class Checkingtransaction implements Serializable {
         return description;
     }
 
-    public Checkingtransaction description(String description) {
+    public CheckingTransaction description(String description) {
         this.description = description;
         return this;
     }
@@ -78,7 +78,7 @@ public class Checkingtransaction implements Serializable {
         return amount;
     }
 
-    public Checkingtransaction amount(BigDecimal amount) {
+    public CheckingTransaction amount(BigDecimal amount) {
         this.amount = amount;
         return this;
     }
@@ -91,7 +91,7 @@ public class Checkingtransaction implements Serializable {
         return balance;
     }
 
-    public Checkingtransaction balance(BigDecimal balance) {
+    public CheckingTransaction balance(BigDecimal balance) {
         this.balance = balance;
         return this;
     }
@@ -104,7 +104,7 @@ public class Checkingtransaction implements Serializable {
         return accountID;
     }
 
-    public Checkingtransaction accountID(Long accountID) {
+    public CheckingTransaction accountID(Long accountID) {
         this.accountID = accountID;
         return this;
     }
@@ -119,10 +119,10 @@ public class Checkingtransaction implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Checkingtransaction)) {
+        if (!(o instanceof CheckingTransaction)) {
             return false;
         }
-        return id != null && id.equals(((Checkingtransaction) o).id);
+        return id != null && id.equals(((CheckingTransaction) o).id);
     }
 
     @Override

@@ -41,7 +41,7 @@ data:
   entando-de-app-eap: >-
     {"version":"6.1.124","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-de-app-wildfly: >-
-    {"version":"6.1.124","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+    {"version":"6.1.124-std-demo","executable-type":"jvm","registry":"docker.io","organization":"jwhite101"}
   entando-k8s-app-controller: >-
     {"version":"6.2.2","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-k8s-app-plugin-link-controller: >-
@@ -431,8 +431,8 @@ spec:
         replicas: 1
         dbms: none
         roles:
-        - name: "customer-list"
-          code: "customer-list"
+          - name: "customer-list"
+            code: "customer-list"
         permissions: []
         parameters: {}
         ingressPath: "/customer"
@@ -455,8 +455,8 @@ spec:
         replicas: 1
         dbms: none
         roles:
-        - name: "task-list"
-          code: "task-list"
+          - name: "task-list"
+            code: "task-list"
         permissions: []
         parameters: {}
         ingressPath: "/banking"
@@ -471,7 +471,6 @@ spec:
         entandoAppName: "quickstart"
         entandoPluginNamespace: "flex"
         entandoPluginName: "standard-demo-banking"
-
 
 ---
 # Source: preview/templates/db-admin-secret.yaml
