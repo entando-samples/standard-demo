@@ -1,0 +1,34 @@
+.my-table {
+  font-size: 14px;
+  .table {
+    min-height: 400px;
+    text-align: center;
+    thead {
+      tr {
+        th {
+          vertical-align: middle;
+          height: 54px;
+          background: #d6e291;
+          color: #15840c;
+          font-weight: 500;
+          font-size: 18px;
+        }
+      }
+    }
+    tbody {
+      tr {
+        cursor: pointer;
+        td {
+          vertical-align: middle;
+          height: 70px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  .paginator {
+    .pagination {
+      justify-content: center;
+    }
+  }
+}

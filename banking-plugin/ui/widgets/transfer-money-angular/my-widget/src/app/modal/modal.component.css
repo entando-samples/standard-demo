@@ -1,0 +1,59 @@
+#modal-content-wrapper {
+  position: relative;
+  font-size: 20px;
+  font-weight: 400;
+}
+#modal-header {
+  color: rgb(14, 104, 55);
+  display: flex;
+  align-items: flex-start;
+  /*justify-content: space-between;*/
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #dee2e6;
+}
+#modal-footer {
+  padding-top: 1rem;
+}
+#modal-cancel-button {
+  background: #d8eaa0;
+  color: #15840c;
+  float: right;
+}
+.modal-title {
+  margin: 0;
+  line-height: 1.5;
+}
+.select-range {
+  border: none;
+  border-bottom: 1px solid #c7c7c7;
+  color: #c7c7c7;
+  margin: auto 1rem;
+  height: 25px;
+  font-size: 13px;
+}
+.select-range:focus {
+  outline: none;
+}
+.search-input {
+  border: 1px solid #ced4da;
+  position: absolute;
+  width: 25%;
+  right: calc(60px);
+  height: 29px;
+  font-size: 14px;
+}
+.search-button {
+  background: #c0e570;
+  border: none;
+  color: #0e6837;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  width: 60px;
+  text-transform: capitalize;
+  padding: 0.1em;
+  height: 29px;
+  /*margin: 0 1rem;*/
+  position: absolute;
+  right: 0;
+}

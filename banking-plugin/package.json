@@ -19,5 +19,8 @@
     "populate-bundle": "bash ./buildBundle.sh",
     "build-all": "bash ./buildBundle.sh -d",
     "keycloak": "docker-compose -f src/main/docker/keycloak.yml up"
+  },
+  "dependencies": {
+    "clsx": "^1.1.1"
   }
 }

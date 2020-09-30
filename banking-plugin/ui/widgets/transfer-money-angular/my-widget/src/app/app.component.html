@@ -1,0 +1,6 @@
+<div *ngIf="!(keycloak.initialized && keycloak['authenticated']); else elseBlock">
+  Waiting for authorization...
+</div>
+<ng-template #elseBlock>
+  <app-notification-button [title]="title" [serviceurl]="serviceurl" [keycloak]="keycloak"></app-notification-button>
+</ng-template>

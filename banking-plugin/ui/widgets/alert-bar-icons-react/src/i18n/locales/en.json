@@ -1,0 +1,20 @@
+{
+  "common": {
+    "couldNotFetchData": "Unfortunately we could not get data for this user",
+    "widgetName": "{{widgetNamePlaceholder}}",
+    "name": "Name",
+    "value": "Value",
+    "loading": "Loading...",
+    "missingId": "Please provide user ID",
+    "notAuthenticated": "Waiting for authorization...",
+    "download": "Download file"
+  },
+  "entities": {
+    "item": {
+      "id": "ID",
+      "accountNumber": "entities.item.accountNumber",
+      "balance": "entities.item.balance",
+      "userId": "entities.item.userId"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+table {
+  width: 100%;
+}
+table th {
+  background: #d6e291;
+  font-size: 18px;
+  color: #15840c;
+}
+table td {
+  cursor: pointer;
+}
+.unread td {
+  font-weight: bold;
+}

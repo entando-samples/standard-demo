@@ -1,0 +1,32 @@
+.list-item {
+  display: inline-block;
+  position: relative;
+
+  #my-counter {
+    //background-color: #ff0000;
+    //color: #ffffff;
+    //padding: 0.5em;
+    //font-size: 14px;
+    background: white;
+    border: 2px solid #0e6837;
+    border-radius: 0.9em;
+    color: #0e6837;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 1.6em;
+    margin-right: 5px;
+    text-align: center;
+    width: 1.8em;
+    position: absolute;
+    left: -15px;
+    top: -13px;
+    @media screen and (max-width: 1024px) and (min-width: 320px) and (orientation: portrait) {
+      line-height: 1em;
+      width: 1.1em;
+      top: -11px;
+    }
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
