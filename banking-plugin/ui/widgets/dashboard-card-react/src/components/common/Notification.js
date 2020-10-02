@@ -46,10 +46,8 @@ const autoHideDurations = {
 };
 
 const Notification = ({ className, classes, status: passedStatus, message, onClose }) => {
-  const isOpen = false;
+  const isOpen = !!message;
 
-  console.log('notifier');
-  console.log(message);
   const status = passedStatus || Notification.INFO;
   const Icon = statusIcon[status];
   const autoHideDuration = autoHideDurations[status];
@@ -97,7 +95,7 @@ Notification.defaultProps = {
   message: null,
   className: '',
   status: Notification.INFO,
-  onClose: () => {},
+  onClose: () => this.setState({ open: false }),
 };
 
 export default withStyles(styles, { withTheme: true })(Notification);
