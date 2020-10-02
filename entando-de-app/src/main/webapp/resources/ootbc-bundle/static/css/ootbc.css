@@ -5,24 +5,24 @@ body {
 }
 
 .page__body {
-  height: 79vh;
+  min-height: 79vh;
   margin: 0 0 0 256px;
 }
 
 .page__footer {
-  position: absolute;
+  position: sticky;
   top: calc(77px + 79vh);
- height: 15vh;
+  height: 15vh;
   width: 100%;
   display: flex;
-    z-index: 6000;
+  z-index: 6000;
 }
 .header {
-height: 77px;
+  height: 77px;
 }
 .header li {
-margin: 0;
+  margin: 0;
 }
 .header  .bx--side-nav--ux {
-height: 79vh;
+  min-height: 79vh;
 }

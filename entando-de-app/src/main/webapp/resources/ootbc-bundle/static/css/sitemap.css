@@ -15,7 +15,7 @@ a:hover {
 }
 h2 {
   text-align: center;
- padding: 4rem;
+  padding: 4rem;
 }
 .nav {
   margin: 0 auto;
@@ -34,5 +34,5 @@ ul {
   padding-left: 40px;
 }
 .nav-list {
-list-style-type: disc;
+  list-style-type: disc;
 }

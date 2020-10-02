@@ -16,6 +16,7 @@
     .navbar .login-group .login-drop a {
         font-size: 21px !important;
         padding: 10px;
+        font-size: .9375rem;
         font-weight: 300;
     }
     .login-drop.dropdown-menu {
@@ -166,7 +167,7 @@
     .dropdown-wrapper-footer {
         background: #D8EAA0;
         color: rgba(0, 0, 0, 0.51);
-        font-family: Cabin-Medium, sans-serif;
+        font-family: Cabin-Medium;
         font-style: normal;
         font-weight: 500;
         height: 146px;
@@ -195,7 +196,7 @@
         background: rgb(14,104,55);
         border: none;
         color: rgb(255,255,255);
-        font-family: Cabin-Regular, sans-serif;
+        font-family: Cabin-Regular;
         font-style: normal;
         font-weight: 400;
         font-size: 19px;
@@ -212,7 +213,7 @@
         background: rgb(140,198,63);
         border: none;
         color: rgb(255,255,255);
-        font-family: Cabin-Regular, sans-serif;
+        font-family: Cabin-Regular;
         font-style: normal;
         font-weight: 400;
         font-size: 19px;
@@ -297,6 +298,7 @@
         color: #15840C;
         font-size: 17px;
         padding-top: 10px;
+        text-align: left;
         line-height: 23px;
         text-align: center;
     }
@@ -305,7 +307,7 @@
         padding: 1% 1%;
     }
     .current-page {
-        font-family: Cabin-regular, sans-serif;
+        font-family: Cabin-regular;
         font-style: normal;
         font-weight: 500;
         font-size: 30px;
@@ -571,7 +573,7 @@
     }
     .benefits-features p {
         padding: 0;
-        text-align: justify;
+        text-align: center;
     }
     .credit-banner-green .text-wrapper h1 {
         font-size: 35px;
@@ -638,7 +640,7 @@
         background: #C0E570;
         border: none;
         color: #0E6837;
-        font-family: Cabin-Regular, sans-serif;
+        font-family: Cabin-Regular;
         font-style: normal;
         font-weight: 400;
         font-size: 23px;
@@ -647,13 +649,7 @@
         text-transform: capitalize;
         padding: .1em;
     }
-.navbar-search {
-    height: 54px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    margin: 0 9px;
-}
+
 }
 @media (min-width: 320px) and (max-width: 1024px) and (orientation: landscape) {
     body {
@@ -670,6 +666,7 @@
     .navbar .login-group .login-drop a {
         font-size: 26px !important;
         padding: 10px;
+        font-size: .9375rem;
         font-weight: 300;
     }
     .login-drop.dropdown-menu {
@@ -792,7 +789,7 @@
     .dropdown-wrapper-footer {
         background: #D8EAA0;
         color: rgba(0, 0, 0, 0.51);
-        font-family: Cabin-Medium, sans-serif;
+        font-family: Cabin-Medium;
         font-style: normal;
         font-weight: 500;
         height: 144px;
@@ -816,7 +813,7 @@
         background: rgb(14,104,55);
         border: none;
         color: rgb(255,255,255);
-        font-family: Cabin-Regular, sans-serif;
+        font-family: Cabin-Regular;
         font-style: normal;
         font-weight: 400;
         font-size: 23px;
@@ -833,7 +830,7 @@
         background: rgb(140,198,63);
         border: none;
         color: rgb(255,255,255);
-        font-family: Cabin-Regular, sans-serif;
+        font-family: Cabin-Regular;
         font-style: normal;
         font-weight: 400;
         font-size: 23px;
@@ -950,7 +947,7 @@
         padding: 1% 1%;
     }
     .current-page {
-        font-family: Cabin-regular, sans-serif;
+        font-family: Cabin-regular;
         font-style: normal;
         font-weight: 500;
         font-size: 30px;
@@ -1217,6 +1214,7 @@
         font-size: 35px;
         line-height: 45px;
         color: #184437;
+        text-align: center;
     }
     .credit-banner-green .text-wrapper {
         width: 89%;
@@ -1272,7 +1270,7 @@
         background: #C0E570;
         border: none;
         color: #0E6837;
-        font-family: Cabin-Regular, sans-serif;
+        font-family: Cabin-Regular;
         font-style: normal;
         font-weight: 400;
         font-size: 23px;
@@ -1281,11 +1279,4 @@
         text-transform: capitalize;
         padding: .1em;
     }
-.navbar-search {
-    height: 54px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    margin: 0 9px;
-}
 }

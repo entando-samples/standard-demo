@@ -960,3 +960,370 @@ INSERT INTO widgetcatalog (code, titles, parameters, plugincode, parenttypecode,
 <property key="contentType">NWS</property>
 <property key="modelId">10021</property>
 </properties>', 0, NULL);
+
+INSERT INTO pagemodels (code,descr,frames,plugincode,templategui) VALUES ('homepage1','Homepage 1','<?xml version="1.0" encoding="UTF-8"?>
+<frames>
+  <frame pos="0">
+      <descr>Logo</descr>
+      <sketch x1="0" y1="0" x2="2" y2="0" />
+  </frame>
+  <frame pos="1">
+      <descr>Navigation bar</descr>
+      <sketch x1="3" y1="0" x2="5" y2="0" />
+  </frame>
+  <frame pos="2">
+      <descr>Search</descr>
+      <sketch x1="6" y1="0" x2="8" y2="0" />
+  </frame>
+  <frame pos="3">
+      <descr>Login</descr>
+      <sketch x1="9" y1="0" x2="11" y2="0" />
+  </frame>
+  <frame pos="4">
+      <descr>Frame 1</descr>
+      <sketch x1="0" y1="1" x2="11" y2="1" />
+  </frame>
+  <frame pos="5">
+      <descr>Frame 2</descr>
+      <sketch x1="0" y1="2" x2="11" y2="2" />
+  </frame>
+  <frame pos="6">
+      <descr>Frame 3</descr>
+      <sketch x1="0" y1="3" x2="11" y2="3" />
+  </frame>
+  <frame pos="7">
+      <descr>Frame 4</descr>
+      <sketch x1="0" y1="4" x2="11" y2="4" />
+  </frame>
+  <frame pos="8">
+      <descr>Footer</descr>
+      <sketch x1="0" y1="5" x2="11" y2="5" />
+  </frame>
+</frames>
+
+',NULL,'<#assign wp=JspTaglibs["/aps-core"]>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            <@wp.currentPage param="title" />
+        </title>
+        <meta name="viewport" content="width=device-width,  user-scalable=no" />
+        <link rel="icon" href="<@wp.info key="systemParam" paramName="applicationBaseURL" />favicon.png" type="image/png" />
+        <!-- Custom OOTB page template styles -->
+        <link rel="stylesheet" href="<@wp.resourceURL />static/css/ootb/page-templates/index.css" rel="stylesheet">
+        <!-- Carbon Design System -->
+        <link rel="stylesheet" href="<@wp.resourceURL />static/css/ootb/carbon-components.min.css" rel="stylesheet">
+        </head>
+        <body>
+          <div class="Homepage1 Homepage__header">
+            <div class="Homepage__logo"><@wp.show frame=0 /></div>
+            <div class="Homepage__menu"><@wp.show frame=1 /></div>
+            <div class="Homepage__search"><@wp.show frame=2 /></div>
+            <div class="Homepage__login"><@wp.show frame=3 /></div>
+          </div>
+          <div class="bx--grid">
+            <div class="bx--row"><@wp.show frame=4 /></div>
+            <div class="bx--row"><@wp.show frame=5 /></div>
+            <div class="bx--row"><@wp.show frame=6 /></div>
+            <div class="bx--row"><@wp.show frame=7 /></div>
+          </div>
+          <div class="Homepage__footer"><@wp.show frame=8 /></div>
+        </body>
+</html>
+');
+
+INSERT INTO pagemodels (code,descr,frames,plugincode,templategui) VALUES ('homepage2','Homepage 2','<?xml version="1.0" encoding="UTF-8"?>
+<frames>
+  <frame pos="0">
+      <descr>Logo</descr>
+      <sketch x1="0" y1="0" x2="2" y2="0" />
+  </frame>
+  <frame pos="1">
+      <descr>Navigation bar</descr>
+      <sketch x1="3" y1="0" x2="5" y2="0" />
+  </frame>
+  <frame pos="2">
+      <descr>Search</descr>
+      <sketch x1="6" y1="0" x2="8" y2="0" />
+  </frame>
+  <frame pos="3">
+      <descr>Login</descr>
+      <sketch x1="9" y1="0" x2="11" y2="0" />
+  </frame>
+  <frame pos="4">
+      <descr>Frame 1</descr>
+      <sketch x1="0" y1="1" x2="5" y2="1" />
+  </frame>
+  <frame pos="5">
+      <descr>Frame 2</descr>
+      <sketch x1="6" y1="1" x2="11" y2="1" />
+  </frame>
+  <frame pos="6">
+      <descr>Frame 3</descr>
+      <sketch x1="0" y1="2" x2="5" y2="2" />
+  </frame>
+  <frame pos="7">
+      <descr>Frame 4</descr>
+      <sketch x1="6" y1="2" x2="11" y2="2" />
+  </frame>
+  <frame pos="8">
+      <descr>Frame 5</descr>
+      <sketch x1="0" y1="3" x2="5" y2="3" />
+  </frame>
+  <frame pos="9">
+      <descr>Frame 6</descr>
+      <sketch x1="6" y1="3" x2="11" y2="3" />
+  </frame>
+  <frame pos="10">
+      <descr>Frame 7</descr>
+      <sketch x1="0" y1="4" x2="5" y2="4" />
+  </frame>
+  <frame pos="11">
+      <descr>Frame 8</descr>
+      <sketch x1="6" y1="4" x2="11" y2="4" />
+  </frame>
+  <frame pos="12">
+      <descr>Footer</descr>
+      <sketch x1="0" y1="5" x2="11" y2="5" />
+  </frame>
+</frames>
+
+',NULL,'<#assign wp=JspTaglibs["/aps-core"]>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            <@wp.currentPage param="title" />
+        </title>
+        <meta name="viewport" content="width=device-width,  user-scalable=no" />
+        <link rel="icon" href="<@wp.info key="systemParam" paramName="applicationBaseURL" />favicon.png" type="image/png" />
+        <!-- Custom OOTB page template styles -->
+        <link rel="stylesheet" href="<@wp.resourceURL />static/css/ootb/page-templates/index.css" rel="stylesheet">
+        <!-- Carbon Design System -->
+        <link rel="stylesheet" href="<@wp.resourceURL />static/css/ootb/carbon-components.min.css" rel="stylesheet">
+        </head>
+        <body>
+          <div class="Homepage2 Homepage__header">
+            <div class="Homepage__logo"><@wp.show frame=0 /></div>
+            <div class="Homepage__menu"><@wp.show frame=1 /></div>
+            <div class="Homepage__search"><@wp.show frame=2 /></div>
+            <div class="Homepage__login"><@wp.show frame=3 /></div>
+          </div>
+          <div class="bx--grid">
+            <div class="bx--row">
+              <div class="bx--col-sm-4 bx--col-md-4 bx--no-gutter">
+                  <div><@wp.show frame=4 /></div>
+                  <div><@wp.show frame=6 /></div>
+                  <div><@wp.show frame=8 /></div>
+                  <div><@wp.show frame=10 /></div>
+              </div>
+              <div class="bx--col-sm-4 bx--col-md-4 bx--no-gutter">
+                  <div><@wp.show frame=5 /></div>
+                  <div><@wp.show frame=7 /></div>
+                  <div><@wp.show frame=9 /></div>
+                  <div><@wp.show frame=11 /></div>
+                </div>
+            </div>
+          </div>
+          <div class="Homepage__footer"><@wp.show frame=12 /></div>
+        </body>
+</html>
+');
+
+INSERT INTO pagemodels (code,descr,frames,plugincode,templategui) VALUES ('homepage3','Homepage 3','<?xml version="1.0" encoding="UTF-8"?>
+<frames>
+  <frame pos="0">
+      <descr>Logo</descr>
+      <sketch x1="0" y1="0" x2="2" y2="0" />
+  </frame>
+  <frame pos="1">
+      <descr>Navigation bar</descr>
+      <sketch x1="3" y1="0" x2="5" y2="0" />
+  </frame>
+  <frame pos="2">
+      <descr>Search</descr>
+      <sketch x1="6" y1="0" x2="8" y2="0" />
+  </frame>
+  <frame pos="3">
+      <descr>Login</descr>
+      <sketch x1="9" y1="0" x2="11" y2="0" />
+  </frame>
+  <frame pos="4">
+      <descr>Frame 1</descr>
+      <sketch x1="0" y1="1" x2="5" y2="1" />
+  </frame>
+  <frame pos="5">
+      <descr>Frame 2</descr>
+      <sketch x1="6" y1="1" x2="11" y2="1" />
+  </frame>
+  <frame pos="6">
+      <descr>Frame 3</descr>
+      <sketch x1="0" y1="2" x2="5" y2="2" />
+  </frame>
+  <frame pos="7">
+      <descr>Frame 4</descr>
+      <sketch x1="6" y1="2" x2="11" y2="2" />
+  </frame>
+  <frame pos="8">
+      <descr>Frame 5</descr>
+      <sketch x1="0" y1="3" x2="5" y2="3" />
+  </frame>
+  <frame pos="9">
+      <descr>Frame 6</descr>
+      <sketch x1="6" y1="3" x2="11" y2="3" />
+  </frame>
+  <frame pos="10">
+      <descr>Frame 7</descr>
+      <sketch x1="0" y1="4" x2="5" y2="4" />
+  </frame>
+  <frame pos="11">
+      <descr>Frame 8</descr>
+      <sketch x1="6" y1="4" x2="11" y2="4" />
+  </frame>
+  <frame pos="12">
+      <descr>Frame 9</descr>
+      <sketch x1="0" y1="5" x2="5" y2="5" />
+  </frame>
+  <frame pos="13">
+      <descr>Frame 10</descr>
+      <sketch x1="6" y1="5" x2="11" y2="5" />
+  </frame>
+</frames>
+
+',NULL,'<#assign wp=JspTaglibs["/aps-core"]>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            <@wp.currentPage param="title" />
+        </title>
+        <meta name="viewport" content="width=device-width,  user-scalable=no" />
+        <link rel="icon" href="<@wp.info key="systemParam" paramName="applicationBaseURL" />favicon.png" type="image/png" />
+        <!-- Custom OOTB page template styles -->
+        <link rel="stylesheet" href="<@wp.resourceURL />static/css/ootb/page-templates/index.css" rel="stylesheet">
+        <!-- Carbon Design System -->
+        <link rel="stylesheet" href="<@wp.resourceURL />static/css/ootb/carbon-components.min.css" rel="stylesheet">
+        </head>
+        <body>
+          <div class="Homepage3 Homepage__header">
+            <div class="Homepage__logo"><@wp.show frame=0 /></div>
+            <div class="Homepage__menu"><@wp.show frame=1 /></div>
+            <div class="Homepage__search"><@wp.show frame=2 /></div>
+            <div class="Homepage__login"><@wp.show frame=3 /></div>
+          </div>
+          <div class="bx--grid">
+            <div class="bx--row">
+              <div class="bx--col-sm-4 bx--col-md-4 bx--no-gutter">
+                  <div><@wp.show frame=4 /></div>
+                  <div><@wp.show frame=6 /></div>
+                  <div><@wp.show frame=8 /></div>
+                  <div><@wp.show frame=10 /></div>
+                  <div><@wp.show frame=12/></div>
+              </div>
+              <div class="bx--col-sm-4 bx--col-md-4 bx--no-gutter">
+                  <div><@wp.show frame=5 /></div>
+                  <div><@wp.show frame=7 /></div>
+                  <div><@wp.show frame=9 /></div>
+                  <div><@wp.show frame=11 /></div>
+                  <div><@wp.show frame=13 /></div>
+                </div>
+            </div>
+          </div>
+        </body>
+</html>
+');
+
+INSERT INTO pagemodels (code,descr,frames,plugincode,templategui) VALUES ('homepage4','Homepage 4','<?xml version="1.0" encoding="UTF-8"?>
+<frames>
+  <frame pos="0">
+      <descr>Logo</descr>
+      <sketch x1="0" y1="0" x2="2" y2="0" />
+  </frame>
+  <frame pos="1">
+      <descr>Navigation bar</descr>
+      <sketch x1="3" y1="0" x2="5" y2="0" />
+  </frame>
+  <frame pos="2">
+      <descr>Search</descr>
+      <sketch x1="6" y1="0" x2="8" y2="0" />
+  </frame>
+  <frame pos="3">
+      <descr>Login</descr>
+      <sketch x1="9" y1="0" x2="11" y2="0" />
+  </frame>
+  <frame pos="4">
+      <descr>Frame 1</descr>
+      <sketch x1="0" y1="1" x2="5" y2="2" />
+  </frame>
+  <frame pos="5">
+      <descr>Frame 2</descr>
+      <sketch x1="6" y1="1" x2="11" y2="1" />
+  </frame>
+  <frame pos="6">
+      <descr>Frame 3</descr>
+      <sketch x1="6" y1="2" x2="11" y2="2" />
+  </frame>
+  <frame pos="7">
+      <descr>Frame 4</descr>
+      <sketch x1="0" y1="3" x2="5" y2="4" />
+  </frame>
+  <frame pos="8">
+      <descr>Frame 5</descr>
+      <sketch x1="6" y1="3" x2="11" y2="3" />
+  </frame>
+  <frame pos="9">
+      <descr>Frame 6</descr>
+      <sketch x1="6" y1="4" x2="11" y2="4" />
+  </frame>
+  <frame pos="10">
+      <descr>Footer</descr>
+      <sketch x1="0" y1="5" x2="11" y2="5" />
+  </frame>
+</frames>
+
+',NULL,'<#assign wp=JspTaglibs["/aps-core"]>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            <@wp.currentPage param="title" />
+        </title>
+        <meta name="viewport" content="width=device-width,  user-scalable=no" />
+        <link rel="icon" href="<@wp.info key="systemParam" paramName="applicationBaseURL" />favicon.png" type="image/png" />
+        <!-- Custom OOTB page template styles -->
+        <link rel="stylesheet" href="<@wp.resourceURL />static/css/ootb/page-templates/index.css" rel="stylesheet">
+        <!-- Carbon Design System -->
+        <link rel="stylesheet" href="<@wp.resourceURL />static/css/ootb/carbon-components.min.css" rel="stylesheet">
+        </head>
+        <body>
+          <div class="Homepage4 Homepage__header">
+            <div class="Homepage__logo"><@wp.show frame=0 /></div>
+            <div class="Homepage__menu"><@wp.show frame=1 /></div>
+            <div class="Homepage__search"><@wp.show frame=2 /></div>
+            <div class="Homepage__login"><@wp.show frame=3 /></div>
+          </div>
+          <div class="bx--grid">
+            <div class="bx--row">
+              <div class="bx--col-sm-4 bx--col-md-4 bx--no-gutter">
+                  <div><@wp.show frame=4 /></div>
+                  <div><@wp.show frame=7 /></div>
+              </div>
+              <div class="bx--col-sm-4 bx--col-md-4 bx--no-gutter">
+                  <div><@wp.show frame=5 /></div>
+                  <div><@wp.show frame=6 /></div>
+                  <div><@wp.show frame=8 /></div>
+                  <div><@wp.show frame=9 /></div>
+                </div>
+            </div>
+          </div>
+          <div class="Homepage__footer"><@wp.show frame=10 /></div>
+        </body>
+</html>
+');
+INSERT INTO guifragment (code,widgettypecode,plugincode,gui,defaultgui,locked) VALUES ('keycloak_auth_with_redirect',NULL,NULL,'<#assign wp=JspTaglibs["/aps-core"]><script>  (function () {    const consolePrefix = ''[ENTANDO-KEYCLOAK]'';    const keycloakConfigEndpoint = ''<@wp.info key="systemParam" paramName="applicationBaseURL" />keycloak.json'';    let keycloakConfig;    function dispatchKeycloakEvent(eventType) {      console.info(consolePrefix, ''Dispatching'', eventType, ''custom event'');      return window.dispatchEvent(new CustomEvent(''keycloak'', { detail: { eventType } }));    }    function initKeycloak() {      const keycloak = new Keycloak(keycloakConfig);      keycloak.onReady = function() {        dispatchKeycloakEvent(''onReady'');      }      keycloak.onAuthSuccess = function() {        dispatchKeycloakEvent(''onAuthSuccess'');      }      keycloak.onAuthError = function() {        dispatchKeycloakEvent(''onAuthError'');      }      keycloak.onAuthRefreshSuccess = function() {        dispatchKeycloakEvent(''onAuthRefreshSuccess'');      }      keycloak.onAuthRefreshError = function() {        dispatchKeycloakEvent(''onAuthRefreshError'');      }            keycloak.onAuthLogout = function() {        dispatchKeycloakEvent(''onAuthLogout'');      }            keycloak.onTokenExpired = function() {        dispatchKeycloakEvent(''onTokenExpired'');      }               window.entando = {        ...(window.entando || {}),        keycloak,      };      window.entando.keycloak        .init({ onLoad: ''login-required'', promiseType: ''native'', enableLogging: true })        .catch(function (e) {          console.error(e);          console.error(consolePrefix, ''Failed to initialize Keycloak'');        });    }    function onKeycloakScriptError(e) {      console.error(e);      console.error(consolePrefix, ''Failed to load keycloak.js script'');    }    function addKeycloakScript(keycloakConfig) {      const script = document.createElement(''script'');      script.src = keycloakConfig[''auth-server-url''] + ''/js/keycloak.js'';      script.async = true;      script.addEventListener(''load'', initKeycloak);      script.addEventListener(''error'', onKeycloakScriptError);      document.body.appendChild(script);          }    fetch(keycloakConfigEndpoint)      .then(function (response) {        return response.json();      })      .then(function (config) {        keycloakConfig = config;        if (!keycloakConfig.clientId) {          keycloakConfig.clientId = keycloakConfig.resource;        }        addKeycloakScript(keycloakConfig);      })      .catch(function (e) {        console.error(e);        console.error(consolePrefix, ''Failed to fetch Keycloak configuration'');      });  })();</script>',NULL,0);
+INSERT INTO guifragment (code,widgettypecode,plugincode,gui,defaultgui,locked) VALUES ('keycloak_auth',NULL,NULL,'<#assign wp=JspTaglibs["/aps-core"]><script>  (function () {    const consolePrefix = ''[ENTANDO-KEYCLOAK]'';    const keycloakConfigEndpoint = ''<@wp.info key="systemParam" paramName="applicationBaseURL" />keycloak.json'';    let keycloakConfig;    function dispatchKeycloakEvent(eventType) {      console.info(consolePrefix, ''Dispatching'', eventType, ''custom event'');      return window.dispatchEvent(new CustomEvent(''keycloak'', { detail: { eventType } }));    }    function initKeycloak() {      const keycloak = new Keycloak(keycloakConfig);      keycloak.onReady = function() {        dispatchKeycloakEvent(''onReady'');      }      keycloak.onAuthSuccess = function() {        dispatchKeycloakEvent(''onAuthSuccess'');      }      keycloak.onAuthError = function() {        dispatchKeycloakEvent(''onAuthError'');      }      keycloak.onAuthRefreshSuccess = function() {        dispatchKeycloakEvent(''onAuthRefreshSuccess'');      }      keycloak.onAuthRefreshError = function() {        dispatchKeycloakEvent(''onAuthRefreshError'');      }            keycloak.onAuthLogout = function() {        dispatchKeycloakEvent(''onAuthLogout'');      }            keycloak.onTokenExpired = function() {        dispatchKeycloakEvent(''onTokenExpired'');      }               function onKeycloakInitialized(isAuthenticated) {        if (isAuthenticated) {          console.info(consolePrefix, ''Keycloak initialized, user authenticated'');        } else {          console.info(consolePrefix, ''Keycloak initialized, user not authenticated'');        }      };      window.entando = {        ...(window.entando || {}),        keycloak,      };      window.entando.keycloak        .init({ onLoad: ''check-sso'', promiseType: ''native'', enableLogging: true })        .then(onKeycloakInitialized)        .catch(function (e) {          console.error(e);          console.error(consolePrefix, ''Failed to initialize Keycloak'');        });    }    function onKeycloakScriptError(e) {      console.error(e);      console.error(consolePrefix, ''Failed to load keycloak.js script'');    }    function addKeycloakScript(keycloakConfig) {      const script = document.createElement(''script'');      script.src = keycloakConfig[''auth-server-url''] + ''/js/keycloak.js'';      script.async = true;      script.addEventListener(''load'', initKeycloak);      script.addEventListener(''error'', onKeycloakScriptError);      document.body.appendChild(script);          }    fetch(keycloakConfigEndpoint)      .then(function (response) {        return response.json();      })      .then(function (config) {        keycloakConfig = config;        if (!keycloakConfig.clientId) {          keycloakConfig.clientId = keycloakConfig.resource;        }        addKeycloakScript(keycloakConfig);      })      .catch(function (e) {        console.error(e);        console.error(consolePrefix, ''Failed to fetch Keycloak configuration'');      });  })();</script>',NULL,0);
