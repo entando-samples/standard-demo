@@ -44,13 +44,20 @@ const styles = {
     overflowY: 'hidden',
     marginTop: '80px',
   },
+  messageWrapper: {
+    marginTop: '100px',
+    textAlign: 'center',
+  },
 };
 
 class ManageusersTableContainer extends Component {
   constructor(props) {
     super(props);
 
-    this.state = initialState;
+    this.state = {
+      ...initialState,
+      hasAccess: true,
+    };
 
     this.handleReset = this.handleReset.bind(this);
     this.handleError = this.handleError.bind(this);
@@ -132,6 +139,7 @@ class ManageusersTableContainer extends Component {
   async fetchUsers() {
     const { keycloak, paginationMode, pagination, keycloakUrl, realm } = this.props;
     const { items } = this.state;
+    let hasAccess = true;
     fetch(
       `${keycloakUrl}/auth/admin/realms/${realm}/users?first=${pagination.currentPage *
         pagination.itemsPerPage}&max=${pagination.itemsPerPage}`,
@@ -141,23 +149,32 @@ class ManageusersTableContainer extends Component {
         },
       }
     )
-      .then(res => res.json())
+      .then(res => {
+        if (res.status === 401 || res.status === 403) {
+          hasAccess = false;
+        }
+        return res.json();
+      })
       .then(response => {
-        fetch(`${keycloakUrl}/auth/admin/realms/${realm}/users`, {
-          headers: {
-            Authorization: `Bearer ${keycloak.token}`,
-          },
-        })
-          .then(r => r.json())
-          .then(rs => {
-            this.dispatch({
-              type: READ_ALL,
-              payload: {
-                items: paginationMode === 'infinite-scroll' ? [...items, ...response] : response,
-                count: rs.length,
-              },
+        if (hasAccess) {
+          fetch(`${keycloakUrl}/auth/admin/realms/${realm}/users`, {
+            headers: {
+              Authorization: `Bearer ${keycloak.token}`,
+            },
+          })
+            .then(r => r.json())
+            .then(rs => {
+              this.dispatch({
+                type: READ_ALL,
+                payload: {
+                  items: paginationMode === 'infinite-scroll' ? [...items, ...response] : response,
+                  count: rs.length,
+                },
+              });
             });
-          });
+        } else {
+          this.setState({ hasAccess });
+        }
       })
       .catch(err => this.handleError(err));
   }
@@ -326,7 +343,7 @@ class ManageusersTableContainer extends Component {
   }
 
   render() {
-    const { items, count, notificationMessage, notificationStatus } = this.state;
+    const { items, count, notificationMessage, notificationStatus, hasAccess } = this.state;
     const { classes, onSelect, onReset, t, keycloak, paginationMode = '' } = this.props;
     const resetLabel = t('common.reset');
 
@@ -352,16 +369,22 @@ class ManageusersTableContainer extends Component {
 
     return (
       <>
-        <UnauthenticatedView keycloak={keycloak}>
-          {t('common.notAuthenticated')}
-        </UnauthenticatedView>
-        <AuthenticatedView keycloak={keycloak}>
-          <PaginationWrapper items={items} paginationMode={paginationMode} count={count}>
-            <div className={classes.tableWrapper}>
-              <ManageusersTable items={items} onSelect={onSelect} Actions={Actions} />
-            </div>
-          </PaginationWrapper>
-        </AuthenticatedView>
+        {hasAccess ? (
+          <>
+            <UnauthenticatedView keycloak={keycloak}>
+              {t('common.notAuthenticated')}
+            </UnauthenticatedView>
+            <AuthenticatedView keycloak={keycloak}>
+              <PaginationWrapper items={items} paginationMode={paginationMode} count={count}>
+                <div className={classes.tableWrapper}>
+                  <ManageusersTable items={items} onSelect={onSelect} Actions={Actions} />
+                </div>
+              </PaginationWrapper>
+            </AuthenticatedView>
+          </>
+        ) : (
+          <div className={classes.messageWrapper}>{t('error.noAccess')}</div>
+        )}
         <Notification
           status={notificationStatus}
           message={notificationMessage}
@@ -376,6 +399,7 @@ ManageusersTableContainer.propTypes = {
   classes: PropTypes.shape({
     fab: PropTypes.string,
     tableWrapper: PropTypes.string,
+    messageWrapper: PropTypes.string,
   }).isRequired,
   onError: PropTypes.func,
   onSelect: PropTypes.func,

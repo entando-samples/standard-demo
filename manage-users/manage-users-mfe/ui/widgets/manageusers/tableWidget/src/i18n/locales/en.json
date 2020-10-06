@@ -1,6 +1,7 @@
 {
   "error": {
-    "dataLoading": "Error during server connection"
+    "dataLoading": "Error during server connection",
+    "noAccess": "User is not authorized to manage users"
   },
   "common": {
     "couldNotFetchData": "Unfortunately we could not fetch entity data",
