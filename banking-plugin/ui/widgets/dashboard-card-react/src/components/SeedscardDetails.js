@@ -8,6 +8,7 @@ import seedscardIcon from 'assets/Framecredit-card.png';
 
 const styles = () => ({
   SeedsCard: {
+    display: 'block !important',
     height: '300px',
     background: '#ffffff',
     padding: '10%',
@@ -27,6 +28,9 @@ const styles = () => ({
     display: 'flex',
     alignItems: 'baseline',
     position: 'relative',
+    '& *': {
+      backgroundColor: 'transparent !important',
+    },
   },
   SeedsCard__title: {
     fontWeight: '500',
