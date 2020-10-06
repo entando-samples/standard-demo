@@ -1,0 +1,29 @@
+{
+  "error": {
+    "dataLoading": "Error during server connection",
+    "forbidden": "Operation forbidden",
+    "alreadyExists": "Operation failure, the user already exists"
+  },
+  "common": {
+    "save": "Save",
+    "dataSaved": "Data successfully saved",
+    "notAuthenticated": "User is not authenticated.",
+    "selectFile": "Upload new file",
+    "selectImageFile": "Upload new image",
+    "download": "Download"
+  },
+  "validation": {
+    "required": "{{field}} is required"
+  },
+  "entities": {
+    "user": {
+      "id": "ID",
+      "firstname": "First Name",
+      "lastname": "Last Name",
+      "email": "Email",
+      "username": "Username",
+      "password": "Password",
+      "confirmPassword": "Confirm Password"
+    }
+  }
+}

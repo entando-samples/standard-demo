@@ -91,6 +91,8 @@
         <junit.utReportFolder>${project.testresult.directory}/test</junit.utReportFolder>
         <junit.itReportFolder>${project.testresult.directory}/integrationTest</junit.itReportFolder>
         <!-- jhipster-needle-maven-property -->
+        <keycloak-admin-client.version>6.0.1</keycloak-admin-client.version>
+        <resteasy-client.version>3.6.3.Final</resteasy-client.version>
     </properties>
 
     <dependencyManagement>
@@ -107,6 +109,29 @@
     </dependencyManagement>
 
     <dependencies>
+
+
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-admin-client</artifactId>
+            <version>${keycloak-admin-client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-client</artifactId>
+            <version>${resteasy-client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-jackson2-provider</artifactId>
+            <version>${resteasy-client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-multipart-provider</artifactId>
+            <version>${resteasy-client.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>io.github.jhipster</groupId>
             <artifactId>jhipster-framework</artifactId>

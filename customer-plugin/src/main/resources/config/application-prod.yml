@@ -135,3 +135,18 @@ jhipster:
 # ===================================================================
 
 # application:
+keycloak:
+  realm: ${KEYCLOAK_REALM}
+  auth-server-url: ${KEYCLOAK_AUTH_URL}
+  resource: ${KEYCLOAK_RESOURCE}
+
+  credentials:
+    clientid: ${KEYCLOAK_CLIENT_ID}
+    secret: ${KEYCLOAK_CLIENT_SECRET}
+    bearer-only: true
+
+    securityConstraints[1]:
+      authRoles[0]: user
+      securityCollections[0]:
+        name: user
+        patterns[0]: /user/*

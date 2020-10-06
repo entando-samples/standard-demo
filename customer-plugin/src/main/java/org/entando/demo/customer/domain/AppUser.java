@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
@@ -19,14 +18,13 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
  */
 @Entity
 @Table(name = "app_user")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class AppUser implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
-    @SequenceGenerator(name = "sequenceGenerator")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
@@ -51,7 +49,7 @@ public class AppUser implements Serializable {
     @Column(name = "email", nullable = false)
     private String email;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
     }
@@ -86,32 +84,6 @@ public class AppUser implements Serializable {
         this.password = password;
     }
 
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public AppUser firstname(String firstname) {
-        this.firstname = firstname;
-        return this;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public AppUser lastname(String lastname) {
-        this.lastname = lastname;
-        return this;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -124,7 +96,24 @@ public class AppUser implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -142,16 +131,15 @@ public class AppUser implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "AppUser{" +
-            "id=" + getId() +
-            ", username='" + getUsername() + "'" +
-            ", password='" + getPassword() + "'" +
-            ", firstname='" + getFirstname() + "'" +
-            ", lastname='" + getLastname() + "'" +
-            ", email='" + getEmail() + "'" +
-            "}";
+            "id=" + id +
+            ", username='" + username + '\'' +
+            ", password='" + password + '\'' +
+            ", firstname='" + firstname + '\'' +
+            ", lastname='" + lastname + '\'' +
+            ", email='" + email + '\'' +
+            '}';
     }
 }
