@@ -1,0 +1,20 @@
+----------------------------------------------------------------
+Fri Oct 02 09:22:25 UTC 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-0174-e89e-32b2-ffffd6b9f74c 
+on database directory /entando-data/databases/entandoPort  with class loader ModuleClassLoader for Module "org.apache.derby.jdbc" from local module loader @357246de (finder: local module finder @28f67ac7 (roots: /wildfly/provided_modules,/wildfly/modules,/wildfly/modules/system/layers/base)) 
+Loaded from jar:file:/wildfly/modules/org/apache/derby/jdbc/main/derby-10.9.1.0.jar!/
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_212-b04
+user.dir=/opt/app-root/src
+derby.system.home=/entando-data/databases
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Fri Oct 02 09:22:28 UTC 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance 6074401f-0174-e89e-32b2-ffffd6b9f74c 
+on database directory /entando-data/databases/entandoServ  with class loader ModuleClassLoader for Module "org.apache.derby.jdbc" from local module loader @357246de (finder: local module finder @28f67ac7 (roots: /wildfly/provided_modules,/wildfly/modules,/wildfly/modules/system/layers/base)) 
+Loaded from jar:file:/wildfly/modules/org/apache/derby/jdbc/main/derby-10.9.1.0.jar!/
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_212-b04
+user.dir=/opt/app-root/src
+derby.system.home=/entando-data/databases
+Database Class Loader started - derby.database.classpath=''

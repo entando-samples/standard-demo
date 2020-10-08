@@ -6,8 +6,7 @@ import java.net.URISyntaxException;
 import javax.validation.Valid;
 import javax.ws.rs.core.Response;
 import org.entando.demo.customer.domain.AppUser;
-import org.entando.demo.customer.repository.AppUserRepository;
-import org.entando.demo.customer.service.KeyCloakService;
+import org.keycloak.OAuth2Constants;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.KeycloakBuilder;
 import org.keycloak.admin.client.resource.RealmResource;
@@ -18,18 +17,13 @@ import org.keycloak.representations.idm.UserRepresentation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * REST controller for managing {@link com.entando.domain.AppUser}.
- */
 @RestController
 @RequestMapping("/api")
 public class AppUserResource {
@@ -47,22 +41,14 @@ public class AppUserResource {
     @Value("${keycloak.auth-server-url}")
     private String ADMIN_CLIENT_SERVER_URL;
 
-    @Value("${keycloak.resource}")
+    @Value("${keycloak.credentials.clientid}")
     private String CLIENT_ID;
 
-    @Value("${keycloak.adminClientUsername}")
-    private String ADMIN_CLIENT_USERNAME;
+    @Value("${keycloak.credentials.secret}")
+    private String CLIENT_SECRET;
 
-    @Value("${keycloak.adminClientPassword}")
-    private String ADMIN_CLIENT_PASSWORD;
+    public AppUserResource() {
 
-    private final AppUserRepository appUserRepository;
-
-    private final KeyCloakService keyClockService;
-
-    public AppUserResource(AppUserRepository appUserRepository, KeyCloakService keyClockService) {
-        this.appUserRepository = appUserRepository;
-        this.keyClockService = keyClockService;
     }
 
     /**
@@ -73,7 +59,7 @@ public class AppUserResource {
      * status {@code 400 (Bad Request)} if the appUser has already an ID.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "*")
     @PostMapping("/users")
     public ResponseEntity<?> createUser(@Valid @RequestBody AppUser appUser) throws URISyntaxException {
         int statusId = 0;
@@ -81,11 +67,9 @@ public class AppUserResource {
         Keycloak keycloak = KeycloakBuilder.builder()
             .serverUrl(ADMIN_CLIENT_SERVER_URL)
             .realm(REALM)
-            .grantType(OAuth2Constants.PASSWORD)
+            .grantType(OAuth2Constants.CLIENT_CREDENTIALS)
             .clientId(CLIENT_ID)
-            .clientSecret(clientSecret)
-//            .username(ADMIN_CLIENT_USERNAME)
-//            .password(ADMIN_CLIENT_PASSWORD)
+            .clientSecret(CLIENT_SECRET)
             .build();
 
         UserRepresentation user = new UserRepresentation();
@@ -159,79 +143,4 @@ public class AppUserResource {
 
     }
 
-    @RequestMapping(value = "/token", method = RequestMethod.POST)
-    public ResponseEntity<?> getTokenUsingCredentials(@RequestBody UserCredentials userCredentials) {
-        String responseToken = null;
-        try {
-            responseToken = keyClockService.getToken(userCredentials);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-        return new ResponseEntity<>(responseToken, HttpStatus.OK);
-
-    }
-
-//    /**
-//     * {@code PUT  /users} : Updates an existing appUser.
-//     *
-//     * @param appUser the appUser to update.
-//     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated appUser, or with status
-//     * {@code 400 (Bad Request)} if the appUser is not valid, or with status {@code 500 (Internal Server Error)} if the
-//     * appUser couldn't be updated.
-//     * @throws URISyntaxException if the Location URI syntax is incorrect.
-//     */
-//    @PutMapping("/users")
-//    public ResponseEntity<AppUser> updateUser(@Valid @RequestBody AppUser appUser) throws URISyntaxException {
-//        log.debug("REST request to update AppUser : {}", appUser);
-//        if (appUser.getId() == null) {
-//            throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
-//        }
-//        AppUser result = appUserRepository.save(appUser);
-//        return ResponseEntity.ok()
-//            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, appUser.getId().toString()))
-//            .body(result);
-//    }
-
-//    /**
-//     * {@code GET  /users} : get all the users.
-//     *
-//     * @param pageable the pagination information.
-//     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of users in body.
-//     */
-//    @GetMapping("/users")
-//    public ResponseEntity<List<AppUser>> getAllUsers(Pageable pageable) {
-//        log.debug("REST request to get a page of Users");
-//        Page<AppUser> page = appUserRepository.findAll(pageable);
-//        HttpHeaders headers = PaginationUtil
-//            .generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
-//        return ResponseEntity.ok().headers(headers).body(page.getContent());
-//    }
-
-//    /**
-//     * {@code GET  /users/:id} : get the "id" appUser.
-//     *
-//     * @param id the id of the appUser to retrieve.
-//     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the appUser, or with status {@code
-//     * 404 (Not Found)}.
-//     */
-//    @GetMapping("/users/{id}")
-//    public ResponseEntity<AppUser> getUser(@PathVariable Long id) {
-//        log.debug("REST request to get AppUser : {}", id);
-//        Optional<AppUser> appUser = appUserRepository.findById(id);
-//        return ResponseUtil.wrapOrNotFound(appUser);
-//    }
-
-//    /**
-//     * {@code DELETE  /users/:id} : delete the "id" appUser.
-//     *
-//     * @param id the id of the appUser to delete.
-//     * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
-//     */
-//    @DeleteMapping("/users/{id}")
-//    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
-//        log.debug("REST request to delete AppUser : {}", id);
-//        appUserRepository.deleteById(id);
-//        return ResponseEntity.noContent()
-//            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
-//    }
 }

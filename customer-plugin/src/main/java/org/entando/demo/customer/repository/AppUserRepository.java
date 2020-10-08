@@ -1,6 +1,6 @@
 package org.entando.demo.customer.repository;
 
-import com.entando.domain.AppUser;
+import org.entando.demo.customer.domain.AppUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -67,6 +67,16 @@ public class AppUser implements Serializable {
         return this;
     }
 
+    public AppUser firstname(String firstname) {
+        this.firstname = firstname;
+        return this;
+    }
+
+    public AppUser lastname(String lastname) {
+        this.lastname = lastname;
+        return this;
+    }
+
     public void setUsername(String username) {
         this.username = username;
     }

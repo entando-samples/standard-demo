@@ -127,3 +127,18 @@ jhipster:
 # ===================================================================
 
 # application:
+
+keycloak:
+  realm: entando
+  auth-server-url: http://quickstart-kc-flex.apps.rd.entando.org/auth
+
+  credentials:
+    clientid: std-demo-customer-server
+    secret: 74ef191a-2326-46ef-bb86-260c907f1b2b
+    bearer-only: true
+
+    securityConstraints[1]:
+      authRoles[0]: user
+      securityCollections[0]:
+        name: user
+        patterns[0]: /user/*

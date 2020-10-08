@@ -1,34 +1,46 @@
 package org.entando.demo.customer.web.rest;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.Matchers.hasItem;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.ws.rs.core.Response;
 import org.entando.demo.customer.CustomerApp;
-import org.entando.demo.customer.config.TestSecurityConfiguration;
 import org.entando.demo.customer.domain.AppUser;
 import org.entando.demo.customer.repository.AppUserRepository;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.keycloak.OAuth2Constants;
+import org.keycloak.admin.client.Keycloak;
+import org.keycloak.admin.client.KeycloakBuilder;
+import org.keycloak.admin.client.resource.RealmResource;
+import org.keycloak.admin.client.resource.UsersResource;
+import org.keycloak.representations.idm.UserRepresentation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
-import javax.persistence.EntityManager;
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.hasItem;
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /**
  * Integration tests for the {@link AppUserResource} REST controller.
  */
-@SpringBootTest(classes = { CustomerApp.class, TestSecurityConfiguration.class })
+@SpringBootTest(classes = { CustomerApp.class })
 @AutoConfigureMockMvc
 @WithMockUser
+@TestPropertySource(locations="classpath:config/application-test.yml")
 public class AppUserResourceIT {
 
     private static final String DEFAULT_USERNAME = "AAAAAAAAAA";
@@ -93,6 +105,41 @@ public class AppUserResourceIT {
         appUser = createEntity(em);
     }
 
+
+
+    @Test
+    @Transactional
+    public void testkeycloakCreate() {
+
+        Keycloak keycloak = KeycloakBuilder.builder()
+            .serverUrl("http://quickstart-kc-flex.apps.rd.entando.org/auth/")
+            .realm("entando")
+            .grantType(OAuth2Constants.CLIENT_CREDENTIALS)
+            .clientId("signup-plugin-server")
+            .clientSecret("ec8ce615-692c-48ff-92a1-f5c5195cbb0c")
+//            .authorization(accessToken)
+            .build();
+
+        UserRepresentation user = new UserRepresentation();
+        user.setEnabled(true);
+        user.setUsername(appUser.getUsername());
+        user.setFirstName(appUser.getFirstname());
+        user.setLastName(appUser.getLastname());
+        user.setEmail(appUser.getEmail());
+//        user.setAttributes(Collections.singletonMap("origin", Arrays.asList("demo")));
+
+        // Get realm
+        RealmResource realmResource = keycloak.realm("entando");
+        UsersResource usersRessource = realmResource.users();
+
+        // Create user (requires manage-users role)
+        Response response = usersRessource.create(user);
+        System.out.println("Response: " + response.getStatusInfo());
+        System.out.println(response.getLocation());
+
+    }
+
+
     @Test
     @Transactional
     public void createAppUser() throws Exception {
@@ -151,7 +198,7 @@ public class AppUserResourceIT {
             .andExpect(jsonPath("$.[*].lastname").value(hasItem(DEFAULT_LASTNAME)))
             .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL)));
     }
-    
+
     @Test
     @Transactional
     public void getAppUser() throws Exception {

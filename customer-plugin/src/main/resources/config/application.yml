@@ -124,15 +124,15 @@ spring:
       client:
         provider:
           oidc:
-            issuer-uri: http://localhost:9080/auth/realms/jhipster
+            issuer-uri: http://quickstart-kc-flex.apps.rd.entando.org/auth/realms/entando
         registration:
           oidc:
-            client-id: internal
-            client-secret: internal
+            client-id: std-demo-customer-server
+            client-secret: 74ef191a-2326-46ef-bb86-260c907f1b2b
 
 server:
   servlet:
-    context-path: /services/${spring.application.name}
+    context-path: /${spring.application.name}
     session:
       cookie:
         http-only: true
