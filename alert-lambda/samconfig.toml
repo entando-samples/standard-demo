@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "alert-jvm-lambda"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-cfz90xtwa76w"
+s3_prefix = "alert-jvm-lambda"
+region = "us-east-2"
+capabilities = "CAPABILITY_IAM"
+
