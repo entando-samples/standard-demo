@@ -1,0 +1,26 @@
+<!--
+  keep the 10000 set for the bundles
+  change the x to something suitable and unused
+  set the last column to NULL if your Content Model doesn't need any stylesheet at all
+  You'll want to provide at least one Default Content Model, and one Content Model for lists
+-->
+<contentModel>
+  <id>10024</id>
+  <contentType>TCL</contentType>
+  <description>TCL - Search Results</description>
+  <shape><![CDATA[<article class="search-result-container #if ($content.direction.text == "HORIZONTAL") horizontal #end">
+    <div class="search-result-box">
+        <div class="search-result-title">
+		    ENTANDO
+	    </div>
+	    <h2 class="search-result-content-title">$content.title.text</h2>
+        #if ( $content.col1.text != "" )
+        <div class="search-result-content-text">$content.col1.text</div>
+        #end
+        #if ( $content.col2.text != "" )
+        <div class="search-result-content-text">$content.col2.text</div>
+        #end
+    </div>
+</article>]]></shape>
+  <stylesheet>ootb/content-templates/ct-search-results.css</stylesheet>
+</contentModel>

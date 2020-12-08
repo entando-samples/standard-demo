@@ -1,0 +1,61 @@
+<content>
+	<description>A Modern Platform for Modern UX</description>
+	<typeCode>BNR</typeCode>
+	<typeDescription>Banner</typeDescription>
+	<mainGroup>free</mainGroup>
+	<attributes>
+		<attribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="jaxbTextAttribute">
+			<name>title</name>
+			<type>Text</type>
+			<value>A Modern Platform for Modern UX</value>
+			<roles>
+				<role>jacms:title</role>
+			</roles>
+		</attribute>
+
+		<attribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="jaxbHypertextAttribute">
+			<name>abstract</name>
+			<type>Hypertext</type>
+			<htmlValue><![CDATA[<p>
+      Entando is an open source software company providing the leading micro frontend platform building enterprise web apps on Kubernetes.
+      </p>]]></htmlValue>
+		</attribute>
+		<attribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="jaxbResourceAttribute">
+			<type>Image</type>
+			<name>image</name>
+			<resource>
+				<text>Entando at Plan</text>
+				<path>/test-image-rest/resources/cms/images/sample-image-1_d0.jpg</path>
+				<resourceId>entandoAtPlan</resourceId>
+				<restResourcePath>http://localhost:8080/test-image-rest/api/rs/en/jacms/image?id=entandoAtPlan</restResourcePath>
+			</resource>						
+		</attribute>		
+
+	<attribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="jaxbTextAttribute">
+		<name>placement</name>
+		<description>Image Placement</description>
+		<type>Enumerator</type>
+		<names>
+		<entry>
+		<key>en</key>
+		<value>placement</value>
+		</entry>
+		</names>
+		<value>RIGHT</value>
+	</attribute>
+
+		<attribute xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="jaxbLinkAttribute">
+			<name>link</name>
+			<type>Link</type>
+			<link>
+				<text>Learn more at Entando.com</text>
+				<url>http://www.entando.com/</url>
+				<symbolicLink>
+					<symbolicDestination>#!U;http://www.entando.com/!#</symbolicDestination>
+				</symbolicLink>
+			</link>
+		</attribute>
+		
+	</attributes>
+	<lastEditor>admin</lastEditor>
+</content>

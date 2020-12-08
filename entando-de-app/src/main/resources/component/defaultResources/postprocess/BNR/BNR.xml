@@ -1,6 +1,7 @@
 <contentType>
-	<defaultModelId>10003</defaultModelId>
-	<typeCode>BNR</typeCode>
+    <defaultModelId>10003</defaultModelId>
+    <listModelId>10023</listModelId>
+    <typeCode>BNR</typeCode>
 	<typeDescription>Banner</typeDescription>
 	<attributes>
 		<attribute>
@@ -10,7 +11,7 @@
 			<roles>
 				<role>jacms:title</role>
 			</roles>
-			<searchable>true</searchable>
+			<searchable>false</searchable>
 			<indexable>true</indexable>
 			<validationRules xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textAttributeValidationRules">
 				<required>true</required>
@@ -37,7 +38,7 @@
 			<description>Image Placement</description>
 			<type>Enumerator</type>
 			<customSeparator>,</customSeparator>
-			<staticItems>RIGHT,LEFT</staticItems>
+			<staticItems>LEFT,RIGHT</staticItems>
 		</attribute>
 	</attributes>
 </contentType>

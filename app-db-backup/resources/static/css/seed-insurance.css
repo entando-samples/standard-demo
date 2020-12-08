@@ -67,22 +67,6 @@ h2 {
     color: #8CC63F;
 }
 
-.insurance .login, .custom-navbar .login {
-    grid-area: login;
-    background: #8CC63F;
-    border-radius: 4px;
-    color: #fff;
-    font-family: Cabin-Regular;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 15px;
-    height: 38px;
-    min-width: 94px;
-    width: auto;
-    text-transform: capitalize;
-    padding: 0;
-}
-
 .insurance .dropdown-item.active, .dropdown-item:active {
     color: #fff;
     text-decoration: none;

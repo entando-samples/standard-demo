@@ -5,7 +5,7 @@
     <groupId>org.entando.entando</groupId>
     <artifactId>entando-de-app</artifactId>
     <packaging>war</packaging>
-    <version>6.1.124</version>
+    <version>6.3.10</version>
     <name>entando-de-app</name>
     <url>http://www.entando.com/</url>
     <licenses>
@@ -32,15 +32,15 @@
         </repository>
     </repositories>
     <properties>
-        <entando-admin-console.version>6.2.40</entando-admin-console.version>
-        <entando-engine.version>6.2.55</entando-engine.version>
-        <entando-portal-ui.version>6.2.7</entando-portal-ui.version>
-        <entando-plugin-jacms.version>6.2.38</entando-plugin-jacms.version>
-        <entando-plugin-jpmail.version>6.2.8</entando-plugin-jpmail.version>
-        <entando-plugin-jpversioning.version>6.2.9</entando-plugin-jpversioning.version>
-        <entando-plugin-jpseo.version>6.2.12</entando-plugin-jpseo.version>
-        <entando-plugin-jpcontentscheduler.version>6.2.8</entando-plugin-jpcontentscheduler.version>
-        <entando.keycloak.plugin.version>6.2.3</entando.keycloak.plugin.version>
+        <entando-admin-console.version>6.3.1</entando-admin-console.version>
+        <entando-engine.version>6.3.7</entando-engine.version>
+        <entando-portal-ui.version>6.3.1</entando-portal-ui.version>
+        <entando-plugin-jacms.version>6.3.1</entando-plugin-jacms.version>
+        <entando-plugin-jpmail.version>6.3.1</entando-plugin-jpmail.version>
+        <entando-plugin-jpversioning.version>6.3.1</entando-plugin-jpversioning.version>
+        <entando-plugin-jpseo.version>6.3.1</entando-plugin-jpseo.version>
+        <entando-plugin-jpcontentscheduler.version>6.3.1</entando-plugin-jpcontentscheduler.version>
+        <entando.keycloak.plugin.version>6.3.3</entando.keycloak.plugin.version>
         <!--
     <test.database.driver>org.postgresql.Driver</test.database.driver>
     <test.database.hostname>localhost</test.database.hostname>
@@ -80,7 +80,7 @@
         <skipDocker>true</skipDocker>
         <skipSmokeTests>true</skipSmokeTests>
         <autoCreateNetwork>true</autoCreateNetwork>
-        <entando.version>6.2.0-SNAPSHOT</entando.version>
+        <entando.version>6.3.0-SNAPSHOT</entando.version>
         <postgres.driver.version>9.4.1212</postgres.driver.version>
         <jetty.version>9.4.30.v20200611</jetty.version>
 
@@ -98,14 +98,13 @@
         <cors.access.control.allow.methods>GET, POST, PUT, DELETE, OPTIONS, PATCH</cors.access.control.allow.methods>
         <cors.access.control.allow.credentials>false</cors.access.control.allow.credentials>
         <cors.access.control.maxAge>3600</cors.access.control.maxAge>
-        <cors.enabled>true</cors.enabled>
     </properties>
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.entando</groupId>
                 <artifactId>entando-core-parent</artifactId>
-                <version>6.2.14</version>
+                <version>6.2.18</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -227,6 +226,12 @@
                 <artifactId>entando-plugin-jpcontentscheduler</artifactId>
                 <version>${entando-plugin-jpcontentscheduler.version}</version>
                 <classifier>classes</classifier>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.entando.entando.plugins</groupId>
+                        <artifactId>entando-plugin-jpmail</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.entando.entando.plugins</groupId>
@@ -297,6 +302,18 @@
             <artifactId>javax.servlet-api</artifactId>
             <scope>provided</scope>
         </dependency>
+        <!-- infinispan -->
+        <dependency>
+            <groupId>org.infinispan</groupId>
+            <artifactId>infinispan-core</artifactId>
+            <version>9.4.8.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.infinispan</groupId>
+            <artifactId>infinispan-commons</artifactId>
+            <version>9.4.8.Final</version>
+        </dependency>
+
             <!-- war overlays -->
             <dependency>
                 <groupId>org.entando.entando</groupId>
@@ -700,7 +717,7 @@
                             <name>entando/${project.artifactId}-${jee.server}:${project.version}</name>
                             <alias>${project.artifactId}-engine</alias>
                             <build>
-                                <from>entando/${server.base.image}:6.2.1</from>
+                                <from>entando/${server.base.image}:6.2.3</from>
                                 <skip>${skipServerImage}</skip>
                                 <assembly>
                                     <descriptorRef>artifact</descriptorRef>
@@ -1135,6 +1152,10 @@
                     </webApp>
                     <systemProperties>
                         <systemProperty>
+                            <name>org.eclipse.jetty.LEVEL</name>
+                            <value>FATAL</value>
+                        </systemProperty>
+                        <systemProperty>
                             <name>entando.version</name>
                             <value>${entando.version}</value>
                         </systemProperty>
@@ -1288,12 +1309,6 @@
                         <artifactId>commons-dbcp2</artifactId>
                         <version>2.5.0</version>
                     </dependency>
-<dependency>
-            <groupId>org.apache.taglibs</groupId>
-            <artifactId>taglibs-standard-impl</artifactId>
-            <version>1.2.5</version>
-            <scope>compile</scope>
-        </dependency>
                 </dependencies>
             </plugin>
 

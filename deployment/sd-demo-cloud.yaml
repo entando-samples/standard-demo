@@ -1,28 +1,4 @@
 ---
-# Source: preview/charts/operator/templates/ca-cert-secret.yaml
-apiVersion: v1
-data:
-kind: Secret
-metadata:
-  name: entando-ca-cert-secret
-  namespace: entando
-type: Opaque
-
----
-# Source: preview/charts/operator/templates/tls-secret.yaml
-apiVersion: v1
-data:
-  tls.crt: >-
-
-  tls.key: >-
-
-kind: Secret
-metadata:
-  name: entando-tls-secret
-  namespace: entando
-type: kubernetes.io/tls
-
----
 # Source: preview/charts/operator/templates/docker-image-info-configmap.yaml
 apiVersion: v1
 kind: ConfigMap
@@ -31,41 +7,43 @@ metadata:
   namespace: entando
 data:
   app-builder: >-
-    {"version":"6.1.201","executable-type":"jvm","registry":"docker.io","organization":"entando"}
-  busybox: >-
-    {"version":"latest","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+    {"version":"6.1.323","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-avatar-plugin: >-
     {"version":"6.0.5","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-component-manager: >-
-    {"version":"6.2.8","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+    {"version":"6.2.34","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-de-app-eap: >-
-    {"version":"6.1.124","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+    {"version":"6.3.10","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-de-app-wildfly: >-
-    {"version":"6.2.0.rc-10-demo.12","executable-type":"jvm","registry":"docker.io","organization":"entandodemo"}
+    {"version":"6.3.0-std-demo","executable-type":"jvm","registry":"docker.io","organization":"entandodemo"}
   entando-k8s-app-controller: >-
-    {"version":"6.2.2","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+    {"version":"6.2.11","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-k8s-app-plugin-link-controller: >-
-    {"version":"6.1.2","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+    {"version":"6.1.3","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-k8s-cluster-infrastructure-controller: >-
-    {"version":"6.2.2","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+    {"version":"6.2.8","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-k8s-composite-app-controller: >-
-    {"version":"6.2.1","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+    {"version":"6.2.7","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-k8s-controller-coordinator: >-
-    {"version":"6.2.4","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+    {"version":"6.2.20","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+  entando-k8s-database-service-controller: >-
+    {"version":"6.2.3","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-k8s-dbjob: >-
     {"version":"6.1.4","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-k8s-keycloak-controller: >-
-    {"version":"6.2.8","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+    {"version":"6.2.14","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-k8s-plugin-controller: >-
-    {"version":"6.2.2","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+    {"version":"6.2.8","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-k8s-service: >-
-    {"version":"6.2.0","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+    {"version":"6.2.1","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-keycloak: >-
     {"version":"6.1.2","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-plugin-sidecar: >-
     {"version":"6.0.2","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   entando-process-driven-plugin: >-
     {"version":"6.0.51","executable-type":"jvm","registry":"docker.io","organization":"entando"}
+  busybox: >-
+    {"version":"latest","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   mysql-57-centos7: >-
     {"version":"latest","executable-type":"jvm","registry":"docker.io","organization":"entando"}
   postgresql-96-centos7: >-
@@ -180,11 +158,18 @@ rules:
   - apiGroups:
       - ""
     resources:
+      - "pods/exec"
+    verbs:
+      - "get"
+  - apiGroups:
+      - ""
+    resources:
       - pods
       - services
       - endpoints
       - persistentvolumeclaims
       - configmaps
+      - serviceaccounts
     verbs:
       - "*"
   - apiGroups:
@@ -211,9 +196,15 @@ rules:
       - rbac.authorization.k8s.io
     resources:
       - roles
+    verbs:
+      - get
+  - apiGroups:
+      - rbac.authorization.k8s.io
+    resources:
       - rolebindings
     verbs:
       - get
+      - create
 
 ---
 # Source: preview/charts/operator/templates/plugin-role.yaml
@@ -241,6 +232,39 @@ rules:
       - delete
       - update
 
+---
+# Source: preview/charts/operator/templates/pod-viewer-role.yaml
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: pod-viewer
+  namespace: entando
+rules:
+  - apiGroups:
+      - ""
+    resources:
+      - pods
+    verbs:
+      - "list"
+      - "get"
+      - "watch"
+---
+# Source: preview/charts/operator/templates/default-pod-viewer-rolebinding.yaml
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: default-pod-viewer-rolebinding
+  namespace: entando
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: pod-viewer
+subjects:
+  - kind: ServiceAccount
+    name: default
+    namespace: entando
 ---
 # Source: preview/charts/operator/templates/k8s-service-rolebinding.yaml
 
@@ -300,7 +324,7 @@ metadata:
   namespace: entando
   labels:
     draft: draft-app
-    chart: "operator-6.2.5"
+    chart: "operator-6.2.21"
 spec:
   replicas: 1
   selector:
@@ -317,7 +341,7 @@ spec:
       volumes:
       containers:
         - name: operator
-          image: "docker.io/entando/entando-k8s-controller-coordinator:6.2.5"
+          image: "docker.io/entando/entando-k8s-controller-coordinator:6.2.21"
           imagePullPolicy: Always
           volumeMounts:
           env:
@@ -325,6 +349,8 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: spec.serviceAccountName
+            - name: ENTANDO_ASSUME_EXTERNAL_HTTPS_PROVIDER
+              value: "false"
             - name: ENTANDO_DEFAULT_ROUTING_SUFFIX
               value: "apps.rd.entando.org"
             - name: ENTANDO_DISABLE_KEYCLOAK_SSL_REQUIREMENT
@@ -335,21 +361,22 @@ spec:
               value: "6.0.0"
             - name: ENTANDO_DOCKER_REGISTRY_FALLBACK
               value: "docker.io"
+            - name: ENTANDO_INGRESS_CLASS
+              value: "nginx"
+            - name: ENTANDO_K8S_OPERATOR_DISABLE_PVC_GARBAGE_COLLECTION
+              value: "false"
             - name: ENTANDO_K8S_OPERATOR_FORCE_DB_PASSWORD_RESET
               value: "true"
             - name: ENTANDO_K8S_OPERATOR_IMPOSE_DEFAULT_LIMITS
               value: "false"
             - name: ENTANDO_K8S_OPERATOR_SECURITY_MODE
-              value: "lenient"
+              value: "strict"
             - name: ENTANDO_POD_COMPLETION_TIMEOUT_SECONDS
               value: "1000"
             - name: ENTANDO_POD_READINESS_TIMEOUT_SECONDS
               value: "1000"
-            - name: ENTANDO_INGRESS_CLASS
-              value: "nginx
             - name: ENTANDO_REQUIRES_FILESYSTEM_GROUP_OVERRIDE
               value: "true"
-ENTANDO_REQUIRES_FILESYSTEM_GROUP_OVERRIDE: "true"
           livenessProbe:
             exec:
               command:
@@ -412,60 +439,22 @@ spec:
         replicas: 1
         standardServerImage: wildfly
         ingressPath: /entando-de-app
-        parameters:
-          SPRING_PROFILES_ACTIVE: "default,swagger"
-    - kind: "EntandoPlugin"
-      metadata:
-        name: "std-demo-customer"
-      spec:
-        image: "docker.io/entandodemo/customer:0.0.10"
-        replicas: 1
-        dbms: none
-        roles:
-          - name: "customer-list"
-            code: "customer-list"
-        permissions:
-          - clientId: realm-management
-            role: manage-users
-          - clientId: realm-management
-            role: view-users
-        parameters: {}
-        ingressPath: "/customer"
-        healthCheckPath: "/management/health"
-        securityLevel: lenient
-        connectionConfigNames: []
-    - kind: "EntandoAppPluginLink"
-      metadata:
-        name: "std-demo-customer-apl"
-      spec:
-        entandoAppNamespace: "entando"
-        entandoAppName: "quickstart"
-        entandoPluginNamespace: "entando"
-        entandoPluginName: "std-demo-customer"
-    - kind: "EntandoPlugin"
-      metadata:
-        name: "standard-demo-banking"
-      spec:
-        image: "docker.io/entandodemo/banking:0.0.18"
-        replicas: 1
-        dbms: none
-        roles:
-          - name: "task-list"
-            code: "task-list"
-        permissions: []
-        parameters: {}
-        ingressPath: "/banking"
-        healthCheckPath: "/management/health"
-        securityLevel: lenient
-        connectionConfigNames: []
-    - kind: "EntandoAppPluginLink"
-      metadata:
-        name: "standard-demo-banking-apl"
-      spec:
-        entandoAppNamespace: "entando"
-        entandoAppName: "quickstart"
-        entandoPluginNamespace: "entando"
-        entandoPluginName: "standard-demo-banking"
+
+---
+# Source: preview/charts/operator/templates/entando-editor-clusterrole.yaml
+
+---
+# Source: preview/charts/operator/templates/operator-clusterrole.yaml
+
+
+---
+# Source: preview/charts/operator/templates/operator-clusterrolebinding.yaml
+
+---
+# Source: preview/charts/operator/templates/operator-pod-viewer-clusterrolebinding.yaml
+
+---
+# Source: preview/charts/operator/templates/pod-viewer-clusterrole.yaml
 
 ---
 # Source: preview/templates/db-admin-secret.yaml
