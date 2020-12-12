@@ -501,58 +501,7 @@ spec:
         entandoAppName: "quickstart"
         entandoPluginNamespace: "entando"
         entandoPluginName: "standard-demo-banking"
-    - kind: "EntandoPlugin"
-      metadata:
-        name: "std-demo-customer"
-      spec:
-        image: "docker.io/entandodemo/customer:0.0.10"
-        replicas: 1
-        dbms: none
-        roles:
-          - name: "customer-list"
-            code: "customer-list"
-        permissions:
-          - clientId: realm-management
-            role: manage-users
-          - clientId: realm-management
-            role: view-users
-        parameters: {}
-        ingressPath: "/customer"
-        healthCheckPath: "/management/health"
-        securityLevel: lenient
-        connectionConfigNames: []
-    - kind: "EntandoAppPluginLink"
-      metadata:
-        name: "std-demo-customer-apl"
-      spec:
-        entandoAppNamespace: "entando"
-        entandoAppName: "quickstart"
-        entandoPluginNamespace: "entando"
-        entandoPluginName: "std-demo-customer"
-    - kind: "EntandoPlugin"
-      metadata:
-        name: "standard-demo-banking"
-      spec:
-        image: "docker.io/entandodemo/banking:0.0.18"
-        replicas: 1
-        dbms: none
-        roles:
-          - name: "task-list"
-            code: "task-list"
-        permissions: []
-        parameters: {}
-        ingressPath: "/banking"
-        healthCheckPath: "/management/health"
-        securityLevel: lenient
-        connectionConfigNames: []
-    - kind: "EntandoAppPluginLink"
-      metadata:
-        name: "standard-demo-banking-apl"
-      spec:
-        entandoAppNamespace: "entando"
-        entandoAppName: "quickstart"
-        entandoPluginNamespace: "entando"
-        entandoPluginName: "standard-demo-banking"
+    
 ---
 # Source: preview/charts/operator/templates/entando-editor-clusterrole.yaml
 
