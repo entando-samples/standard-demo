@@ -1,3 +1,15 @@
+# Deployment
+
+With this configuration, you can use the ent cli (https://dev.entando.org/next/docs/reference/entando-cli.html) to perform the full deployment sequence:
+
+1. `cp -r bundle_src bundle` (this is only needed the first time in a local env unless the bundle dir is removed)
+2. `ent prj init`
+3. `ent prj fe-build -a` (build the frontend, including changes from bundle_src)
+4. `ent prj pbs-init` (requires the git bundle repo url)
+5. `ent prj fe-push` (publish all or just the frontend)
+6. For a local Entando installation: `ent prj deploy`
+7. Install the bundle using `ent prj install` or the App Builder.
+
 # manageusers
 
 This application was generated using JHipster 6.3.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.3.0](https://www.jhipster.tech/documentation-archive/v6.3.0).

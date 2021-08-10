@@ -144,3 +144,13 @@ Desktop.ini
 # ESLint
 ######################
 .eslintcache
+
+#Bundle
+/bundle/
+
+########
+.ent/ent-state
+
+
+####
+bundle/

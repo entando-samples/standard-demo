@@ -185,4 +185,5 @@ class ManageusersTableElement extends HTMLElement {
   }
 }
 
-customElements.define('manageusers-table', ManageusersTableElement);
+customElements.get('sd-manage-users') ||
+  customElements.define('sd-manage-users', ManageusersTableElement);
