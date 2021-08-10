@@ -77,6 +77,7 @@ class ManageusersTableContainer extends Component {
 
     if (authenticated) {
       this.fetchUsers();
+      // TODO: assess and remove leftover fetchData method and usages
       // this.fetchData();
     }
   }
@@ -137,12 +138,15 @@ class ManageusersTableContainer extends Component {
   }
 
   async fetchUsers() {
-    const { keycloak, paginationMode, pagination, keycloakUrl, realm } = this.props;
+    const { keycloak, paginationMode, pagination } = this.props;
     const { items } = this.state;
     let hasAccess = true;
     fetch(
-      `${keycloakUrl}/auth/admin/realms/${realm}/users?first=${pagination.currentPage *
-        pagination.itemsPerPage}&max=${pagination.itemsPerPage}`,
+      `${keycloak.authServerUrl}/admin/realms/${
+        keycloak.realm
+      }/users?first=${pagination.currentPage * pagination.itemsPerPage}&max=${
+        pagination.itemsPerPage
+      }`,
       {
         headers: {
           Authorization: `Bearer ${keycloak.token}`,
@@ -157,7 +161,7 @@ class ManageusersTableContainer extends Component {
       })
       .then(response => {
         if (hasAccess) {
-          fetch(`${keycloakUrl}/auth/admin/realms/${realm}/users`, {
+          fetch(`${keycloak.authServerUrl}/admin/realms/${keycloak.realm}/users`, {
             headers: {
               Authorization: `Bearer ${keycloak.token}`,
             },
@@ -412,8 +416,6 @@ ManageusersTableContainer.propTypes = {
     itemsPerPage: PropTypes.number,
   }),
   serviceUrl: PropTypes.string,
-  keycloakUrl: PropTypes.string,
-  realm: PropTypes.string,
 };
 
 ManageusersTableContainer.defaultProps = {
@@ -423,8 +425,6 @@ ManageusersTableContainer.defaultProps = {
   paginationMode: '',
   pagination: null,
   serviceUrl: '',
-  keycloakUrl: '',
-  realm: '',
 };
 
 export default withKeycloak(

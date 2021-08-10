@@ -2,13 +2,19 @@
 
 With this configuration, you can use the ent cli (https://dev.entando.org/next/docs/reference/entando-cli.html) to perform the full deployment sequence:
 
-1. `cp -r bundle_src bundle` (this is only needed the first time in a local env unless the bundle dir is removed)
-2. `ent prj init`
-3. `ent prj fe-build -a` (build the frontend, including changes from bundle_src)
-4. `ent prj pbs-init` (requires the git bundle repo url)
-5. `ent prj fe-push` (publish all or just the frontend)
-6. For a local Entando installation: `ent prj deploy`
-7. Install the bundle using `ent prj install` or the App Builder.
+Setup the project directory
+
+1. Prepare the bundle directory: `cp -r bundle_src bundle`
+2. Initialize the project: `ent prj init`
+3. Initialize publication: `ent prj pbs-init` (requires the git bundle repo url)
+
+Publish the bundle.
+
+1. Build: `ent prj fe-build -a` (build the frontend, including changes from bundle_src)
+2. Publish: `ent prj fe-push`
+3. Deploy (after connecting to k8s): `ent prj deploy`
+4. Install the bundle via 1) App Builder, 2) `ent prj install`, or 3) `ent prj install --conflict-strategy=OVERRIDE` on subsequent installs.
+5. Iterate steps 1-4.
 
 # manageusers
 

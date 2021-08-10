@@ -138,10 +138,7 @@ class ManageusersTableElement extends HTMLElement {
     setLocale(locale);
 
     const paginationMode = this.getAttribute(ATTRIBUTES.paginationMode) || '';
-
     const serviceUrl = this.getAttribute(ATTRIBUTES.serviceUrl) || '';
-    const keycloakUrl = this.getAttribute(ATTRIBUTES.keycloakUrl) || '';
-    const realm = this.getAttribute(ATTRIBUTES.realm) || '';
 
     const disableEventHandler = this.getAttribute(ATTRIBUTES.disableDefaultEventHandler) === 'true';
     if (!disableEventHandler) {
@@ -173,8 +170,6 @@ class ManageusersTableElement extends HTMLElement {
                 onError={this.onError}
                 paginationMode={paginationMode}
                 serviceUrl={serviceUrl}
-                keycloakUrl={keycloakUrl}
-                realm={realm}
               />
             </PaginationProvider>
           </ThemeProvider>
@@ -185,5 +180,6 @@ class ManageusersTableElement extends HTMLElement {
   }
 }
 
-customElements.get('sd-manage-users') ||
+if (!customElements.get('sd-manage-users')) {
   customElements.define('sd-manage-users', ManageusersTableElement);
+}
