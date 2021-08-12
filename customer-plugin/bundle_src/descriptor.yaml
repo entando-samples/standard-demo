@@ -1,0 +1,10 @@
+code: sd-customer
+description: Standard Demo Customer
+
+components:
+  plugins:
+    - plugins/customer-descriptor.yaml
+
+  widgets:
+    - ui/widgets/user/formWidget/user-form-descriptor.yaml
+  # entando-needle-descriptor-add-widgets - Entando blueprint will add widget bundle files here

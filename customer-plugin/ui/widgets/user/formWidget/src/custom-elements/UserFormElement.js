@@ -194,4 +194,6 @@ class UserFormElement extends HTMLElement {
   }
 }
 
-customElements.define('user-form', UserFormElement);
+if (!customElements.get('sd-user-form')) {
+  customElements.define('sd-user-form', UserFormElement);
+}

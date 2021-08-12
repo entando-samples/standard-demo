@@ -1,0 +1,6 @@
+code: sd-user-form
+titles:
+    en: Signup
+    it: Registrazione
+group: free
+customUiPath: user-form.ftl
