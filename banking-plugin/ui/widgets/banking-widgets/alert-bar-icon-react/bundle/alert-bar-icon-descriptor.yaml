@@ -1,0 +1,10 @@
+code: sd-alert-bar-icon
+titles:
+  en: Alert Icon
+  it: Icona di avviso
+group: free
+customUiPath: alert-bar-icon.ftl
+configUi:
+  customElement: alert-bar-icon-config
+  resources:
+# entando_resource_injection_point

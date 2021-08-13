@@ -19,7 +19,7 @@ const ATTRIBUTES = {
   title: 'title',
 };
 
-class ListItem extends HTMLElement {
+class AlertBarIcon extends HTMLElement {
   constructor(...args) {
     super(...args);
 
@@ -77,6 +77,6 @@ class ListItem extends HTMLElement {
   }
 }
 
-customElements.define('list-item', ListItem);
-
-export default ListItem;
+if (!customElements.get('sd-alert-bar-icon')) {
+  customElements.define('sd-alert-bar-icon', AlertBarIcon);
+}

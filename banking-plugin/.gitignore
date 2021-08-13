@@ -149,5 +149,7 @@ Desktop.ini
 ######################
 # Entando bundles
 ######################
-bundle/
-# !/bundle/descriptor.yaml
+/bundle/
+
+########
+.ent/ent-state

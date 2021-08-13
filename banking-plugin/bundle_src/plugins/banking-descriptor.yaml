@@ -1,0 +1,8 @@
+name: sd-banking
+image: 'docker.io/entandodemo/banking:0.0.18'
+dbms: none
+healthCheckPath: /management/health
+ingressPath: /banking
+roles:
+    - task-list
+permissions: []
