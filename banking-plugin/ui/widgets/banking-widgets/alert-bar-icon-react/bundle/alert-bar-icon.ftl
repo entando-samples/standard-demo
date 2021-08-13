@@ -5,5 +5,4 @@
 <@wp.info key="currentLang" var="currentLangVar" />
 <@wp.currentWidget param="config" configParam="icon" var="iconString"/>
 <@wp.currentWidget param="config" configParam="title" var="titleString"/>
-<@wp.currentWidget param="config" configParam="count" var="countNumber"/>
 <sd-alert-bar-icon locale="${currentLangVar}" icon="${iconString}" title="${titleString}"/>

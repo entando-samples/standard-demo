@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {svgTypes} from '../../assets/svg/svg'
 
 class AlertBarIconConfig extends Component {
   constructor(props) {
@@ -21,13 +22,19 @@ class AlertBarIconConfig extends Component {
     return (
       <div>
         <h1>Alert Bar Icon Configuration</h1>
-
-        <label htmlFor="icon">Icon</label>
-        {/*TODO: add the select options from the icon list*/}
-        <input id="icon" onChange={e => this.handleChange(e)} value={icon} />
-
-        <label htmlFor="title">Title (String)</label>
-        <input id="title" onChange={e => this.handleChange(e)} value={title} />
+        <div>
+          <label htmlFor="icon">Icon</label>
+          <select name="icon" value={icon} onChange={e => this.handleChange(e)}>
+            <option value="">Select a value</option>
+            {Object.entries(svgTypes).map( item => (
+              <option key={item[0]}value={item[0]}>{item[[0]]}</option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label htmlFor="title">Title (String)</label>
+          <input id="title" value={title} type="text" onChange={e => this.handleChange(e)}  />
+        </div>
       </div>
     );
   }

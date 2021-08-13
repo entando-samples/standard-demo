@@ -5,6 +5,6 @@ titles:
 group: free
 customUiPath: alert-bar-icon.ftl
 configUi:
-  customElement: alert-bar-icon-config
+  customElement: sd-alert-bar-icon-config
   resources:
 # entando_resource_injection_point

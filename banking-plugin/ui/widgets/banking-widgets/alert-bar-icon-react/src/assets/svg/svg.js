@@ -5,7 +5,7 @@ import sendmoney from 'assets/svg/sendmoney.svg';
 import transfermoney from 'assets/svg/transfermoney.svg';
 import viewstatements from 'assets/svg/viewstatements.svg';
 
-const svgTypes = {
+export const svgTypes = {
   investments: 'investments',
   managealerts: 'managealerts',
   paybills: 'paybills',
