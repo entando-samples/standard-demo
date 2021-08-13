@@ -62,6 +62,7 @@ class MyTable extends React.PureComponent {
                   key={d.id}
                   onClick={() => {
                     this.handleFileRead(d);
+                    //TODO: there's a current bug with the routing which prevents this from working in production mode in Entando
                     window.open(Pdf, '_blank');
                     // toggleModal()
                   }}

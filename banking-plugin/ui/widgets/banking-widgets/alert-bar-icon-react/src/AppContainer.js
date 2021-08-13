@@ -52,7 +52,7 @@ class AppContainer extends React.PureComponent {
   }
 
   onMount = () => {
-    const { icon, onError, t, keycloak } = this.props;
+    const { icon, onError, t, keycloak, serviceUrl } = this.props;
     const { descriptionFilter, rangeFilter } = this.state;
     const apiCall = getApiContext(icon);
     const authenticated = keycloak.initialized && keycloak.authenticated;
@@ -99,7 +99,7 @@ class AppContainer extends React.PureComponent {
 
     if (authenticated) {
       if (userId) {
-        apiCall(requestParameters)
+        apiCall(serviceUrl, requestParameters)
           .then(response => {
             const { data } = response;
             const sortData = data.slice().sort((a, b) => {
@@ -152,10 +152,10 @@ class AppContainer extends React.PureComponent {
   }
 
   async putDocumentRead(document) {
-    const { icon, t } = this.props;
+    const { icon, t, serviceUrl } = this.props;
     const apiCall = putApiContext(icon);
     try {
-      const updated = await apiCall(document);
+      const updated = await apiCall(serviceUrl, document);
       if (updated) this.onMount();
     } catch (e) {
       this.setState({

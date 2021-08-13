@@ -1,5 +1,3 @@
-import { DOMAIN } from 'api/constants';
-
 const getKeycloakToken = () => {
   if (
     window &&
@@ -62,13 +60,12 @@ const getUrl = (url, filters = '', pagination = '') => {
   return `${url}${hasQuery ? `?${parameters}` : ''}`;
 };
 
-export const apiAlertsGet = async ({ filters = [], pagination }) => {
-  // const { userId } = params;
+export const apiAlertsGet = async (serviceUrl, { filters = [], pagination }) => {
   const filterQuery = getFilterQuery(filters);
   const paginationQuery = pagination
     ? `page=${pagination.page}&size=${pagination.rowsPerPage}`
     : '';
-  const url = getUrl(`${DOMAIN}/${resource}`, filterQuery, paginationQuery);
+  const url = getUrl(`${serviceUrl}/${resource}`, filterQuery, paginationQuery);
   const options = {
     ...getDefaultOptions(),
     method: 'GET',
@@ -76,8 +73,8 @@ export const apiAlertsGet = async ({ filters = [], pagination }) => {
   return request(url, options);
 };
 
-export const apiAlertsPut = async statement => {
-  const url = `${DOMAIN}/${resource}`;
+export const apiAlertsPut = async (serviceUrl, statement) => {
+  const url = `${serviceUrl}/${resource}`;
   const options = {
     ...getDefaultOptions(),
     method: 'PUT',

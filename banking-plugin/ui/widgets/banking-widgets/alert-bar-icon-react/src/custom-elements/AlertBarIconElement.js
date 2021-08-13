@@ -17,9 +17,10 @@ const getKeycloakInstance = () =>
 const ATTRIBUTES = {
   icon: 'icon',
   title: 'title',
+  serviceUrl: 'service-url',
 };
 
-class AlertBarIcon extends HTMLElement {
+class AlertBarIconElement extends HTMLElement {
   constructor(...args) {
     super(...args);
 
@@ -59,12 +60,13 @@ class AlertBarIcon extends HTMLElement {
   }
 
   render() {
+    const serviceUrl = this.getAttribute(ATTRIBUTES.serviceUrl);
     const icon = this.getAttribute(ATTRIBUTES.icon);
     const title = this.getAttribute(ATTRIBUTES.title);
 
     ReactDOM.render(
       <KeycloakContext.Provider value={this.keycloak}>
-        <AppContainer icon={icon} title={title} />
+        <AppContainer serviceUrl={serviceUrl} icon={icon} title={title} />
       </KeycloakContext.Provider>,
       this.mountPoint
     );
@@ -78,5 +80,5 @@ class AlertBarIcon extends HTMLElement {
 }
 
 if (!customElements.get('sd-alert-bar-icon')) {
-  customElements.define('sd-alert-bar-icon', AlertBarIcon);
+  customElements.define('sd-alert-bar-icon', AlertBarIconElement);
 }
