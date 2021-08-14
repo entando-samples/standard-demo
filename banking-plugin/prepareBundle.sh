@@ -97,6 +97,30 @@ function updateFTLTemplate() {
     echo ""
     echo "> Updating ${widgetName} micro-frontend resources for $dir"
 
+    #CUSTOM START
+    # JS resources
+    for jspath in "$dir"/resources/static/js/*.js;
+    do
+        # This moves the referenced file to the top level bundle/resources/static dir for correct processing when loaded
+        jsfile=$(basename "$jspath")
+        cp "$dir/resources/static/js/$jsfile" bundle/resources/static/js/
+
+        js_resources=${js_resources}"<script src=\"<@wp.resourceURL />${bundleCode}/static/js/${jsfile}\"></script>$_NL"
+        config_ui_resources=${config_ui_resources}"    - ${bundleCode}/static/js/${jsfile}$_NL"
+    done
+
+    # CSS resources
+    for csspath in "$dir"/resources/static/css/*.css;
+    do
+        # This moves the referenced file to the top level ${output_dir}/resources/static dir for correct processing when loaded
+        cssfile=$(basename "$csspath")
+        cp "$dir/resources/static/css/$cssfile" bundle/resources/static/css/
+
+        css_resources=${css_resources}"<link href=\"<@wp.resourceURL />${bundleCode}/static/css/${cssfile}\" rel=\"stylesheet\">$_NL"
+    done
+
+    # Inject resources on ftl files
+    echo "- Injecting resources for FTL files"
     for ftlName in "$dir"/*.ftl;
     do
         [ -e "$ftlName" ] || continue
@@ -106,42 +130,18 @@ function updateFTLTemplate() {
             sedReplace "s|service-url=\".*\"|service-url=\"$ingressPath\"|g" "$ftlName"
         fi
 
-        #For every JS file add a script reference in the widget FTL
-        for jspath in "$dir"/resources/static/js/*.js;
-        do
-            # This moves the referenced file to the top level bundle/resources/static dir for correct processing when loaded
-            jsfile=$(basename "$jspath")
-
-            cp "$dir/resources/static/js/$jsfile" bundle/resources/static/js/
-            resource="<script src=\"<@wp.resourceURL />${bundleCode}/static/js/${jsfile}\"></script>"
-            #CUSTOM START - collect the js resources for injection into configUI as well
-            config_ui_resources=${config_ui_resources}"    - ${BUNDLE_NAME}/static/js/${jsfile}$_NL"
-            #CUSTOM END
-            injectResource "$resource" "$ftlName" "$INJECTION_POINT"
-        done
-
-        # For every CSS file add a script reference in the widget FTL
-        for csspath in "$dir"/resources/static/css/*.css;
-        do
-
-          # This moves the referenced file to the top level bundle/resources/static dir for correct processing when loaded
-          cssfile=$(basename "$csspath")
-
-          cp "$dir/resources/static/css/$cssfile" bundle/resources/static/css/
-          resource="<link href=\"<@wp.resourceURL />${bundleCode}/static/css/${cssfile}\" rel=\"stylesheet\">"
-          injectResource "$resource" "$ftlName" "$INJECTION_POINT"
-        done
+        injectResource "$js_resources" "$ftlName" "$INJECTION_POINT"
+        injectResource "$css_resources" "$ftlName" "$INJECTION_POINT"
     done
 
-    #CUSTOM START - also inject resources for config UI
     # Inject resources on descriptor files
     echo "- Injecting resources for config UI"
     for descriptorName in "$dir"/*.yaml;
     do
         injectResource "$config_ui_resources" "$descriptorName" "$INJECTION_POINT_CONFIG"
     done
-    #CUSTOM END
 
+    #CUSTOM END
 
     #Cleanup the resources that were copied into the widget folders specifically. They are now copied into the main bundle folder
     echo ""
