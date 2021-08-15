@@ -5,4 +5,4 @@
 <@wp.info key="currentLang" var="currentLangVar" />
 <@wp.currentWidget param="config" configParam="icon" var="iconString"/>
 <@wp.currentWidget param="config" configParam="title" var="titleString"/>
-<sd-alert-bar-icon locale="${currentLangVar}" icon="${iconString}" title="${titleString}"/>
+<sd-alert-bar-icon service-url="/banking/api" locale="${currentLangVar}" icon="${iconString}" title="${titleString}"/>
