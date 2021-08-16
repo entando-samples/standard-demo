@@ -72,13 +72,10 @@ class SeedscardDetailsElement extends HTMLElement {
       this.dispatchEvent(customEvent);
     };
 
-    const ReactComponent = React.createElement(SeedscardDetailsContainer, {
-      cardname,
-      onError,
-      onDetail: this.onDetail,
-    });
     ReactDOM.render(
-      <KeycloakContext.Provider value={this.keycloak}>{ReactComponent}</KeycloakContext.Provider>,
+      <KeycloakContext.Provider value={this.keycloak}>
+        <SeedscardDetailsContainer cardname={cardname} onError={onError} onDetail={this.onDetail} />
+      </KeycloakContext.Provider>,
       this.mountPoint
     );
   }
