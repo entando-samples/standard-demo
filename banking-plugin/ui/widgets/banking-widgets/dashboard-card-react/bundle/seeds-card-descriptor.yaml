@@ -4,7 +4,7 @@ titles:
     it: Seeds Card
 group: free
 customUiPath: seeds-card.ftl
-#configUi:
-#  customElement: sd-seeds-card-config
-#  resources:
-# TBD entando_resource_injection_point
+configUi:
+  customElement: sd-seeds-card-config
+  resources:
+# entando_resource_injection_point
