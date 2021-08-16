@@ -1,7 +1,7 @@
 code: sd-seeds-card
 titles:
-    en: Seeds Card
-    it: Seeds Card
+    en: SD Seeds Card
+    it: SD Seeds Card
 group: free
 customUiPath: seeds-card.ftl
 configUi:
