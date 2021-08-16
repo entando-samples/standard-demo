@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  domainUrl: 'http://localhost:8081/services',
+  domainUrl: 'http://localhost:8081',
   assetsPath: 'assets'
 };
 

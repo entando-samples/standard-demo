@@ -39,6 +39,6 @@ export class AppModule {
 
   ngDoBootstrap() {
     const el = createCustomElement(AppComponent, { injector: this.injector });
-    customElements.define('ng-seedscard-details', el);
+    customElements.define('sd-seeds-card-details-ng', el);
   }
 }
