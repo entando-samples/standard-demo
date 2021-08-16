@@ -7,5 +7,5 @@ components:
 
   widgets:
     - ui/widgets/banking-widgets/alert-bar-icon-react/alert-bar-icon-descriptor.yaml
-    - ui/widgets/dashboard-card-react/seeds-card-descriptor.yaml
+    - ui/widgets/banking-widgets/dashboard-card-react/seeds-card-descriptor.yaml
   # entando-needle-descriptor-add-widgets - Entando blueprint will add widget bundle files here
