@@ -1,0 +1,10 @@
+code: sd-seeds-card
+titles:
+    en: Seeds Card
+    it: Seeds Card
+group: free
+customUiPath: seeds-card.ftl
+#configUi:
+#  customElement: sd-seeds-card-config
+#  resources:
+# TBD entando_resource_injection_point
