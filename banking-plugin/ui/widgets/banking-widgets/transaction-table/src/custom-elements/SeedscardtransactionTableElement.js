@@ -186,5 +186,6 @@ class SeedscardtransactionTableElement extends HTMLElement {
     );
   }
 }
-
-customElements.define('seedscardtransaction-table', SeedscardtransactionTableElement);
+if (!customElements.get('sd-seeds-card-transaction-table')) {
+  customElements.define('sd-seeds-card-transaction-table', SeedscardtransactionTableElement);
+}
