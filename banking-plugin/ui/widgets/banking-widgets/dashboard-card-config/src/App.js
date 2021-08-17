@@ -24,11 +24,16 @@ class App extends Component {
         </h1>
         {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
         <label htmlFor="cardname">Card name</label>
-        <input
-          id="cardname"
-          onChange={e => this.handleCardChange(e.target.value)}
+        <select
+          name="cardname"
           value={cardname}
-        />
+          onChange={e => this.handleCardChange(e.target.value)}
+        >
+          <option value="">Select a value</option>
+          <option value="checking">Checking</option>
+          <option value="creditcard">Credit Card</option>
+          <option value="saving">Savings</option>
+        </select>
       </div>
     );
   }

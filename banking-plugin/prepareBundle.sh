@@ -37,6 +37,7 @@ function syncResources() {
     elif [ -d "$widgetFolder/dist" ]; then
         local widgetName="$(echo $widgetFolder | cut -d/ -f4-)"
         echo "- Copying bundle static resources for angular widget $widgetName"
+        rm -rf "bundle/resources/static/$widgetName"
         syncFiles "$widgetFolder/dist/$widgetName" "bundle/resources/static/$widgetName" 2>/dev/null
         syncFiles "$widgetFolder/dist/$widgetName" "bundle/$widgetFolder/resources" 2>/dev/null
     #CUSTOM END

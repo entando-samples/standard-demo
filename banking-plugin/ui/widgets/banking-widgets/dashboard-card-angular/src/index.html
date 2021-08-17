@@ -11,25 +11,24 @@
     <script>
       const onLoad = (function() {
         function createKcDispatcher(payload) {
-          return () =>
-            window.dispatchEvent(new CustomEvent('keycloak', { detail: payload }));
+          return () => window.dispatchEvent(new CustomEvent('keycloak', { detail: payload }));
         }
 
         function initKeycloak() {
           const keycloak = Keycloak({
-            url: "http://localhost:9080/auth",
-            realm: "jhipster",
-            clientId: "web_app",
+            url: 'http://localhost:9080/auth',
+            realm: 'jhipster',
+            clientId: 'web_app'
           });
 
           keycloak.onReady = createKcDispatcher({ eventType: 'onReady' });
           keycloak.onAuthSuccess = createKcDispatcher({ eventType: 'onAuthSuccess' });
           keycloak.onAuthError = createKcDispatcher({ eventType: 'onAuthError' });
           keycloak.onAuthRefreshSuccess = createKcDispatcher({
-            eventType: 'onAuthRefreshSuccess',
+            eventType: 'onAuthRefreshSuccess'
           });
           keycloak.onAuthRefreshError = createKcDispatcher({
-            eventType: 'onAuthRefreshError',
+            eventType: 'onAuthRefreshError'
           });
           keycloak.onAuthLogout = createKcDispatcher({ eventType: 'onAuthLogout' });
           keycloak.onTokenExpired = createKcDispatcher({ eventType: 'onTokenExpired' });
@@ -37,26 +36,22 @@
 
           window.entando = {
             ...(window.entando || {}),
-            keycloak,
+            keycloak
           };
 
           //If you are locally running the widget in isolation and you are not logged in,
           //you are automatically redirected to keycloak login page to speed up development.
 
-          const onLoad =
-            window.location.hostname === 'localhost' ? 'login-required' : 'check-sso';
-          const silentCheckSsoRedirectUri =
-            window.location.origin + '/silent-check-sso.html';
+          const onLoad = window.location.hostname === 'localhost' ? 'login-required' : 'check-sso';
+          const silentCheckSsoRedirectUri = window.location.origin + '/silent-check-sso.html';
 
-          window.entando.keycloak
-            .init({ onLoad, silentCheckSsoRedirectUri })
-            .success(onInit);
+          window.entando.keycloak.init({ onLoad, silentCheckSsoRedirectUri }).success(onInit);
         }
         return initKeycloak;
       })();
     </script>
   </head>
   <body onLoad="onLoad();">
-    <sd-seeds-card-details-ng cardname="savings"/>
+    <sd-seeds-card-details-ng cardname="checking" />
   </body>
 </html>

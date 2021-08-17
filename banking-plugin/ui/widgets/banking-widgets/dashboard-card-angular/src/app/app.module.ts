@@ -20,25 +20,27 @@ export function init(appInitializerService: AppInitializerService) {
     HttpClientModule,
     PipesModule,
     TranslateModule.forRoot({
-      defaultLanguage: 'en',
-    }),
+      defaultLanguage: 'en'
+    })
   ],
   providers: [
     {
       provide: APP_INITIALIZER,
       useFactory: init,
       deps: [AppInitializerService],
-      multi: true,
+      multi: true
     },
-    { provide: HTTP_INTERCEPTORS, useClass: SecurityInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: SecurityInterceptor, multi: true }
   ],
-  entryComponents: [AppComponent],
+  entryComponents: [AppComponent]
 })
 export class AppModule {
   constructor(private injector: Injector) {}
 
   ngDoBootstrap() {
-    const el = createCustomElement(AppComponent, { injector: this.injector });
-    customElements.define('sd-seeds-card-details-ng', el);
+    if (!customElements.get('sd-seeds-card-details-ng')) {
+      const el = createCustomElement(AppComponent, { injector: this.injector });
+      customElements.define('sd-seeds-card-details-ng', el);
+    }
   }
 }

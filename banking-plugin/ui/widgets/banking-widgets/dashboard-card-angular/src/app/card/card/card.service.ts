@@ -17,7 +17,7 @@ export class CardService {
   }
 
   getSeedsCardByUserID(userID, cardName) {
-    const url = `${environment.domainUrl}/banking/api/${cardName}/user/${userID}`;
+    const url = `${environment.domainUrl}/banking/api/${cardName}s/user/${userID}`;
     return this.httpClient.get<SeedCard>(url);
   }
 }
