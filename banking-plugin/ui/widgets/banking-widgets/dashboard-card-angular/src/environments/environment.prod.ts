@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
   domainUrl: '',
-  assetsPath: '/entando-de-app/cmsresources/standard-demo/widgets/seeds-card-ng/assets'
+  assetsPath: '/entando-de-app/cmsresources/sd-banking/static/dashboard-card-angular/assets'
 };

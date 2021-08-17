@@ -124,10 +124,17 @@ function updateFTLTemplate() {
     # Handle Angular-style build
     elif [ -d "$dir/resources/$widgetName" ]; then
         # JS resources
-        for jspath in "$dir"/resources/"$widgetName"/*-es2015.js;
+        for jspath in "$dir"/resources/"$widgetName"/*.js;
         do
             jsfile=$(basename "$jspath")
             js_resources=${js_resources}"<script src=\"<@wp.resourceURL />${bundleCode}/static/${widgetName}/${jsfile}\"></script>$_NL"
+        done
+
+        # CSS resources
+        for csspath in "$dir"/resources/"$widgetName"/*.css;
+        do
+            cssfile=$(basename "$csspath")
+            css_resources=${css_resources}"<link href=\"<@wp.resourceURL />${bundleCode}/static/${widgetName}/${cssfile}\" rel=\"stylesheet\">$_NL"
         done
     else
         echo " > Unidentified folder type found for $dir"
@@ -159,7 +166,7 @@ function updateFTLTemplate() {
 
     #Cleanup the resources that were copied into the widget folders specifically. They are now copied into the main bundle folder
     echo ""
-    echo "> Cleaning temporary resource folders"
+    echo "> Cleaning temporary resource folders - $dir/resources"
     rm -rvf "$dir/resources"
     shopt -u nullglob
 }
