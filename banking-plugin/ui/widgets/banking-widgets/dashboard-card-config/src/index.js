@@ -1,2 +1,2 @@
 import './index.css';
-import './WidgetElement';
+import './SeedsCardConfigElement';

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
-class WidgetElement extends HTMLElement {
+class SeedsCardConfigElement extends HTMLElement {
   constructor() {
     super();
     this.reactRoofRef = React.createRef();
@@ -24,6 +24,6 @@ class WidgetElement extends HTMLElement {
   }
 }
 
-customElements.define('seeds-card-config', WidgetElement);
-
-export default WidgetElement;
+if (!customElements.get('sd-seeds-card-config')) {
+  customElements.define('sd-seeds-card-config', SeedsCardConfigElement);
+}

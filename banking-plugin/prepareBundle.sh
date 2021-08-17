@@ -112,7 +112,10 @@ function updateFTLTemplate() {
         do
             jsfile=$(basename "$jspath")
             js_resources=${js_resources}"<script src=\"<@wp.resourceURL />${bundleCode}/static/js/${jsfile}\"></script>$_NL"
-            config_ui_resources=${config_ui_resources}"    - ${bundleCode}/static/js/${jsfile}$_NL"
+            #SPECIAL Skip config_ui for the dashboard-card-react since it has a shared MFE for config
+            if [ "$widgetName" != "dashboard-card-react" ]; then
+                config_ui_resources=${config_ui_resources}"    - ${bundleCode}/static/js/${jsfile}$_NL"
+            fi
         done
 
         # CSS resources
@@ -137,8 +140,20 @@ function updateFTLTemplate() {
             css_resources=${css_resources}"<link href=\"<@wp.resourceURL />${bundleCode}/static/${widgetName}/${cssfile}\" rel=\"stylesheet\">$_NL"
         done
     else
-        echo " > Unidentified folder type found for $dir"
+        echo " > No build files found for $dir"
     fi
+
+    #SPECIAL START Set the configUI using the dashboard-card-config app
+    if [ "$widgetName" == "dashboard-card-angular" ] || [ "$widgetName" == "dashboard-card-react" ]; then
+        echo "Adding config UI resources for $widgetName"
+        # JS resources - use the full path since the temporary bundle resources are already removed
+        for jspath in ui/widgets/banking-widgets/dashboard-card-config/build/static/js/*.js;
+        do
+            jsfile=$(basename "$jspath")
+            config_ui_resources=${config_ui_resources}"    - ${bundleCode}/static/js/${jsfile}$_NL"
+        done
+    fi
+    #SPECIAL END
 
     # Inject resources on ftl files
     echo "- Injecting resources for FTL files"
