@@ -33,6 +33,13 @@ function syncResources() {
         echo "- Copying bundle static resources"
         syncFiles "$widgetFolder/build/static" bundle/resources 2>/dev/null
         syncFiles "$widgetFolder/build/static" "bundle/$widgetFolder/resources" 2>/dev/null
+    #CUSTOM START - add bundle support for angular, expecting a dist folder with folder matching the widget name
+    elif [ -d "$widgetFolder/dist" ]; then
+        local widgetName="$(echo $widgetFolder | cut -d/ -f4-)"
+        echo "- Copying bundle static resources for angular widget $widgetName"
+        syncFiles "$widgetFolder/dist/$widgetName" "bundle/resources/static/$widgetName" 2>/dev/null
+        syncFiles "$widgetFolder/dist/$widgetName" "bundle/$widgetFolder/resources" 2>/dev/null
+    #CUSTOM END
     else
         echo " > no build/static folder found for $widgetFolder"
     fi
@@ -98,26 +105,33 @@ function updateFTLTemplate() {
     echo "> Updating ${widgetName} micro-frontend resources for $dir"
 
     #CUSTOM START
-    # JS resources
-    for jspath in "$dir"/resources/static/js/*.js;
-    do
-        # This moves the referenced file to the top level bundle/resources/static dir for correct processing when loaded
-        jsfile=$(basename "$jspath")
-        cp "$dir/resources/static/js/$jsfile" bundle/resources/static/js/
+    # Handle React-style build
+    if [ -d "$dir/resources/static" ]; then
+        # JS resources
+        for jspath in "$dir"/resources/static/js/*.js;
+        do
+            jsfile=$(basename "$jspath")
+            js_resources=${js_resources}"<script src=\"<@wp.resourceURL />${bundleCode}/static/js/${jsfile}\"></script>$_NL"
+            config_ui_resources=${config_ui_resources}"    - ${bundleCode}/static/js/${jsfile}$_NL"
+        done
 
-        js_resources=${js_resources}"<script src=\"<@wp.resourceURL />${bundleCode}/static/js/${jsfile}\"></script>$_NL"
-        config_ui_resources=${config_ui_resources}"    - ${bundleCode}/static/js/${jsfile}$_NL"
-    done
-
-    # CSS resources
-    for csspath in "$dir"/resources/static/css/*.css;
-    do
-        # This moves the referenced file to the top level ${output_dir}/resources/static dir for correct processing when loaded
-        cssfile=$(basename "$csspath")
-        cp "$dir/resources/static/css/$cssfile" bundle/resources/static/css/
-
-        css_resources=${css_resources}"<link href=\"<@wp.resourceURL />${bundleCode}/static/css/${cssfile}\" rel=\"stylesheet\">$_NL"
-    done
+        # CSS resources
+        for csspath in "$dir"/resources/static/css/*.css;
+        do
+            cssfile=$(basename "$csspath")
+            css_resources=${css_resources}"<link href=\"<@wp.resourceURL />${bundleCode}/static/css/${cssfile}\" rel=\"stylesheet\">$_NL"
+        done
+    # Handle Angular-style build
+    elif [ -d "$dir/resources/$widgetName" ]; then
+        # JS resources
+        for jspath in "$dir"/resources/"$widgetName"/*-es2015.js;
+        do
+            jsfile=$(basename "$jspath")
+            js_resources=${js_resources}"<script src=\"<@wp.resourceURL />${bundleCode}/static/${widgetName}/${jsfile}\"></script>$_NL"
+        done
+    else
+        echo " > Unidentified folder type found for $dir"
+    fi
 
     # Inject resources on ftl files
     echo "- Injecting resources for FTL files"
@@ -148,7 +162,6 @@ function updateFTLTemplate() {
     echo "> Cleaning temporary resource folders"
     rm -rvf "$dir/resources"
     shopt -u nullglob
-
 }
 
 export -f sedReplace
