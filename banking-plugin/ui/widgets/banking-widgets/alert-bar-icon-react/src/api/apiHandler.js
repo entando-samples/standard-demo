@@ -18,6 +18,7 @@ export const getApiContext = apiToCall => {
       break;
     }
     default: {
+      console.warn(`Unknown/unsupported api configured: ${apiToCall}`)
       api = new Error(`Error! Unknown api :${apiToCall}`);
     }
   }
