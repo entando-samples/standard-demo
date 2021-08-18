@@ -1,0 +1,49 @@
+id: SDB85
+typeCode: SDB
+description: Credit light green
+mainGroup: free
+status: PUBLIC
+attributes:
+  - code: title
+    value: null
+    values:
+      en: '20,000 Bonus points'
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: subtitle
+    value: null
+    values:
+      en: |-
+        When you spend $1,000 in purchases in the first 3 months.
+        Reward points can be redeemed for airfare, hotels, car rentals, cruises and gift cards to popular retailers.
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: descr
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: img
+    value: null
+    values:
+      en:
+        correlationCode: '86'
+        name: Framepresent.png
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: link
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: accord
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}

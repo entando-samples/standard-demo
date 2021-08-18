@@ -1,0 +1,45 @@
+id: MPC625
+typeCode: MPC
+description: Claims
+mainGroup: free
+status: PUBLIC
+#TODO: Disable until categories are available in export/import
+#categories: ["benefits"]
+attributes:
+  - code: title
+    value: null
+    values:
+      en: |
+        <p>Claims</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: subtitle
+    value: null
+    values:
+      en: |
+        <p>Claims can be made online or over the phone and there are no lengthy forms.</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: body
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: image
+    value: null
+    values:
+      en:
+        correlationCode: '626'
+        name: Icon_2.svg
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: links
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}

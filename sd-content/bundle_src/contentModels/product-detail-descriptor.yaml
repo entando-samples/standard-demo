@@ -1,0 +1,67 @@
+id: 108
+contentType: PRD
+description: Product detail
+contentShape: |-
+  <section class="image-on-right detail" style="background:#fff">
+      <div class="content-text-wrapper">
+          <div class="box-centered">
+
+              <div class="category">
+                  #foreach ($contentCategory in $content.getCategories())
+                  $contentCategory.title
+                  #end 
+              </div>
+
+              <h2>$content.title.text</h2>
+
+              <div class="body">
+                  $content.subtitle.text
+              </div>
+
+              #foreach ($item in $content.paragraphs)     
+
+              #if ($item.mtitle.text !="" ) 
+              <div class="mtitle">
+                  $item.mtitle.text
+              </div>
+              #end
+              #if ($item.mbody.text !="" ) 
+              <div class="mbody">
+                  $item.mbody.text
+              </div>
+              #end
+              #if ($item.mimage.text !="" ) 
+              <div class="mimage">
+                  <img src="$item.mimage.getImagePath('0')"  alt="$item.mimage.text">
+              </div>
+              #end
+              #end
+
+              #foreach ($item in $content.links)     
+              <a class="btn btn-dark-green" href="$item.destination" >$item.text</a>
+              #end
+
+              #foreach ($item in $content.attaches)     
+              <a class="btn btn-attaches" href="$item.AttachPath" >$item.text<i class="fas fa-arrow-right"></i></a>
+              #end
+
+          </div>
+      </div>
+      <div class="img-wrapper">
+          <div class="img_right">
+              <figure>
+                  <img src="$content.image.getImagePath('0')" alt="$content.image.text">
+              </figure>
+          </div>
+      </div>
+
+  </section>
+
+  <script>
+
+      $('.category').each(function () {
+          var text = $(this).text();
+          $(this).text(text.replace('My Product', ''));
+      });
+
+  </script>

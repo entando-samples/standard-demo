@@ -1,0 +1,57 @@
+id: MPC614
+typeCode: MPC
+description: Welcome to My Portal
+mainGroup: administrators
+groups:
+  - administrators
+status: PUBLIC
+attributes:
+  - code: title
+    value: null
+    values:
+      en: |
+        <p>Welcome to My Portal</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: subtitle
+    value: null
+    values:
+      en: |
+        <p>Your anytime, anywhere support.</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: body
+    value: null
+    values:
+      en: |
+        <p>My Account provides you with a safe and flexible way to access your products&nbsp; and your personalised information. When you sign in to your Seed Account, you can see and manage your info, activity, security options and privacy preferences.</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: image
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: links
+    value: null
+    values: {}
+    elements:
+      - code: links
+        value:
+          urlDest: null
+          pageDest: products
+          contentDest: null
+          resourceDest: null
+          symbolicDestination: '#!P;products!#'
+          destType: 2
+        values:
+          en: Products
+        elements: []
+        compositeelements: []
+        listelements: {}
+    compositeelements: []
+    listelements: {}

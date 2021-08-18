@@ -1,0 +1,56 @@
+id: MPC608
+typeCode: MPC
+description: Seed Insurance The safety net for your net worth
+mainGroup: free
+status: PUBLIC
+attributes:
+  - code: title
+    value: null
+    values:
+      en: |
+        <p>Seed Insurance The safety net for your net worth</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: subtitle
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: body
+    value: null
+    values:
+      en: |
+        <p>A comprehensive range of insurance products to meet your investment, retirement planning and wealth preservation needs.</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: image
+    value: null
+    values:
+      en:
+        correlationCode: '609'
+        name: Header_Image1_1_d0.png
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: links
+    value: null
+    values: {}
+    elements:
+      - code: links
+        value:
+          urlDest: null
+          pageDest: products
+          contentDest: null
+          resourceDest: null
+          symbolicDestination: '#!P;products!#'
+          destType: 2
+        values:
+          en: Products
+        elements: []
+        compositeelements: []
+        listelements: {}
+    compositeelements: []
+    listelements: {}

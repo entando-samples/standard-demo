@@ -1,0 +1,85 @@
+id: NWS631
+typeCode: SDN
+description: Do debt funds still have a place in an investor’s portfolio?
+mainGroup: free
+status: PUBLIC
+attributes:
+  - code: title
+    value: null
+    values:
+      en: Do debt funds still have a place in an investor’s portfolio?
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: subtitle
+    value: null
+    values:
+      en: |
+        <p>Debt funds are under the spotlight.</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: body
+    value: null
+    values:
+      en: |
+        <p>Do not overestimate the safety of debt funds. Just like any market-linked instrument, they carry the risk inherent in the system.</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: img
+    value: null
+    values:
+      en:
+        correlationCode: '632'
+        name: bank_750xx684385064_d0.jpg
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: links
+    value: null
+    values: {}
+    elements:
+      - code: links
+        value:
+          urlDest: 'http://www.mysite.com/'
+          pageDest: null
+          contentDest: null
+          resourceDest: null
+          symbolicDestination: '#!U;http://www.mysite.com/!#'
+          destType: 1
+        values:
+          en: mio sito
+        elements: []
+        compositeelements: []
+        listelements: {}
+      - code: links
+        value:
+          urlDest: 'http://www.mysite.com/'
+          pageDest: null
+          contentDest: null
+          resourceDest: null
+          symbolicDestination: '#!U;http://www.mysite.com/!#'
+          destType: 1
+        values:
+          en: mio sito 2
+        elements: []
+        compositeelements: []
+        listelements: {}
+    compositeelements: []
+    listelements: {}
+  - code: attaches
+    value: null
+    values: {}
+    elements:
+      - code: attaches
+        value: null
+        values:
+          en:
+            correlationCode: '205'
+            name: Entando_Admin_Console_Overview_4.3.3_EN.pdf
+        elements: []
+        compositeelements: []
+        listelements: {}
+    compositeelements: []
+    listelements: {}

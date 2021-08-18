@@ -1,0 +1,46 @@
+id: MPC584
+typeCode: MPC
+description: 24 Hours Support
+mainGroup: administrators
+groups:
+  - administrators
+status: PUBLIC
+attributes:
+  - code: title
+    value: null
+    values:
+      en: |
+        <p>24 Hours Support</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: subtitle
+    value: null
+    values:
+      en: |
+        <p>Customer service is available 24 hours a day, 7 days a week.<br />
+        Phone calls may be monitored or recorded for quality assurance purposes.</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: body
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: image
+    value: null
+    values:
+      en:
+        correlationCode: '585'
+        name: 24 Hours Support
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: links
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}

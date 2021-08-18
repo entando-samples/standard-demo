@@ -1,0 +1,12 @@
+code: list_item
+titles:
+  en: Alert Icon
+  it: Icona di avviso
+group: free
+customUi: '<#assign wp=JspTaglibs[ "/aps-core"]><link rel="stylesheet" type="text/css" href="<@wp.resourceURL />standard-demo/widgets/list-item/css/main.css"><link rel="stylesheet" type="text/css" href="<@wp.resourceURL />standard-demo/widgets/list-item/css/vendor.css"><script nonce="<@wp.cspNonce />" async src="<@wp.resourceURL />standard-demo/widgets/list-item/js/runtime.js" ></script><script nonce="<@wp.cspNonce />" async src="<@wp.resourceURL />standard-demo/widgets/list-item/js/vendor.js" ></script><script nonce="<@wp.cspNonce />" async src="<@wp.resourceURL />standard-demo/widgets/list-item/js/main.js" ></script><@wp.currentWidget param="config" configParam="icon" var="iconString"/><@wp.currentWidget param="config" configParam="title" var="titleString"/><@wp.currentWidget param="config" configParam="count" var="countNumber"/><list-item icon="${iconString}" title="${titleString}"/>'
+configUi:
+  customElement: list-item-config
+  resources:
+    - standard-demo/widgets/list-item/config/js/runtime.js
+    - standard-demo/widgets/list-item/config/js/vendor.js
+    - standard-demo/widgets/list-item/config/js/main.js

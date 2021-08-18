@@ -1,0 +1,38 @@
+code: credit_card
+parentCode: homepagesd
+titles:
+  en: Credit card
+  it: Carta di credito
+pageModel: seed_home
+ownerGroup: free
+joinGroups: []
+displayedInMenu: true
+seo: false
+charset: utf-8
+status: published
+widgets:
+  - code: Brand-Logo
+    config: null
+    pos: 0
+  - code: Login_buttons
+    config: null
+    pos: 2
+  - code: apply_form_banner
+    config: null
+    pos: 4
+  - code: content_viewer
+    config:
+      modelId: '8'
+      contentId: SDB80
+    pos: 5
+  - code: content_viewer
+    config:
+      modelId: '7'
+      contentId: SDB85
+    pos: 6
+  - code: credit_card_user_apply_form
+    config: null
+    pos: 7
+  - code: footer
+    config: null
+    pos: 12

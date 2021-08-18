@@ -1,0 +1,76 @@
+id: PRD666
+typeCode: PRD
+description: Seed Bikes
+mainGroup: administrators
+groups:
+  - administrators
+status: PUBLIC
+attributes:
+  - code: title
+    value: null
+    values:
+      en: Seed Bikes
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: subtitle
+    value: null
+    values:
+      en: |
+        <p>Seed offers comprehensive Bikes insurance to our valued clients around the globe. You can drive at home or abroad with confidence knowing you and your car are protected.</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: paragraphs
+    value: null
+    values: {}
+    elements:
+      - code: paragraphs
+        value: null
+        values: {}
+        elements: []
+        compositeelements:
+          - code: mbody
+            value: null
+            values:
+              en: |
+                <p>Seed offers comprehensive Bikes insurance to our valued clients around the globe. You can drive at home or abroad with confidence knowing you and your car are protected.</p>
+            elements: []
+            compositeelements: []
+            listelements: {}
+          - code: mimage
+            value: null
+            values: {}
+            elements: []
+            compositeelements: []
+            listelements: {}
+          - code: mtitle
+            value: null
+            values: {}
+            elements: []
+            compositeelements: []
+            listelements: {}
+        listelements: {}
+    compositeelements: []
+    listelements: {}
+  - code: image
+    value: null
+    values:
+      en:
+        correlationCode: '667'
+        name: Seed_Bikes_d0 (1).png
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: links
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: attaches
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}

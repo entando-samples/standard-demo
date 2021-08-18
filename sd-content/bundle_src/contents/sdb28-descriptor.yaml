@@ -1,0 +1,47 @@
+id: SDB28
+typeCode: SDB
+description: Banner with dark green background
+mainGroup: free
+status: PUBLIC
+attributes:
+  - code: title
+    value: null
+    values:
+      en: Financial Health Dashboard
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: subtitle
+    value: null
+    values:
+      en: 'Take charge of your finances. Stay informed of your cash and savings, and know where your money is going so you can invest your money where you want it to go. Seed automatically organizes the data from all of your Seed accounts so you can see how much and where your money is being spent.'
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: descr
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: img
+    value: null
+    values:
+      en:
+        correlationCode: '29'
+        name: dashboard.png
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: link
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: accord
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}

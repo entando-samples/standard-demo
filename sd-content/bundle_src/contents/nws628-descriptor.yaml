@@ -1,0 +1,85 @@
+id: NWS628
+typeCode: SDN
+description: Debt relief for poorest countries could extend beyond 2020
+mainGroup: free
+status: PUBLIC
+attributes:
+  - code: title
+    value: null
+    values:
+      en: Debt relief for poorest countries could extend beyond 2020
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: subtitle
+    value: null
+    values:
+      en: |
+        <p>How to tackle financial stress</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: body
+    value: null
+    values:
+      en: |
+        <p>For many Americans, financial concerns are their number-one stress point. Here are 6 ways to help reduce your money stress and get motivated to take control of your finances.</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: img
+    value: null
+    values:
+      en:
+        correlationCode: '629'
+        name: bank_750xx684385064_d0.jpg
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: links
+    value: null
+    values: {}
+    elements:
+      - code: links
+        value:
+          urlDest: 'http://www.mysite.com/'
+          pageDest: null
+          contentDest: null
+          resourceDest: null
+          symbolicDestination: '#!U;http://www.mysite.com/!#'
+          destType: 1
+        values:
+          en: mio sito
+        elements: []
+        compositeelements: []
+        listelements: {}
+      - code: links
+        value:
+          urlDest: 'http://www.mysite.com/'
+          pageDest: null
+          contentDest: null
+          resourceDest: null
+          symbolicDestination: '#!U;http://www.mysite.com/!#'
+          destType: 1
+        values:
+          en: mio sito 2
+        elements: []
+        compositeelements: []
+        listelements: {}
+    compositeelements: []
+    listelements: {}
+  - code: attaches
+    value: null
+    values: {}
+    elements:
+      - code: attaches
+        value: null
+        values:
+          en:
+            correlationCode: '205'
+            name: Entando_Admin_Console_Overview_4.3.3_EN.pdf
+        elements: []
+        compositeelements: []
+        listelements: {}
+    compositeelements: []
+    listelements: {}

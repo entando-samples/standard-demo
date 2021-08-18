@@ -1,0 +1,80 @@
+code: my_portal
+parentCode: seed_insurances
+titles:
+  en: My Portal
+  it: My Portal
+pageModel: insurance_home
+ownerGroup: administrators
+joinGroups: []
+displayedInMenu: true
+seo: false
+charset: utf-8
+status: published
+widgets:
+  - code: back_to_seed
+    config: null
+    pos: 0
+  - code: search_form
+    config: null
+    pos: 1
+  - code: language_choose
+    config: null
+    pos: 2
+  - code: brand_insurance
+    config: null
+    pos: 3
+  - code: navigation-menu
+    config:
+      navSpec: code(seed_insurances) + code(products) + code(my_portal)
+    pos: 4
+  - code: insurance_login
+    config: null
+    pos: 5
+  - code: Breadcrumb
+    config: null
+    pos: 6
+  - code: content_viewer
+    config:
+      modelId: '101'
+      contentId: MPC614
+    pos: 7
+  - code: content_viewer_list
+    config:
+      userFilters:
+        - categoryCode: products
+          attributeFilter: false
+          key: category
+      modelId: '107'
+      maxElemForItem: '3'
+      filters:
+        - attributeFilter: false
+          key: modified
+          order: DESC
+      title_it: I miei prodotti
+      title_en: My Products
+      categories:
+        - my_product
+      contentType: PRD
+    pos: 9
+  - code: content_viewer
+    config:
+      modelId: '104'
+      contentId: MPC611
+    pos: 10
+  - code: content_viewer_list
+    config:
+      modelId: '103'
+      maxElemForItem: '3'
+      filters:
+        - attributeFilter: false
+          key: modified
+          order: DESC
+      title_it: Servizio Clienti
+      title_en: Customer Service
+      categories:
+        - customer_service
+      contentType: MPC
+    pos: 11
+  - code: footer-insurance
+    config: null
+    pos: 14

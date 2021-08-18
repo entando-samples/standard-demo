@@ -1,0 +1,18 @@
+id: 101
+contentType: MPC
+description: Multi-Purpose Centered
+contentShape: |-
+  <div class="insurance-centered-content" style="background: url($content.image.getImagePath('0'))">
+      <div class="row no-gutters">
+          <div class="text-center col-12">
+              <h2> $content.title.text</h2>
+              <div class="subtitle">$content.subtitle.text</div>
+              <div class="body">$content.body.text</div>
+
+              #foreach ($item in $content.links)     
+              <a class="btn btn-dark-green" href="$item.destination" >$item.text</a>
+              #end
+          </div>
+
+      </div>
+  </div>

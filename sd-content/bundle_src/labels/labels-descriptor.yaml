@@ -1,0 +1,28 @@
+- key: SD_ESLC_LANGUAGE
+  titles:
+    en: Language
+    it: Lingua
+- key: SD_ESLC_LANG_en
+  titles:
+    en: English
+    it: Inglese
+- key: SD_ESLC_LANG_it
+  titles:
+    en: Italian
+    it: Italiano
+- key: SD_GO_SEED_BANK
+  titles:
+    en: GO TO SEED BANK
+    it: TORNA A SEED BANK
+- key: SD_MY_DASHBOARD
+  titles:
+    en: My dashboard
+    it: La mia Dashboard
+- key: SD_STANDARD_DEMO
+  titles:
+    en: Standard Demo
+    it: Standard Demo
+- key: SD_STANDARD_DEMO_INSURANCE
+  titles:
+    en: Standard Demo Insurance
+    it: Standard Demo Insurance

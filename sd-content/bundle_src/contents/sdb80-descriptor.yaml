@@ -1,0 +1,188 @@
+id: SDB80
+typeCode: SDB
+description: Credit & benefits & features
+mainGroup: free
+status: PUBLIC
+attributes:
+  - code: title
+    value: null
+    values:
+      en: Benefits & Features
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: subtitle
+    value: null
+    values:
+      en: 'Benefits & Features '
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: descr
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: img
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: link
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: accord
+    value: null
+    values: {}
+    elements:
+      - code: accord
+        value: null
+        values: {}
+        elements: []
+        compositeelements:
+          - code: headtitle
+            value: null
+            values:
+              en: Earn 3x Points on your Favorite things
+            elements: []
+            compositeelements: []
+            listelements: {}
+          - code: asubtitle
+            value: null
+            values:
+              en: 'Dining, Travel, Groceries, Entainment, Earn points on every purchase'
+            elements: []
+            compositeelements: []
+            listelements: {}
+          - code: idcard
+            value: '1'
+            values: {}
+            elements: []
+            compositeelements: []
+            listelements: {}
+          - code: atitle
+            value: null
+            values:
+              en: Earn 3x Points on your Favorite things
+            elements: []
+            compositeelements: []
+            listelements: {}
+          - code: open
+            value: ''
+            values: {}
+            elements: []
+            compositeelements: []
+            listelements: {}
+          - code: aimg
+            value: null
+            values:
+              en:
+                correlationCode: '81'
+                name: Frame3x.png
+            elements: []
+            compositeelements: []
+            listelements: {}
+        listelements: {}
+      - code: accord
+        value: null
+        values: {}
+        elements: []
+        compositeelements:
+          - code: headtitle
+            value: null
+            values:
+              en: Absolutely No Fees
+            elements: []
+            compositeelements: []
+            listelements: {}
+          - code: asubtitle
+            value: null
+            values:
+              en: 'No annual fees, late payment fees, foreign transaction fees, absolutely no fees.'
+            elements: []
+            compositeelements: []
+            listelements: {}
+          - code: idcard
+            value: '2'
+            values: {}
+            elements: []
+            compositeelements: []
+            listelements: {}
+          - code: atitle
+            value: null
+            values:
+              en: Absolutely No Fees
+            elements: []
+            compositeelements: []
+            listelements: {}
+          - code: open
+            value: ''
+            values: {}
+            elements: []
+            compositeelements: []
+            listelements: {}
+          - code: aimg
+            value: null
+            values:
+              en:
+                correlationCode: '82'
+                name: Framedollar.png
+            elements: []
+            compositeelements: []
+            listelements: {}
+        listelements: {}
+      - code: accord
+        value: null
+        values: {}
+        elements: []
+        compositeelements:
+          - code: headtitle
+            value: null
+            values:
+              en: 24/7 Fraud Protection
+            elements: []
+            compositeelements: []
+            listelements: {}
+          - code: asubtitle
+            value: null
+            values:
+              en: 'Feel secure all day, everyday. Know that all your information is safe and secure.'
+            elements: []
+            compositeelements: []
+            listelements: {}
+          - code: idcard
+            value: '3'
+            values: {}
+            elements: []
+            compositeelements: []
+            listelements: {}
+          - code: atitle
+            value: null
+            values:
+              en: 24/7 Fraud Protection
+            elements: []
+            compositeelements: []
+            listelements: {}
+          - code: open
+            value: ''
+            values: {}
+            elements: []
+            compositeelements: []
+            listelements: {}
+          - code: aimg
+            value: null
+            values:
+              en:
+                correlationCode: '83'
+                name: Frameshield.png
+            elements: []
+            compositeelements: []
+            listelements: {}
+        listelements: {}
+    compositeelements: []
+    listelements: {}

@@ -1,0 +1,38 @@
+id: 105
+contentType: MPC
+description: Multi-Purpose Card Product detail
+contentShape: |-
+  <section class="image-on-right" style="background:#fff">
+      <div class="content-text-wrapper">
+          <div class="box-centered">
+
+              <div class="category">
+                  #foreach ($contentCategory in $content.getCategories())
+                  $contentCategory.title
+                  #end 
+              </div>
+
+              <h2> $content.title.text</h2>
+
+              <div class="body">$content.body.text</div>
+
+              #foreach ($item in $content.links)     
+              <a class="btn btn-dark-green" href="$item.destination" >$item.text</a>
+              #end
+              
+               <a class="btn btn-dark-green" href="$content.getContentOnPageLink('products_detail')&modelId=105" >
+                      $i18n.getLabel("READ_MORE")
+               </a>
+              
+
+          </div>
+      </div>
+      <div class="img-wrapper">
+          <div class="img_right">
+              <figure>
+                  <img src="$content.image.getImagePath('0')" alt="$content.image.text">
+              </figure>
+          </div>
+      </div>
+
+  </section>

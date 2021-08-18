@@ -1,0 +1,85 @@
+id: NWS647
+typeCode: SDN
+description: Fraud and Cyber Security Systems
+mainGroup: free
+status: PUBLIC
+attributes:
+  - code: title
+    value: null
+    values:
+      en: Fraud and Cyber Security Systems
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: subtitle
+    value: null
+    values:
+      en: |
+        <p>New threats emerge every day that can negatively impact transactions and businesses</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: body
+    value: null
+    values:
+      en: |
+        <p>What&#39;s your best defense? A good offense. Rely on the latest insights, solutions and technology to protect yourselves against criminal activity. Please contact your BofA representative anytime to discuss how we can help you do business in safe way.</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: img
+    value: null
+    values:
+      en:
+        correlationCode: '648'
+        name: unnamed_d0.jpg
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: links
+    value: null
+    values: {}
+    elements:
+      - code: links
+        value:
+          urlDest: 'http://www.mysite.com/'
+          pageDest: null
+          contentDest: null
+          resourceDest: null
+          symbolicDestination: '#!U;http://www.mysite.com/!#'
+          destType: 1
+        values:
+          en: mio sito
+        elements: []
+        compositeelements: []
+        listelements: {}
+      - code: links
+        value:
+          urlDest: 'http://www.mysite.com/'
+          pageDest: null
+          contentDest: null
+          resourceDest: null
+          symbolicDestination: '#!U;http://www.mysite.com/!#'
+          destType: 1
+        values:
+          en: mio sito 2
+        elements: []
+        compositeelements: []
+        listelements: {}
+    compositeelements: []
+    listelements: {}
+  - code: attaches
+    value: null
+    values: {}
+    elements:
+      - code: attaches
+        value: null
+        values:
+          en:
+            correlationCode: '205'
+            name: Entando_Admin_Console_Overview_4.3.3_EN.pdf
+        elements: []
+        compositeelements: []
+        listelements: {}
+    compositeelements: []
+    listelements: {}

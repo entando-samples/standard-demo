@@ -1,0 +1,60 @@
+code: homepagesd
+parentCode: homepage
+titles:
+  en: Home SD
+  it: Home SD
+pageModel: seed_home
+ownerGroup: free
+joinGroups: []
+displayedInMenu: true
+seo: false
+charset: utf8
+status: published
+widgets:
+  - code: Brand-Logo
+    config: null
+    pos: 0
+  - code: Login_buttons
+    config: null
+    pos: 2
+  - code: content_viewer
+    config:
+      contentDescription: main-banner
+      modelId: '1'
+      ownerGroup: free
+      contentId: SDB37
+      joinGroups: '[]'
+    pos: 4
+  - code: content_viewer
+    config:
+      contentDescription: banner light green
+      modelId: '2'
+      contentId: SDB34
+    pos: 5
+  - code: content_viewer
+    config:
+      contentDescription: Banner with inner card
+      modelId: '3'
+      contentId: SDB31
+    pos: 6
+  - code: content_viewer
+    config:
+      contentDescription: Banner with accordion
+      modelId: '4'
+      contentId: SDB16
+    pos: 7
+  - code: content_viewer
+    config:
+      contentDescription: Banner with dark green background
+      modelId: '5'
+      contentId: SDB28
+    pos: 8
+  - code: content_viewer
+    config:
+      contentDescription: Banner with white background
+      modelId: '6'
+      contentId: SDB19
+    pos: 9
+  - code: footer
+    config: null
+    pos: 13

@@ -1,0 +1,7 @@
+code: insurance_inclusions
+guiCode: '
+<#assign wp=JspTaglibs["/aps-core"]>
+<@wp.fragment code="standard_demo_inclusions" escapeXml=false />
+<link rel="stylesheet" href="<@wp.resourceURL />standard-demo/static/css/seed-insurance.css" rel="stylesheet">
+<link rel="stylesheet" href="<@wp.resourceURL />standard-demo/static/css/media-queries-insurance.css" rel="stylesheet">
+'

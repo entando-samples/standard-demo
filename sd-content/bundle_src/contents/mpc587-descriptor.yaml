@@ -1,0 +1,46 @@
+id: MPC587
+typeCode: MPC
+description: Call Us
+mainGroup: administrators
+groups:
+  - administrators
+status: PUBLIC
+attributes:
+  - code: title
+    value: null
+    values:
+      en: |
+        <p>Call Us</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: subtitle
+    value: null
+    values:
+      en: |
+        <p>Customer Assistance: 000000000<br />
+        open Mondays to Fridays 7 AM to 10 PM, Saturdays 9 AM to 7 PM.</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: body
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: image
+    value: null
+    values:
+      en:
+        correlationCode: '588'
+        name: Call us
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: links
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}

@@ -1,0 +1,85 @@
+id: NWS641
+typeCode: SDN
+description: How to tackle financial stress
+mainGroup: free
+status: PUBLIC
+attributes:
+  - code: title
+    value: null
+    values:
+      en: How to tackle financial stress
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: subtitle
+    value: null
+    values:
+      en: |
+        <p>suggestions for how to help reduce your money stress and get motivated to take control of your finances</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: body
+    value: null
+    values:
+      en: |
+        <p>For many Americans, financial concerns are ever present, especially given the uncertainties of today&rsquo;s economy. While worrying doesn&rsquo;t solve much, having a plan to try to manage financial challenges can help ease some of that stress. Plus, the monetary benefits of dealing with financial problems&mdash;getting bills paid, saving more, paying down expensive debt&mdash;can help improve your overall outlook.</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: img
+    value: null
+    values:
+      en:
+        correlationCode: '642'
+        name: financial_d0.jpg
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: links
+    value: null
+    values: {}
+    elements:
+      - code: links
+        value:
+          urlDest: 'http://www.mysite.com/'
+          pageDest: null
+          contentDest: null
+          resourceDest: null
+          symbolicDestination: '#!U;http://www.mysite.com/!#'
+          destType: 1
+        values:
+          en: mio sito
+        elements: []
+        compositeelements: []
+        listelements: {}
+      - code: links
+        value:
+          urlDest: 'http://www.mysite.com/'
+          pageDest: null
+          contentDest: null
+          resourceDest: null
+          symbolicDestination: '#!U;http://www.mysite.com/!#'
+          destType: 1
+        values:
+          en: mio sito 2
+        elements: []
+        compositeelements: []
+        listelements: {}
+    compositeelements: []
+    listelements: {}
+  - code: attaches
+    value: null
+    values: {}
+    elements:
+      - code: attaches
+        value: null
+        values:
+          en:
+            correlationCode: '205'
+            name: Entando_Admin_Console_Overview_4.3.3_EN.pdf
+        elements: []
+        compositeelements: []
+        listelements: {}
+    compositeelements: []
+    listelements: {}

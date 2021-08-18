@@ -1,0 +1,55 @@
+code: interest
+parentCode: homepagesd
+titles:
+  en: Interest Checking
+  it: Interest Checking
+pageModel: seed_home
+ownerGroup: free
+joinGroups: []
+displayedInMenu: true
+seo: false
+charset: utf-8
+status: published
+widgets:
+  - code: Brand-Logo
+    config: null
+    pos: 0
+  - code: Login_buttons
+    config: null
+    pos: 2
+  - code: content_viewer
+    config:
+      modelId: '9'
+      contentId: SDB149
+    pos: 4
+  - code: content_viewer
+    config:
+      modelId: '8'
+      contentId: SDB164
+    pos: 5
+  - code: content_viewer
+    config:
+      modelId: '10'
+      contentId: SDB147
+    pos: 6
+  - code: content_viewer
+    config:
+      modelId: '11'
+      contentId: SDB144
+    pos: 7
+  - code: content_viewer
+    config:
+      modelId: '12'
+      contentId: SDB140
+    pos: 8
+  - code: find-atm
+    config: null
+    pos: 9
+  - code: content_viewer
+    config:
+      modelId: '8'
+      contentId: SDB102
+    pos: 10
+  - code: footer
+    config: null
+    pos: 13

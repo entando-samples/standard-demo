@@ -1,0 +1,24 @@
+id: 8
+contentType: SDB
+description: Credit - benefits & features
+contentShape: |-
+  <div class="benefits-features">
+      <div class="row">
+          <div class="text-center col-12">
+              <h1>$content.title.text</h1>
+          </div>
+          <div class="col-xs-12">
+              <div class="row">
+                  #foreach ($item in $content.accord)  
+                  <div class="col-12 col-lg-4">
+                      <div class="text-center">
+                          <img class="benefits-features-logo" src="$item.aimg.getImagePath('0')" alt="$item.aimg.text" />
+                          <h3>$item.atitle.text</h3>
+                          <p>$item.asubtitle.text</p>
+                      </div>
+                  </div>
+                  #end
+              </div>
+          </div>
+      </div>
+  </div>

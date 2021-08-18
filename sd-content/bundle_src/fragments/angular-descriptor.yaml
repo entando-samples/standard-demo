@@ -1,0 +1,2 @@
+code: angular
+guiCode: '<#assign wp=JspTaglibs["/aps-core"]><script nonce="<@wp.cspNonce />" src="<@wp.resourceURL />standard-demo/static/js/angular.js" ></script>'

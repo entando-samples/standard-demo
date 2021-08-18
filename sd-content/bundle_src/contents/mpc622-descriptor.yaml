@@ -1,0 +1,45 @@
+id: MPC622
+typeCode: MPC
+description: Save up to 30%
+mainGroup: free
+status: PUBLIC
+#TODO: Disable until categories are available in export/import
+#categories: ["benefits"]
+attributes:
+  - code: title
+    value: null
+    values:
+      en: |
+        <p>Save up to 30%</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: subtitle
+    value: null
+    values:
+      en: |
+        <p>Breathe easier and save up to 30% on new policies when you combine home with contents insurance online.v</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: body
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: image
+    value: null
+    values:
+      en:
+        correlationCode: '623'
+        name: Icon_1_d0.svg
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: links
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}

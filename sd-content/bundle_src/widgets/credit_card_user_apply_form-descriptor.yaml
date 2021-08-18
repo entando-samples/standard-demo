@@ -1,0 +1,6 @@
+code: credit_card_user_apply_form
+titles:
+  en: Credit card user apply form
+  it: Form di applicazione carta di credito
+group: free
+customUi: '<#assign wp=JspTaglibs[ "/aps-core"]><link rel="stylesheet" type="text/css" href="<@wp.resourceURL />standard-demo/widgets/creditCardApplyForm/css/main.css"><script nonce="<@wp.cspNonce />" async src="<@wp.resourceURL />standard-demo/widgets/creditCardApplyForm/js/runtime.js" ></script><script nonce="<@wp.cspNonce />" async src="<@wp.resourceURL />standard-demo/widgets/creditCardApplyForm/js/vendor.js" ></script><script nonce="<@wp.cspNonce />" async src="<@wp.resourceURL />standard-demo/widgets/creditCardApplyForm/js/main.js" ></script><credit-card-user-form />'

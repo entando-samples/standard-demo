@@ -1,0 +1,45 @@
+id: MPC593
+typeCode: MPC
+description: Flexible cover
+mainGroup: free
+status: PUBLIC
+#TODO: Disable until categories are available in export/import
+#categories: ["benefits"]
+attributes:
+  - code: title
+    value: null
+    values:
+      en: |
+        <p>Flexible cover</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: subtitle
+    value: null
+    values:
+      en: |
+        <p>Choose the cover that&#39;s right for you - home, contents, home and contents, optional covers - and your preferred start date.</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: body
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: image
+    value: null
+    values:
+      en:
+        correlationCode: '594'
+        name: Flexible Cover Icon
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: links
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}

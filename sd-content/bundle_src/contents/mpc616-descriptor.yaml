@@ -1,0 +1,58 @@
+id: MPC616
+typeCode: MPC
+description: Customized Insurance Products
+mainGroup: free
+status: PUBLIC
+attributes:
+  - code: title
+    value: null
+    values:
+      en: |
+        <p>Customized Insurance Products</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: subtitle
+    value: null
+    values:
+      en: |
+        <p>Each insurance product can be customized thanks to a modular structure that defines and selects the levels of principal guarantees and which allows the contractor to build a tailor-made insurance product.</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: body
+    value: null
+    values:
+      en: |
+        <p>Each insurance product can be customized thanks to a modular structure that defines and selects the levels of principal guarantees and which allows the contractor to build a tailor-made insurance product.</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: image
+    value: null
+    values:
+      en:
+        correlationCode: '617'
+        name: Image_DX_1_d0 (1).png
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: links
+    value: null
+    values: {}
+    elements:
+      - code: links
+        value:
+          urlDest: null
+          pageDest: products
+          contentDest: null
+          resourceDest: null
+          symbolicDestination: '#!P;products!#'
+          destType: 2
+        values:
+          en: Products
+        elements: []
+        compositeelements: []
+        listelements: {}
+    compositeelements: []
+    listelements: {}

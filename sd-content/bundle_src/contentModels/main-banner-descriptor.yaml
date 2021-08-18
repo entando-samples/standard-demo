@@ -1,0 +1,14 @@
+id: 1
+contentType: SDB
+description: Main Banner
+contentShape: |-
+  <div class="main-banner">
+      <div class="row">
+          <div class="col-lg-6 col-xs-12 main-banner-center">
+              <div class="text-wrapper">
+                  <h1> $content.title.text</h1>
+                  <p>$content.subtitle.text</p>
+              </div>
+          </div>
+      </div>
+  </div>

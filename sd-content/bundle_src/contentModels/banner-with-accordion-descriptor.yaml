@@ -1,0 +1,48 @@
+id: 4
+contentType: SDB
+description: Banner with accordion
+contentShape: |-
+  <div class="main-banner-accordion">
+      <div class="row">
+          <div class="col-lg-6 col-xs-12">
+              <div class="text-wrapper">
+                  <h1>$content.title.text</h1>
+                  <p>$content.subtitle.text</p>
+                  <div class="col-md-12 col-xs-12">
+                      <img class="img-footer" src="$content.img.getImagePath('0')" alt="$content.img.text" />
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-lg-6 col-xs-12">
+              <div class="accordion md-accordion " id="accordion-seed" role="tablist" aria-multiselectable="true">
+                  #foreach ($item in $content.accord)               
+                  <div class="card">
+                      <div class="card-header" role="tab" id="id$item.idcard.value">
+                          <a data-toggle="collapse" data-parent="#accordion-seed" href="#collapse-$item.idcard.value" aria-expanded="$item.open.text" aria-controls="collapse-$item.idcard.value">
+                              <h2 class="mb-0">
+                                  <span class=" rotate-icon"></span>
+                                  <div class="card-header-left-margin">
+                                    $item.headtitle.text
+                                  </div>  
+                              </h2>
+                          </a>
+                      </div>
+                      <div id="collapse-$item.idcard.value" class="collapse showloo" role="tabpanel" aria-labelledby="id$item.atitle.text" data-parent="#accordion-seed">
+                          <div class="card-body">
+                              <h3>$item.atitle.text</h3>
+                              <p>$item.asubtitle.text</p>
+                          </div>
+                      </div>
+                  </div>
+                  #end
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <script nonce="<@wp.cspNonce />">
+  $(document).ready(function() {
+    $('#collapse-1').addClass('show');
+  });
+  </script>

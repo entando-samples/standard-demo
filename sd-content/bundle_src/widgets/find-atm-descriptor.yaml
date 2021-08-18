@@ -1,0 +1,6 @@
+code: find-atm
+titles:
+  en: Find ATM
+  it: Trova ATM
+group: free
+customUi: '<#assign wp=JspTaglibs["/aps-core"]><div class="FindAtm">    <div class="row">        <div class="col-12">            <div class="text-center">                <h1>Find an ATM near you.</h1>            </div>        </div>        <div class="col-12">            <div class="FindAtm__wrapper" >                <div class="input-group my-3">                    <input type="text" class="form-control" placeholder="ATM location" aria-label="find atm" aria-describedby="find atm">                    <div class="input-group-append">                        <button class="btn FindAtm__btn m-0 px-3 py-2 z-depth-0 waves-effect" type="button" >Search</button>                    </div>                </div>            </div>        </div>    </div></div>'

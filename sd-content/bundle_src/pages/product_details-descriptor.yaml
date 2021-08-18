@@ -1,0 +1,41 @@
+code: product_details
+parentCode: products
+titles:
+  en: Product Details
+  it: Dettagli Prodotto
+pageModel: insurance_home
+ownerGroup: free
+joinGroups: []
+displayedInMenu: true
+seo: false
+charset: utf-8
+status: published
+widgets:
+  - code: back_to_seed
+    config: null
+    pos: 0
+  - code: search_form
+    config: null
+    pos: 1
+  - code: language_choose
+    config: null
+    pos: 2
+  - code: brand_insurance
+    config: null
+    pos: 3
+  - code: navigation-menu
+    config:
+      navSpec: code(seed_insurances) + code(products) + code(my_portal)
+    pos: 4
+  - code: insurance_login
+    config: null
+    pos: 5
+  - code: Breadcrumb
+    config: null
+    pos: 6
+  - code: content_viewer
+    config: null
+    pos: 9
+  - code: footer-insurance
+    config: null
+    pos: 14

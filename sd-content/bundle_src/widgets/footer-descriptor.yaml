@@ -1,0 +1,6 @@
+code: footer
+titles:
+  en: Footer
+  it: Footer
+group: free
+customUi: '<div class="footer">                <div class="footer-content">                    <div class="row justify-content-center">                        <div class="col-12 col-lg-4">                              <p>All Rights Reserved by Seed @2020</p>                            <p>Seed, Inc. | NMLS #: 000000 | Licenses | NMLS Consumer Access</p>                            <p>Deposits are FDIC insured to at least $250,000 through Seed, Inc. Member FDIC.</p>                        </div>                        <div class="col-12 col-lg-4">                              <p>All trademarks and brand names belong to their respective owners. Use of these trademarks and brand names do not represent endorsement by or association with this program.</p>                            <p>See the Seed Account and Savings Account Agreement for terms and conditions.</p>                        </div>                    </div>                </div>            </div>'

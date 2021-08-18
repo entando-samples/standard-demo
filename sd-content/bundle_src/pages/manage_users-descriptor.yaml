@@ -1,0 +1,22 @@
+code: manage_users
+parentCode: homepagesd
+titles:
+  en: Manage Users
+  it: Manage Users
+pageModel: seed_home
+ownerGroup: free
+joinGroups: []
+displayedInMenu: false
+seo: false
+charset: utf-8
+status: published
+widgets:
+  - code: Brand-Logo
+    config: null
+    pos: 0
+  - code: Login_buttons
+    config: null
+    pos: 2
+  - code: sd_manage_users
+    config: null
+    pos: 5

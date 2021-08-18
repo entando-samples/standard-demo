@@ -1,0 +1,24 @@
+id: 14
+contentType: SDN
+description: News List
+contentShape: |-
+  <div class="default-list-model">
+      <div class="row no-gutters">
+
+          #if ($content.img.getImagePath('0') != "")
+          <div class="col-md-1 col-2 img-box">
+              <img class="rounded img-fluid" src="$content.img.getImagePath('0')" alt="$content.img.text" />
+          </div>
+          #end
+
+
+          <div class="col-md-11 col-10 info-box">
+              <h3>$content.title.text</h3>
+              <p>$content.subtitle.text</p>
+
+              <a href="$content.getContentOnPageLink("detail_page")&modelId=15" class="btn apply">
+                 $i18n.getLabel("READ_MORE")
+          </a>
+      </div>
+  </div>
+  </div>

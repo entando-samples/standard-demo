@@ -1,0 +1,26 @@
+id: 104
+contentType: MPC
+description: Multi-Purpose Text Left - Image Right
+contentShape: |-
+  <section class="image-on-right" style="background:#184437">
+      <div class="content-text-wrapper">
+          <div class="box-centered">
+
+              <h2> $content.title.text</h2>
+
+              <div class="body">$content.body.text</div>
+
+              #foreach ($item in $content.links)     
+              <a class="btn btn-green" href="$item.destination" >$item.text</a>
+              #end
+
+          </div>
+      </div>
+      <div class="img-wrapper">
+          <div class="img_right">
+              <figure>
+                  <img src="$content.image.getImagePath('0')" alt="$content.image.text">
+              </figure>
+          </div>
+      </div>
+  </section>

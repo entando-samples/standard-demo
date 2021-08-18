@@ -1,0 +1,48 @@
+id: SDB34
+typeCode: SDB
+description: banner light green
+mainGroup: free
+status: PUBLIC
+attributes:
+  - code: title
+    value: null
+    values:
+      en: We Got Your Back
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: subtitle
+    value: null
+    values:
+      en: |
+        <p>Traditional banks earn between 20-30% of their revenue from banking fees. Seed is a modern, online bank that passes along the savings we receive from lower operating costs to our customers by eliminating fees that don&#39;t have a direct cost to us all.</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: descr
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: img
+    value: null
+    values:
+      en:
+        correlationCode: '35'
+        name: we got your back.png
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: link
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: accord
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}
