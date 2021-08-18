@@ -10,7 +10,8 @@ function syncFiles() {
 }
 
 echo "- Copying bundle source into the deployable bundle"
-syncFiles "bundle_src bundle"
+mkdir -p bundle
+syncFiles bundle_src/* bundle/
 
 echo "All done! Bundle available in the $(pwd)/bundle folder"
 

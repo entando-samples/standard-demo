@@ -30,9 +30,6 @@ widgets:
       modelId: '7'
       contentId: SDB85
     pos: 6
-  - code: credit_card_user_apply_form
-    config: null
-    pos: 7
   - code: footer
     config: null
     pos: 12

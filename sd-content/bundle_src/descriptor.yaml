@@ -8,8 +8,6 @@ components:
     - widgets/apply_form_banner-descriptor.yaml
     - widgets/back_to_seed-descriptor.yaml
     - widgets/brand_insurance-descriptor.yaml
-#TODO: remove since we're missing the source
-#    - widgets/credit_card_user_apply_form-descriptor.yaml
     - widgets/find-atm-descriptor.yaml
     - widgets/footer-descriptor.yaml
     - widgets/footer-insurance-descriptor.yaml
@@ -162,8 +160,6 @@ components:
     - contents/sdb147-descriptor.yaml
     - contents/sdb149-descriptor.yaml
     - contents/sdb164-descriptor.yaml
-  plugins:
-    - plugins/standard-demo-banking-descriptor.yaml
   categories:
     - categories/categories-descriptor.yaml
   labels:

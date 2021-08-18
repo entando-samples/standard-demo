@@ -10,6 +10,14 @@
   titles:
     en: Italian
     it: Italiano
+- key: SD_ESLF_ADMINISTRATION
+  titles:
+    en: Administration
+    it: Administration
+- key: SD_ESLF_MANAGE_USERS
+  titles:
+    en: Manage Users
+    it: Gestione Utenti
 - key: SD_GO_SEED_BANK
   titles:
     en: GO TO SEED BANK
@@ -18,6 +26,10 @@
   titles:
     en: My dashboard
     it: La mia Dashboard
+- key: SD_SIGN_UP
+  titles:
+    en: Sign Up
+    it: Registrati
 - key: SD_STANDARD_DEMO
   titles:
     en: Standard Demo
