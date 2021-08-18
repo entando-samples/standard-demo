@@ -11,7 +11,6 @@
     <meta name="author" content=""/>
     
     <link rel="icon" href="<@wp.info key="systemParam" paramName="applicationBaseURL" /> favicon.png" type="image/png" />
-<#-- TODO: remove?    <@wp.fragment code="angular" escapeXml=false />-->
     <@wp.fragment code="standard_demo_inclusions" escapeXml=false />
 </head>
 <body>
