@@ -81,9 +81,6 @@
                     <li class="nav-item"><a class="nav-link" href="<@wp.url page="seed_insurances" />">Insurances</a></li>
                     <#if (Session.currentUser != "guest")>
                         <li class="nav-item">
-                            <a class="nav-link" href="<@wp.url page="mortgages_and_lending" />">Mortgages and Lending</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="<@wp.url page="dashboard" />"><@wp.i18n key="SD_MY_DASHBOARD" /></a>
                         </li>
                     </#if>

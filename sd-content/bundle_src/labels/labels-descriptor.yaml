@@ -32,8 +32,8 @@
     it: Registrati
 - key: SD_STANDARD_DEMO
   titles:
-    en: Standard Demo
-    it: Standard Demo
+    en: Standard Banking Demo
+    it: Standard Banking Demo
 - key: SD_STANDARD_DEMO_INSURANCE
   titles:
     en: Standard Demo Insurance
