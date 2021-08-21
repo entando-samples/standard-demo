@@ -52,8 +52,8 @@ export const apiManageusersGet = async (serviceUrl, { filters = [], pagination, 
 export const apiAccountGet = async ({ serviceUrl, userid, account }) => {
   const url =
     account === 'savings'
-      ? `${serviceUrl}/${account}/api/${account}?userID.equals=${userid}`
-      : `${serviceUrl}/${account}/api/${account}s/user/${userid}`;
+      ? `${serviceUrl}/api/${account}?userID.equals=${userid}`
+      : `${serviceUrl}/api/${account}s/user/${userid}`;
 
   const options = {
     ...getDefaultOptions(),
@@ -65,9 +65,9 @@ export const apiAccountGet = async ({ serviceUrl, userid, account }) => {
 export const apiAccountPost = async ({ serviceUrl, account, accountObj }) => {
   let url;
   if (account === 'checking') {
-    url = `${serviceUrl}/${account}/add`;
+    url = `${serviceUrl}/add`;
   } else {
-    url = `${serviceUrl}/${account}/api`;
+    url = `${serviceUrl}/api`;
   }
 
   url = account === 'savings' ? `${url}/${account}` : `${url}/${account}s`;
@@ -81,7 +81,7 @@ export const apiAccountPost = async ({ serviceUrl, account, accountObj }) => {
 };
 
 export const apiTransactionsGet = async ({ serviceUrl, accountid, account }) => {
-  const url = `${serviceUrl}/${account}transaction/api/${account}transactions?accountID.equals=${accountid}`;
+  const url = `${serviceUrl}/api/${account}transactions?accountID.equals=${accountid}`;
   const options = {
     ...getDefaultOptions(),
     method: 'GET',
@@ -90,7 +90,7 @@ export const apiTransactionsGet = async ({ serviceUrl, accountid, account }) => 
 };
 
 export const apiTransactionsPost = async ({ serviceUrl, account, transaction }) => {
-  const url = `${serviceUrl}/${account}transaction/api/${account}transactions`;
+  const url = `${serviceUrl}/api/${account}transactions`;
 
   const options = {
     ...getDefaultOptions(),
@@ -101,7 +101,7 @@ export const apiTransactionsPost = async ({ serviceUrl, account, transaction }) 
 };
 
 export const apiNotificationsGet = async ({ serviceUrl, userid, notificationName }) => {
-  const url = `${serviceUrl}/seedsdashboard/api/${notificationName}s?userId.equals=${userid}`;
+  const url = `${serviceUrl}/api/${notificationName}s?userId.equals=${userid}`;
   const options = {
     ...getDefaultOptions(),
     method: 'GET',
@@ -110,7 +110,7 @@ export const apiNotificationsGet = async ({ serviceUrl, userid, notificationName
 };
 
 export const apiNotificationPost = async ({ serviceUrl, notificationName, notificationObj }) => {
-  const url = `${serviceUrl}/seedsdashboard/api/${notificationName}s`;
+  const url = `${serviceUrl}/api/${notificationName}s`;
 
   const options = {
     ...getDefaultOptionsWithoutToken(),
@@ -121,7 +121,7 @@ export const apiNotificationPost = async ({ serviceUrl, notificationName, notifi
 };
 
 export const apiNotificationPut = async ({ serviceUrl, notificationName, notificationObj }) => {
-  const url = `${serviceUrl}/seedsdashboard/api/${notificationName}s`;
+  const url = `${serviceUrl}/api/${notificationName}s`;
 
   const options = {
     ...getDefaultOptions(),
