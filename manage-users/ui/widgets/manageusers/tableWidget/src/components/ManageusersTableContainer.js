@@ -228,9 +228,10 @@ class ManageusersTableContainer extends Component {
    */
   // eslint-disable-next-line class-methods-use-this
   async handleResetAccountAndTransactions({ accountName, serviceUrl, item }) {
+    const userid = item.username;
     let account = await apiAccountGet({
       serviceUrl,
-      userid: item.id,
+      userid: userid,
       account: accountName,
     });
 
@@ -240,7 +241,7 @@ class ManageusersTableContainer extends Component {
       const accountObj = {
         accountNumber: getRandomAccountNumber(),
         balance: 3500,
-        userID: item.id,
+        userID: userid,
       };
       account = await apiAccountPost({
         serviceUrl,
@@ -269,14 +270,15 @@ class ManageusersTableContainer extends Component {
    */
   // eslint-disable-next-line class-methods-use-this
   async handleResetNotifications({ notificationName, serviceUrl, item }) {
+    const userid = item.username;
     let notifications = await apiNotificationsGet({
       serviceUrl,
-      userid: item.id,
+      userid: userid,
       notificationName,
     });
     if (!notifications || (notifications && notifications.length < 1)) {
       if (notificationName === 'alert') {
-        const notificationList = getNotificationList({ userId: item.id });
+        const notificationList = getNotificationList({ userId: userid });
 
         notifications = notificationList.map(
           // eslint-disable-next-line no-return-await
@@ -289,7 +291,7 @@ class ManageusersTableContainer extends Component {
             })
         );
       } else {
-        const notification = buildObj({ description: 'First Statement', id: item.id });
+        const notification = buildObj({ description: 'First Statement', id: userid });
         await apiNotificationPost({ serviceUrl, notificationName, notificationObj: notification });
       }
     } else {
@@ -320,7 +322,8 @@ class ManageusersTableContainer extends Component {
         await this.handleResetNotifications({ notificationName: statement, serviceUrl, item });
 
         onReset(item);
-        this.dispatch({ type: RESET, payload: { id: item.id } });
+        const userid = item.username;
+        this.dispatch({ type: RESET, payload: { id: userid } });
         this.setState({
           notificationMessage: t('common.dataResetted'),
           notificationStatus: Notification.SUCCESS,

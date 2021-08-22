@@ -124,7 +124,7 @@ export const buildObj = ({ description, id }) => {
 };
 
 export const getNotificationList = ({ userId }) => {
-  const description1 = 'Welcome in your bank';
+  const description1 = 'Welcome to your bank';
   const description2 = 'Checking account created';
   const description3 = 'Internet banking ACTIVE';
   const description4 = 'Info banking';
