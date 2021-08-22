@@ -13,7 +13,10 @@ With this configuration, you can use the ent cli (https://dev.entando.org/next/d
 4. Install the bundle via 1) App Builder, 2) `ent prj install`, or 3) `ent prj install --conflict-strategy=OVERRIDE` on subsequent installs.
 5. Iterate steps 1-4 to publish new versions.
 
-# manageusers
+# Development Tips
+The Manage Users MFE requires the authenticated user to have access to manage users within Keycloak. If you're running the MFE locally with the default keycloak realm loaded, you'll need to grant this permission to your user before you can see the list of users. Go to Users → <user-name> → Role Mappings → realm-management and grant the `view-users` (or a higher level role) to the user.
+
+# Manage Users
 
 This application was generated using JHipster 6.3.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.3.0](https://www.jhipster.tech/documentation-archive/v6.3.0).
 

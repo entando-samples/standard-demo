@@ -113,7 +113,7 @@ export const apiNotificationPost = async ({ serviceUrl, notificationName, notifi
   const url = `${serviceUrl}/api/${notificationName}s`;
 
   const options = {
-    ...getDefaultOptionsWithoutToken(),
+    ...getDefaultOptions(),
     method: 'POST',
     body: notificationObj ? JSON.stringify(notificationObj) : null,
   };
