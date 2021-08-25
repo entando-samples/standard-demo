@@ -4,10 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.entando.demo.banking</groupId>
-    <artifactId>banking</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <artifactId>sd-banking</artifactId>
+    <version>0.0.19</version>
     <packaging>jar</packaging>
-    <name>Banking</name>
+    <name>Standard Demo Banking</name>
 
     <repositories>
         <repository>
@@ -604,7 +604,7 @@
                           <image>entando/entando-alpine-base:6.0.0</image>
                       </from>
                       <to>
-                          <image>entandosamples/${project.artifactId}:${project.version}</image>
+                          <image>entandodemo/${project.artifactId}:${project.version}</image>
                       </to>
                       <extraDirectories>
                           <paths>src/main/jib</paths>

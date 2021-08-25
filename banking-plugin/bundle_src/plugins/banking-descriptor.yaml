@@ -1,5 +1,5 @@
 name: sd-banking
-image: 'docker.io/entandodemo/banking:0.0.18'
+image: 'docker.io/entandodemo/sd-banking:0.0.19'
 dbms: none
 healthCheckPath: /management/health
 ingressPath: /banking
