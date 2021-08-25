@@ -4,10 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.entando.demo.customer</groupId>
-    <artifactId>customer</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <artifactId>sd-customer</artifactId>
+    <version>0.0.11</version>
     <packaging>jar</packaging>
-    <name>Customer</name>
+    <name>Standard Demo Customer</name>
 
     <repositories>
         <repository>
@@ -628,7 +628,7 @@
                           <image>entando/entando-alpine-base:6.0.0</image>
                       </from>
                       <to>
-                          <image>entandosamples/${project.artifactId}:${project.version}</image>
+                          <image>entandodemo/${project.artifactId}:${project.version}</image>
                       </to>
                       <extraDirectories>
                           <paths>src/main/jib</paths>

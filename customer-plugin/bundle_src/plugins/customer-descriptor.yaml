@@ -1,5 +1,5 @@
 name: sd-customer
-image: 'docker.io/entandodemo/customer:0.0.10'
+image: 'docker.io/entandodemo/sd-customer:0.0.11'
 dbms: none
 healthCheckPath: /management/health
 ingressPath: /customer
