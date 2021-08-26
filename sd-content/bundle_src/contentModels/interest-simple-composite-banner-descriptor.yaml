@@ -1,0 +1,24 @@
+id: 10
+contentType: SDB
+description: 'Interest simple composite banner  '
+contentShape: |-
+  <div class="interests-composite">
+      <div class="row">
+          <div class="col-12 interests-composite-main">           
+                  <h1>$content.title.text</h1><span>$content.subtitle.text</span> 
+          </div>
+
+          <div class="col-xs-12">
+              <div class="row">
+                  #foreach ($item in $content.accord)  
+                  <div class="col-12">
+                      <div class="text-center">
+                          <h3>$item.atitle.text</h3>
+                          <p>$item.asubtitle.text</p>
+                      </div>
+                  </div>
+                  #end
+              </div>
+          </div>
+      </div>
+  </div>

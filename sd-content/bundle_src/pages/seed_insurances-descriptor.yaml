@@ -1,0 +1,67 @@
+code: seed_insurances
+parentCode: homepagesd
+titles:
+  en: Seed insurances
+  it: Seed insurances
+pageModel: insurance_home
+ownerGroup: free
+joinGroups: []
+displayedInMenu: true
+seo: false
+charset: utf-8
+status: published
+widgets:
+  - code: back_to_seed
+    config: null
+    pos: 0
+  - code: search_form
+    config: null
+    pos: 1
+  - code: language_choose
+    config: null
+    pos: 2
+  - code: brand_insurance
+    config: null
+    pos: 3
+  - code: navigation-menu
+    config:
+      navSpec: code(seed_insurances) + code(products) + code(my_portal)
+    pos: 4
+  - code: Login_buttons
+    config: null
+    pos: 5
+  - code: Breadcrumb
+    config: null
+    pos: 6
+  - code: content_viewer
+    config:
+      modelId: '100'
+      contentId: MPC608
+    pos: 7
+  - code: content_viewer
+    config:
+      modelId: '101'
+      contentId: MPC606
+    pos: 8
+  - code: content_viewer
+    config:
+      modelId: '102'
+      contentId: MPC596
+    pos: 9
+  - code: content_viewer_list
+    config:
+      modelId: '103'
+      maxElemForItem: '3'
+      filters:
+        - attributeFilter: false
+          key: modified
+          order: DESC
+      title_it: Perchè Seed Assicurazioni
+      title_en: Why Seed Insurance
+      categories:
+        - benefits
+      contentType: MPC
+    pos: 10
+  - code: footer-insurance
+    config: null
+    pos: 14

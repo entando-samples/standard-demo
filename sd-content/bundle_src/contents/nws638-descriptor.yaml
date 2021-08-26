@@ -1,0 +1,85 @@
+id: NWS638
+typeCode: SDN
+description: Manufacturers Respond to Coronavirus
+mainGroup: free
+status: PUBLIC
+attributes:
+  - code: title
+    value: null
+    values:
+      en: Manufacturers Respond to Coronavirus
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: subtitle
+    value: null
+    values:
+      en: |
+        <p>Companies are moving quickly to stay viable and position themselves for recovery</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: body
+    value: null
+    values:
+      en: |
+        <p>For manufacturers of every size in every industry, it&rsquo;s no exaggeration to say that the coronavirus crisis has changed everything. Demand for products has been upended, relationships with suppliers and customers are being tested and liquidity issues have multiplied. Some manufacturers are pivoting to create essential gear to help combat the pandemic, while others are retooling in advance of future needs, and all are trying to keep their workers safe. Abhijit Bhide, managing director, Bank of America Global Banking and Markets, answers questions about this unprecedented upheaval and how businesses can respond now and in the months ahead.</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: img
+    value: null
+    values:
+      en:
+        correlationCode: '639'
+        name: coronavirus
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: links
+    value: null
+    values: {}
+    elements:
+      - code: links
+        value:
+          urlDest: 'http://www.mysite.com/'
+          pageDest: null
+          contentDest: null
+          resourceDest: null
+          symbolicDestination: '#!U;http://www.mysite.com/!#'
+          destType: 1
+        values:
+          en: mio sito
+        elements: []
+        compositeelements: []
+        listelements: {}
+      - code: links
+        value:
+          urlDest: 'http://www.mysite.com/'
+          pageDest: null
+          contentDest: null
+          resourceDest: null
+          symbolicDestination: '#!U;http://www.mysite.com/!#'
+          destType: 1
+        values:
+          en: mio sito 2
+        elements: []
+        compositeelements: []
+        listelements: {}
+    compositeelements: []
+    listelements: {}
+  - code: attaches
+    value: null
+    values: {}
+    elements:
+      - code: attaches
+        value: null
+        values:
+          en:
+            correlationCode: '205'
+            name: Entando_Admin_Console_Overview_4.3.3_EN.pdf
+        elements: []
+        compositeelements: []
+        listelements: {}
+    compositeelements: []
+    listelements: {}

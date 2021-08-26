@@ -1,0 +1,7 @@
+id: 9
+contentType: SDB
+description: Interest banner-landscape
+contentShape: |-
+  <div class="banner-landscape">
+   <img src=" $content.img.getImagePath('0')" alt="$content.img.text"  />
+  </div>

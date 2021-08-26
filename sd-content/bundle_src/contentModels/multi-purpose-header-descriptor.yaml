@@ -1,0 +1,16 @@
+id: 100
+contentType: MPC
+description: Multi-Purpose Header
+contentShape: |-
+  <div class="insurance-main-banner" style="background: url($content.image.getImagePath('0'))">
+      <div class="main-wrapper">
+              <div class="text-wrapper">
+                  <h1> $content.title.text</h1>
+                  <p>$content.body.text</p>
+                   
+                   #foreach ($item in $content.links)     
+                    <a class="btn btn-green" href="$item.destination" >$item.text</a>
+                   #end
+          </div>
+      </div>
+  </div>

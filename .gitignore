@@ -1,2 +1,3 @@
 .DS_Store
 .idea
+/banking-plugin/src/main/docker/keycloak-db/

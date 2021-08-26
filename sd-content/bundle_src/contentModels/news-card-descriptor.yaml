@@ -1,0 +1,12 @@
+id: 18
+contentType: SDN
+description: news card
+contentShape: |-
+  <div class="card card-dim" >
+    <img class="card-img-top" src="$content.img.getImagePath('0')" alt="$content.img.text" />
+    <div class="card-body">
+      <h5 class="card-title">$content.title.text</h5>
+      <p class="card-text">$content.subtitle.text</p>
+      <a href="$content.getContentOnPageLink("detail_page")&modelId=15" class="btn apply">$i18n.getLabel("READ_MORE")</a>
+    </div>
+  </div>

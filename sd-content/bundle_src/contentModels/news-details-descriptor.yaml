@@ -1,0 +1,39 @@
+id: 15
+contentType: SDN
+description: News Details
+contentShape: |-
+  <div class="search-result">
+      <div class="default-detail-model">
+          <div class="row no-gutters">
+
+              #if ($content.img.getImagePath('0') != "")
+              <div class="col-md-1 col-2 img-box">
+                  <img class="rounded img-fluid" src="$content.img.getImagePath('0')" alt="$content.img.text" />
+              </div>
+              #end
+              <div class="col-md-11 col-10 info-box">
+                  <h3>$content.title.text</h3>
+                  <p>$content.subtitle.text</p>
+              </div>
+              <p>$content.body.text</p>
+
+          </div> 
+
+          <div class="col-12 well">
+              $i18n.getLabel("LINKS")<br/>
+              #if ($content.links != "")      
+              #foreach ($item in $content.links)                            
+              <a class="btn btn-outline-primary" href="$item.destination">$item.text     <i class="fas fa-link"></i></a>                           
+              #end
+              #end
+          </div>
+          <div class="col-12 well">
+              $i18n.getLabel("ATTACHES")<br/>
+              #if ($content.attaches != "")
+              #foreach ($item in $content.attaches)                       
+              <a class="btn btn-outline-default" href="$item.AttachPath">$item.text   <i class="fas fa-file-download"></i></a>
+              #end
+              #end
+          </div>
+      </div>
+  </div>

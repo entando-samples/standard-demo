@@ -1,0 +1,6 @@
+code: apply_form_banner
+titles:
+  en: Apply form banner
+  it: Apply form banner
+group: free
+customUi: '<#assign wp=JspTaglibs["/aps-core"]><div class="ApplyBanner">    <!-- Block parent element -->    <div class="row">        <div class="col-sm-12 ApplyBanner__title">            <h1>A Credit Card That Makes Your Life Easier</h1>        </div>        <div class="ApplyBanner__image-wrapper">            <img  class="ApplyBanner__image-imposed" src="<@wp.resourceURL />standard-demo/static/img/creditcard.png"  />        </div>        <div class="col-sm-12 ApplyBanner__footer">            <h3>The Seed Flourish Credit Card </h3>            <button id="clickApply" class="btn apply my-3 " type="submit">Apply now</button>        </div>    </div></div><script>$("#clickApply").click(function() {    $(''html,body'').animate({        scrollTop: $(".ApplyForm").offset().top}, 2000);});</script>'

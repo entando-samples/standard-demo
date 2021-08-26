@@ -1,0 +1,19 @@
+id: 5
+contentType: SDB
+description: Banner  dark green background
+contentShape: |-
+  <div class="main-banner-darkgreen ">
+      <div class="row">
+          <div class="col-lg-6 col-xs-12">
+              <div class="text-wrapper">
+                  <h1>$content.title.text</h1>
+                  <p>$content.subtitle.text</p>
+              </div>
+          </div>
+          <div class="col-lg-6 col-xs-12 image-center">
+              <div class="centered-image">
+                  <img src="$content.img.getImagePath('0')" alt="$content.img.text" />
+              </div>
+          </div>
+      </div>
+  </div>

@@ -1,0 +1,74 @@
+id: PRD653
+typeCode: PRD
+description: Seed Home and Contents
+mainGroup: free
+status: PUBLIC
+attributes:
+  - code: title
+    value: null
+    values:
+      en: Seed Home and Contents
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: subtitle
+    value: null
+    values:
+      en: |
+        <p>Seed Home and Contents insurance, also called house insurance, is a general term used to describe the two main ways to insure you home. These are buildings insurance and contents insurance.</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: paragraphs
+    value: null
+    values: {}
+    elements:
+      - code: paragraphs
+        value: null
+        values: {}
+        elements: []
+        compositeelements:
+          - code: mbody
+            value: null
+            values:
+              en: |
+                <p>Seed Home and Contents insurance, also called house insurance, is a general term used to describe the two main ways to insure you home. These are buildings insurance and contents insurance.</p>
+            elements: []
+            compositeelements: []
+            listelements: {}
+          - code: mimage
+            value: null
+            values: {}
+            elements: []
+            compositeelements: []
+            listelements: {}
+          - code: mtitle
+            value: null
+            values: {}
+            elements: []
+            compositeelements: []
+            listelements: {}
+        listelements: {}
+    compositeelements: []
+    listelements: {}
+  - code: image
+    value: null
+    values:
+      en:
+        correlationCode: '654'
+        name: Card_1_Picture_Green_1_d0 (1).png
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: links
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: attaches
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}

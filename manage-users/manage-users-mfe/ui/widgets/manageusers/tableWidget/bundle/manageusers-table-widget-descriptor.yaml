@@ -1,6 +1,0 @@
-code: manageusers-table-widget
-titles:
-    en: Manageusers Table Widget
-    it: Manageusers Table Widget
-group: free
-customUiPath: manageusers-table-widget.ftl

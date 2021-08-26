@@ -1,0 +1,6 @@
+code: Brand-Logo
+titles:
+  en: Brand Logo
+  it: Brand Logo
+group: free
+customUi: '<#assign wp=JspTaglibs["/aps-core"]><a class="logo" href="<@wp.url page="homepagesd" />" ><img src="<@wp.resourceURL />standard-demo/static/img/seed-logo.svg" /></a>'

@@ -1,0 +1,43 @@
+id: MPC619
+typeCode: MPC
+description: Seed International Travel and Medical Insurance
+mainGroup: free
+status: PUBLIC
+attributes:
+  - code: title
+    value: null
+    values:
+      en: |
+        <p>Seed International Travel and Medical Insurance</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: subtitle
+    value: null
+    values:
+      en: |
+        <p>Seed Home and Contents&nbsp; insurance, also called house insurance, is a general term used to describe the two main ways to insure you home. These are buildings insurance and contents insurance.</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: body
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: image
+    value: null
+    values:
+      en:
+        correlationCode: '620'
+        name: Card_1_Picture_Green_1_d0.png
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: links
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}

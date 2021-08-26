@@ -1,0 +1,13 @@
+code: sd-banking
+description: Standard Demo Banking
+
+components:
+  plugins:
+    - plugins/banking-descriptor.yaml
+
+  widgets:
+    - ui/widgets/banking-widgets/alert-bar-icon-react/alert-bar-icon-descriptor.yaml
+    - ui/widgets/banking-widgets/dashboard-card-angular/seeds-card-ng-descriptor.yaml
+    - ui/widgets/banking-widgets/dashboard-card-react/seeds-card-descriptor.yaml
+    - ui/widgets/banking-widgets/transaction-table/seeds-card-transaction-table-descriptor.yaml
+  # entando-needle-descriptor-add-widgets - Entando blueprint will add widget bundle files here

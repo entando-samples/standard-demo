@@ -20,7 +20,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -156,7 +155,6 @@ public class SavingsResource {
      * @param userID the id of the user who has the t to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the t, or with status {@code 404 (Not Found)}.
      */
-    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/savings/user/{userID}")
     public ResponseEntity<Savings> getCheckingByUserID(@PathVariable String userID) {
         log.debug("REST request to get Savings by user ID: {}", userID);

@@ -1,0 +1,6 @@
+code: sd_manage_users
+titles:
+    en: SD Manage Users
+    it: SD Gestione Utenti
+group: free
+customUiPath: manage-users.ftl

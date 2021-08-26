@@ -1,0 +1,35 @@
+id: 109
+contentType: PRD
+description: Products Text Left  - Image Right
+contentShape: |-
+  <section class="image-on-right products" style="background:#fff">
+      <div class="content-text-wrapper">
+          <div class="box-centered">
+
+              <div class="category">
+                  #foreach ($contentCategory in $content.getCategories())
+                  $contentCategory.title
+                  #end 
+              </div>
+
+              <h2> $content.title.text</h2>
+
+              <div class="body">$content.subtitle.text</div>
+          
+              
+               <a class="btn btn-dark-green" href="$content.getContentOnPageLink('product_details')&modelId=108" >
+                      $i18n.getLabel("READ_MORE")
+               </a>
+              
+
+          </div>
+      </div>
+      <div class="img-wrapper">
+          <div class="img_right">
+              <figure>
+                  <img src="$content.image.getImagePath('0')" alt="$content.image.text">
+              </figure>
+          </div>
+      </div>
+
+  </section>

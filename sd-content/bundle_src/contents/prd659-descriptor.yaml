@@ -1,0 +1,74 @@
+id: PRD659
+typeCode: PRD
+description: Seed Life Family
+mainGroup: free
+status: PUBLIC
+attributes:
+  - code: title
+    value: null
+    values:
+      en: Seed Life Family
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: subtitle
+    value: null
+    values:
+      en: |
+        <p>Seed Life Family insurance&nbsp; pays out a lump sum to your dependants should you pass away or be diagnosed with a terminal illness during the term of the contract, in order to provide for them after you&#39;re not around.</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: paragraphs
+    value: null
+    values: {}
+    elements:
+      - code: paragraphs
+        value: null
+        values: {}
+        elements: []
+        compositeelements:
+          - code: mbody
+            value: null
+            values:
+              en: |
+                <p>Seed Life Family insurance&nbsp; pays out a lump sum to your dependants should you pass away or be diagnosed with a terminal illness during the term of the contract, in order to provide for them after you&#39;re not around.</p>
+            elements: []
+            compositeelements: []
+            listelements: {}
+          - code: mimage
+            value: null
+            values: {}
+            elements: []
+            compositeelements: []
+            listelements: {}
+          - code: mtitle
+            value: null
+            values: {}
+            elements: []
+            compositeelements: []
+            listelements: {}
+        listelements: {}
+    compositeelements: []
+    listelements: {}
+  - code: image
+    value: null
+    values:
+      en:
+        correlationCode: '660'
+        name: Seed Life Family
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: links
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: attaches
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}

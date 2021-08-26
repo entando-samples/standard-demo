@@ -20,7 +20,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,7 +33,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
  * REST controller for managing {@link org.entando.demo.banking.domain.Checking}.
  */
 @RestController
-//@RequestMapping("/api")
 @Transactional
 public class CheckingResource {
 
@@ -156,7 +154,6 @@ public class CheckingResource {
      * @param userID the id of the user who has the t to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the t, or with status {@code 404 (Not Found)}.
      */
-    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/api/checkings/user/{userID}")
     public ResponseEntity<Checking> getCheckingByUserID(@PathVariable String userID) {
         log.debug("REST request to get Checking by user ID: {}", userID);

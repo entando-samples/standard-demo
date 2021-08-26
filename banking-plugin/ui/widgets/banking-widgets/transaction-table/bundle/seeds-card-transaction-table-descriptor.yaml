@@ -1,0 +1,6 @@
+code: sd_seeds_card_transaction_table
+titles:
+    en: SD Seeds Card Transaction Table
+    it: SD Seeds Card Transaction Table
+group: free
+customUiPath: seeds-card-transaction-table.ftl

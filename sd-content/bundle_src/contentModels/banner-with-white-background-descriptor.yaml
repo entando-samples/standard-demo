@@ -1,0 +1,22 @@
+id: 6
+contentType: SDB
+description: Banner with white background
+contentShape: |-
+  <div class="main-banner-white">
+              <div class="row">
+                  <div class="col-lg-6 col-xs-12">
+                      <div class="text-wrapper">
+                          <h1>$content.title.text</h1>
+                          <p>$content.subtitle.text</p>
+                          <a href"$content.link.destination" target="#" class="btn btn-lg btn-cta">
+                             Apply Now
+                          </a>
+                      </div>
+                  </div>
+                  <div class="col-lg-6 col-xs-12 image-center">
+                      <div class="centered-image">
+                          <img  src="$content.img.getImagePath('0')" alt="$content.img.text" />
+                      </div>
+                  </div>
+              </div>
+          </div>

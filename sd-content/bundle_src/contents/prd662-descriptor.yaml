@@ -1,0 +1,129 @@
+id: PRD662
+typeCode: PRD
+description: Seed International Travel and Medical Insurance
+mainGroup: free
+status: PUBLIC
+attributes:
+  - code: title
+    value: null
+    values:
+      en: Seed International Travel and Medical Insurance
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: subtitle
+    value: null
+    values:
+      en: |
+        <p>Seed International travel and medical insurance provides comprehensive cover for expats who are living or travelling outside of their home country for an extended period of time.</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: paragraphs
+    value: null
+    values: {}
+    elements:
+      - code: paragraphs
+        value: null
+        values: {}
+        elements: []
+        compositeelements:
+          - code: mbody
+            value: null
+            values:
+              en: |
+                <p>Travel Medical Insurance protects you in the event of an illness or injury when traveling outside of your country of residence. It provides key medical benefits in case of an emergency.<br />
+                Traveling abroad is an exciting experience, but unpredictable illnesses and accidents can happen. Even worse, the resulting medical bills can be overwhelming. The level of international medical coverage provided by your domestic insurance provider can vary greatly depending on your plan, so you may have very limited coverage or no coverage at all. A travel medical insurance plan can provide the coverage you need.</p>
+            elements: []
+            compositeelements: []
+            listelements: {}
+          - code: mimage
+            value: null
+            values: {}
+            elements: []
+            compositeelements: []
+            listelements: {}
+          - code: mtitle
+            value: null
+            values: {}
+            elements: []
+            compositeelements: []
+            listelements: {}
+        listelements: {}
+      - code: paragraphs
+        value: null
+        values: {}
+        elements: []
+        compositeelements:
+          - code: mbody
+            value: null
+            values:
+              en: |
+                <p>Depending on where you travel, you may encounter language and currency barriers that prevent you from accessing high-quality medical care.<br />
+                Traveling unprotected can leave you vulnerable to paying high out-of-pocket medical expenses, and navigating a foreign health care system without the assistance you need.<br />
+                However, with a travel medical insurance plan, you can worry less and experience more knowing you have medical coverage and a trusted health advisor who can support you in your time of need.</p>
+            elements: []
+            compositeelements: []
+            listelements: {}
+          - code: mimage
+            value: null
+            values:
+              en:
+                correlationCode: '663'
+                name: Paragraph_Image_d0.png
+            elements: []
+            compositeelements: []
+            listelements: {}
+          - code: mtitle
+            value: null
+            values:
+              en: Why Do I Need Travel Medical Insurance?
+            elements: []
+            compositeelements: []
+            listelements: {}
+        listelements: {}
+    compositeelements: []
+    listelements: {}
+  - code: image
+    value: null
+    values:
+      en:
+        correlationCode: '664'
+        name: Travel_Insurance_Image_d0.png
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: links
+    value: null
+    values: {}
+    elements:
+      - code: links
+        value:
+          urlDest: 'http://www.google.it'
+          pageDest: null
+          contentDest: null
+          resourceDest: null
+          symbolicDestination: '#!U;http://www.google.it!#'
+          destType: 1
+        values:
+          en: Discover more
+        elements: []
+        compositeelements: []
+        listelements: {}
+    compositeelements: []
+    listelements: {}
+  - code: attaches
+    value: null
+    values: {}
+    elements:
+      - code: attaches
+        value: null
+        values:
+          en:
+            correlationCode: '205'
+            name: Download
+        elements: []
+        compositeelements: []
+        listelements: {}
+    compositeelements: []
+    listelements: {}

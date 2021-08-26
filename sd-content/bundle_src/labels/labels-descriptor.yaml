@@ -1,0 +1,40 @@
+- key: SD_ESLC_LANGUAGE
+  titles:
+    en: Language
+    it: Lingua
+- key: SD_ESLC_LANG_en
+  titles:
+    en: English
+    it: Inglese
+- key: SD_ESLC_LANG_it
+  titles:
+    en: Italian
+    it: Italiano
+- key: SD_ESLF_ADMINISTRATION
+  titles:
+    en: Administration
+    it: Administration
+- key: SD_ESLF_MANAGE_USERS
+  titles:
+    en: Manage Users
+    it: Gestione Utenti
+- key: SD_GO_SEED_BANK
+  titles:
+    en: GO TO SEED BANK
+    it: TORNA A SEED BANK
+- key: SD_MY_DASHBOARD
+  titles:
+    en: My dashboard
+    it: La mia Dashboard
+- key: SD_SIGN_UP
+  titles:
+    en: Sign Up
+    it: Registrati
+- key: SD_STANDARD_DEMO
+  titles:
+    en: Standard Banking Demo
+    it: Standard Banking Demo
+- key: SD_STANDARD_DEMO_INSURANCE
+  titles:
+    en: Standard Demo Insurance
+    it: Standard Demo Insurance

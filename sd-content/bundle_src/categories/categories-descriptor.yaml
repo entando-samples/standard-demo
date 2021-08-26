@@ -1,0 +1,25 @@
+- code: benefits
+  parentCode: home
+  titles:
+    en: Benefits
+    it: Benefits
+- code: customer_service
+  parentCode: home
+  titles:
+    en: Customer service
+    it: Customer service
+- code: my_product
+  parentCode: home
+  titles:
+    en: My Product
+    it: My Product
+- code: news
+  parentCode: home
+  titles:
+    en: News
+    it: News
+- code: products
+  parentCode: home
+  titles:
+    en: Products
+    it: Products

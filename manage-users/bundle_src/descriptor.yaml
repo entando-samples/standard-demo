@@ -1,0 +1,7 @@
+code: sd-manage-users
+description: Standard Demo Manage Users
+
+components:
+  widgets:
+    - ui/widgets/manageusers/tableWidget/manage-users-descriptor.yaml
+  # entando-needle-descriptor-add-widgets - Entando blueprint will add widget bundle files here

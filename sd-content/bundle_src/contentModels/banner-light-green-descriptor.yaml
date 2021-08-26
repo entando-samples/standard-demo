@@ -1,0 +1,21 @@
+id: 2
+contentType: SDB
+description: ' Banner light green'
+contentShape: |-
+  <div class="main-banner-green">
+
+      <div class="row">
+          <div class="col-12 col-lg-6 ">
+              <div class="text-wrapper">
+
+                  <h1>$content.title.text</h1>
+                  <p>$content.subtitle.text</p>
+              </div>
+          </div>
+          <div class="col-12 col-lg-6 image-center">
+              <div class="centered-image">
+                  <img src=" $content.img.getImagePath('0')" alt="$content.img.text"  />
+              </div>
+          </div>
+      </div>
+  </div>

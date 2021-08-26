@@ -1,0 +1,25 @@
+id: 3
+contentType: SDB
+description: Banner with inner card
+contentShape: |-
+  <div class="main-banner-12">
+      <div class="main-banner-12-inner-wrapper">
+
+          <div class="row">
+              <div class="col-xs-12 col-lg-6">
+                  <div class="text-wrapper-inner">
+                      <h2>$content.title.text</h2>
+                      <p>$content.subtitle.text</p>
+                      <p class="fine-print">$content.descr.text</p>
+                  </div>
+              </div>
+
+              <div class="col-lg-6 col-xs-12 image-center">
+                  <div class="centered-image">
+                      <img src="$content.img.getImagePath('0')" alt="$content.img.text" />
+                  </div>
+              </div>
+          </div>
+
+      </div>
+  </div>

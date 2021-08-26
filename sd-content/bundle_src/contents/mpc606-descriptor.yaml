@@ -1,0 +1,55 @@
+id: MPC606
+typeCode: MPC
+description: About Seed Insurance
+mainGroup: free
+status: PUBLIC
+attributes:
+  - code: title
+    value: null
+    values:
+      en: |
+        <p>About <strong>Seed </strong>Insurance</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: subtitle
+    value: null
+    values:
+      en: |
+        <p>There are a variety of types of insurance.</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: body
+    value: null
+    values:
+      en: |
+        <p>Insurance is a topic that&#39;s misunderstood by many people, even those who have it. Ultimately, insurance is a way to transfer risk of financial loss to your insurance company. The cost of transferring that risk is the premium you pay.</p>
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: image
+    value: null
+    values: {}
+    elements: []
+    compositeelements: []
+    listelements: {}
+  - code: links
+    value: null
+    values: {}
+    elements:
+      - code: links
+        value:
+          urlDest: null
+          pageDest: products
+          contentDest: null
+          resourceDest: null
+          symbolicDestination: '#!P;products!#'
+          destType: 2
+        values:
+          en: Products
+        elements: []
+        compositeelements: []
+        listelements: {}
+    compositeelements: []
+    listelements: {}

@@ -1,0 +1,6 @@
+code: footer-insurance
+titles:
+  en: Insurance footer
+  it: Footer Assicurazioni
+group: free
+customUi: '<#assign wp=JspTaglibs["/aps-core"]><div class="footer">            <div class="half-side">                  <p>All Rights Reserved by Seed @2020</p>                <p>Seed, Inc. | NMLS #: 000000 | Licenses | NMLS Consumer Access</p>                <p>Deposits are FDIC insured to at least $250,000 through Seed, Inc. Member FDIC.</p>            </div>            <div class="half-side">                  <img src="<@wp.resourceURL />standard-demo/static/img/insurance-logo.svg" />            </div></div>'

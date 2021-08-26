@@ -1,0 +1,6 @@
+code: back_to_seed
+titles:
+  en: Back to  Seed bank
+  it: Back to  Seed bank
+group: free
+customUi: '<#assign wp=JspTaglibs["/aps-core"]><@wp.currentWidget param="config" configParam="name" var="configName" /><a class="btn go-back" href="<@wp.url page="homepagesd" />"  >        <@wp.i18n key="SD_GO_SEED_BANK" />  </a>'

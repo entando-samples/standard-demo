@@ -1,0 +1,6 @@
+code: language_choose
+titles:
+  en: Language choose
+  it: Scelta lingua
+group: free
+customUi: '<#assign wp=JspTaglibs["/aps-core"]><@wp.info key="langs" var="langsVar" /><@wp.info key="currentLang" var="currentLangVar" /><style> .language {    grid-area: login;    background: #fff;    border: 1px solid #4e4e4e;    color: #4e4e4e;    font-family: Cabin-Regular;    font-style: normal;    font-weight: 400;    font-size: 15px;    height: 42px;    min-width: 94px;    width: auto;    text-transform: capitalize;    padding: .1em;}</style><div class="dropdown">    <button class="btn language dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">        <@wp.i18n key="SD_ESLC_LANGUAGE" />    </button>    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">        <@wp.freemarkerTemplateParameter var="langsListVar" valueName="langsVar" removeOnEndTag=true >        <#list langsListVar as curLangVar>            <a class="dropdown-item <#if (curLangVar.code == currentLangVar)>active</#if>"  href="<@wp.url lang="${curLangVar.code}" paramRepeat=true />">            <@wp.i18n key="SD_ESLC_LANG_${curLangVar.code}" />            </a>        </#list>        </@wp.freemarkerTemplateParameter>    </div></div>'

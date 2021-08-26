@@ -1,0 +1,5 @@
+code: insurance_inclusions_footer
+guiCode: '
+<#assign wp=JspTaglibs["/aps-core"]>
+<script type="text/javascript"  src="<@wp.resourceURL />static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<@wp.resourceURL />static/js/mdb.min.js"></script>'
