@@ -10,7 +10,6 @@ import javax.validation.Valid;
 import javax.ws.rs.core.Response;
 
 import org.entando.demo.customer.domain.AppUser;
-import org.entando.demo.customer.web.response.ForgotPasswordResponse;
 import org.keycloak.OAuth2Constants;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.KeycloakBuilder;
