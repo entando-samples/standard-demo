@@ -65,7 +65,7 @@ public class AppUserResource {
 	}
 
 	/**
-	 * {@code POST  /reset-password} : reset password for existing user.
+	 * {@code GET  /reset-password} : reset password for existing user.
 	 *
 	 * @param email Id of existing user.
 	 * @return the {@link ForgotPasswordResponse} with status {@code 200 (Created)} and with
