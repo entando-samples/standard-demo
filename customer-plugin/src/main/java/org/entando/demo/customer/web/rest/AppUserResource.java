@@ -1,16 +1,14 @@
 package org.entando.demo.customer.web.rest;
 
-import io.github.jhipster.web.util.HeaderUtil;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import javax.validation.Valid;
 import javax.ws.rs.core.Response;
+
 import org.entando.demo.customer.domain.AppUser;
 import org.entando.demo.customer.web.response.ForgotPasswordResponse;
 import org.keycloak.OAuth2Constants;
@@ -25,8 +23,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.StringUtils;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,6 +31,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.github.jhipster.web.util.HeaderUtil;
+
 @RestController
 @RequestMapping("/api")
 public class AppUserResource {
@@ -42,6 +40,8 @@ public class AppUserResource {
 	private final Logger log = LoggerFactory.getLogger(AppUserResource.class);
 
 	private static final String ENTITY_NAME = "signupAppUser";
+	
+	private static final String FORGOT_PASSWORD = "forgotPassword";
 
 	@Value("${jhipster.clientApp.name}")
 	private String applicationName;
@@ -77,7 +77,7 @@ public class AppUserResource {
 	 */
 	@CrossOrigin(origins = "*")
 	@GetMapping("/reset-password")
-	public ForgotPasswordResponse resetPassword(@Valid @RequestParam String email) throws URISyntaxException {
+	public ResponseEntity<?> resetPassword(@Valid @RequestParam String email) throws URISyntaxException {
 		/**
 		 * making connection with Keyclock with provided credentials
 		 */
@@ -95,19 +95,15 @@ public class AppUserResource {
 		Optional<UserRepresentation> user = userAll.stream()
 				.filter((usr) -> (usr.getEmail() != null && usr.getEmail().equalsIgnoreCase(email))).findFirst();
 
-		ForgotPasswordResponse forgotPasswordResponse = new ForgotPasswordResponse();
-
 		if (user.isPresent()) {
 			// sending reset password mail
 			usersRessource.get(user.get().getId()).executeActionsEmail(Arrays.asList("UPDATE_PASSWORD"));
-			forgotPasswordResponse.setStatus(200);
-
-			forgotPasswordResponse.setMessage(EMAIL_MESSAGE_SUCCESS);
+			return ResponseEntity.status(200).headers(HeaderUtil.createAlert(applicationName, EMAIL_MESSAGE_SUCCESS, email))
+					.body(EMAIL_MESSAGE_SUCCESS);
 		} else {
-			forgotPasswordResponse.setStatus(404);
-			forgotPasswordResponse.setMessage(EMAIL_MESSAGE_ERROR);
+			return ResponseEntity.status(404).headers(HeaderUtil.createFailureAlert(applicationName, true,
+					FORGOT_PASSWORD, String.valueOf(404), EMAIL_MESSAGE_ERROR)).body(EMAIL_MESSAGE_ERROR);
 		}
-		return forgotPasswordResponse;
 	}
 
 	/**
