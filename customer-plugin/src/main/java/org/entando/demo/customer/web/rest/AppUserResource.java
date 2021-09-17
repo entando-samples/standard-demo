@@ -27,6 +27,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -73,7 +74,7 @@ public class AppUserResource {
 	 * @throws URISyntaxException if the Location URI syntax is incorrect.
 	 */
 	@CrossOrigin(origins = "*")
-	@PostMapping("/reset-password")
+	@GetMapping("/reset-password")
 	public ForgotPasswordResponse resetPassword(@Valid @RequestParam String email) throws URISyntaxException {
 		/**
 		 * making connection with Keyclock with provided credentials
@@ -89,15 +90,15 @@ public class AppUserResource {
 		List<UserRepresentation> userAll = usersRessource.list();
 
 		// filtering user with given email id
-		Stream<UserRepresentation> user = userAll.stream()
-				.filter((usr) -> (usr.getEmail() != null && usr.getEmail().equalsIgnoreCase(email)));
+		List<UserRepresentation> user = userAll.stream()
+				.filter((usr) -> (usr.getEmail() != null && usr.getEmail().equalsIgnoreCase(email)))
+				.collect(Collectors.toList());  
 
 		ForgotPasswordResponse forgotPasswordResponse = new ForgotPasswordResponse();
 		
-		if (user != null ) {
-			UserRepresentation usr = user.findFirst().get();
+		if (!user.isEmpty() ) {
 			// sending reset password mail 
-			usersRessource.get(usr.getId()).executeActionsEmail(Arrays.asList("UPDATE_PASSWORD"));
+			usersRessource.get(user.get(0).getId()).executeActionsEmail(Arrays.asList("UPDATE_PASSWORD"));
 			forgotPasswordResponse.setStatus(1);
 			forgotPasswordResponse.setMessage(EMAIL_MESSAGE_SUCCESS);
 		} else {
@@ -121,7 +122,7 @@ public class AppUserResource {
 	@PostMapping("/users")
 	public ResponseEntity<?> createUser(@Valid @RequestBody AppUser appUser) throws URISyntaxException {
 		int statusId = 0;
-
+		
 		Keycloak keycloak = KeycloakBuilder.builder().serverUrl(ADMIN_CLIENT_SERVER_URL).realm(REALM)
 				.grantType(OAuth2Constants.CLIENT_CREDENTIALS).clientId(CLIENT_ID).clientSecret(CLIENT_SECRET).build();
 
