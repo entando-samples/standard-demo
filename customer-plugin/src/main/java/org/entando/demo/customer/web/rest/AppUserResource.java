@@ -67,11 +67,12 @@ public class AppUserResource {
 
 	/**
 	 * {@code GET  /reset-password} : reset password for existing user.
-	 *
+	 * 
 	 * @param email Id of existing user.
-	 * @return the {@link ForgotPasswordResponse} with status {@code 200 (Created)}
-	 *         and with ForgotPasswordResponse, or with status
-	 *         {@code 404 (Bad Request)} if the User does not exist.
+	 * @return the {@link ForgotPasswordResponse} with status
+	 *         {@code 200 (if user exist and email sent)} and with
+	 *         ForgotPasswordResponse, or with status {@code 404 (Bad Request)} if
+	 *         the User does not exist.
 	 * @throws URISyntaxException if the Location URI syntax is incorrect.
 	 */
 	@CrossOrigin(origins = "*")
@@ -100,6 +101,7 @@ public class AppUserResource {
 			// sending reset password mail
 			usersRessource.get(user.get().getId()).executeActionsEmail(Arrays.asList("UPDATE_PASSWORD"));
 			forgotPasswordResponse.setStatus(200);
+
 			forgotPasswordResponse.setMessage(EMAIL_MESSAGE_SUCCESS);
 		} else {
 			forgotPasswordResponse.setStatus(404);
