@@ -5,6 +5,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -27,6 +28,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -64,42 +66,45 @@ public class AppUserResource {
 	}
 
 	/**
-	 * {@code POST  /users} : Create a new appUser.
+	 * {@code GET  /reset-password} : reset password for existing user.
 	 *
-	 * @param appUser the appUser to create.
-	 * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with
-	 *         body the new appUser, or with status {@code 400 (Bad Request)} if the
-	 *         appUser has already an ID.
+	 * @param email Id of existing user.
+	 * @return the {@link ForgotPasswordResponse} with status {@code 200 (Created)}
+	 *         and with ForgotPasswordResponse, or with status
+	 *         {@code 404 (Bad Request)} if the User does not exist.
 	 * @throws URISyntaxException if the Location URI syntax is incorrect.
 	 */
 	@CrossOrigin(origins = "*")
-	@PostMapping("/reset-password")
+	@GetMapping("/reset-password")
 	public ForgotPasswordResponse resetPassword(@Valid @RequestParam String email) throws URISyntaxException {
-
+		/**
+		 * making connection with Keyclock with provided credentials
+		 */
 		Keycloak keycloak = KeycloakBuilder.builder().serverUrl(ADMIN_CLIENT_SERVER_URL).realm(REALM)
 				.grantType(OAuth2Constants.CLIENT_CREDENTIALS).clientId(CLIENT_ID).clientSecret(CLIENT_SECRET).build();
-
+		// making connection with keycloack REALM
 		RealmResource realmResource = keycloak.realm(REALM);
 
 		UsersResource usersRessource = realmResource.users();
 
+		// Getting all list of users from keycloack realm
 		List<UserRepresentation> userAll = usersRessource.list();
 
-		Stream<UserRepresentation> user = userAll.stream()
-				.filter((usr) -> (usr.getEmail() != null && usr.getEmail().equalsIgnoreCase(email)));
+		// filtering user with given email id
+		Optional<UserRepresentation> user = userAll.stream()
+				.filter((usr) -> (usr.getEmail() != null && usr.getEmail().equalsIgnoreCase(email))).findFirst();
 
 		ForgotPasswordResponse forgotPasswordResponse = new ForgotPasswordResponse();
-		
-		if (user != null ) {
-			UserRepresentation usr = user.findFirst().get();
-			usersRessource.get(usr.getId()).executeActionsEmail(Arrays.asList("UPDATE_PASSWORD"));
-			forgotPasswordResponse.setStatus(1);
+
+		if (user.isPresent()) {
+			// sending reset password mail
+			usersRessource.get(user.get().getId()).executeActionsEmail(Arrays.asList("UPDATE_PASSWORD"));
+			forgotPasswordResponse.setStatus(200);
 			forgotPasswordResponse.setMessage(EMAIL_MESSAGE_SUCCESS);
 		} else {
-			forgotPasswordResponse.setStatus(0);
+			forgotPasswordResponse.setStatus(404);
 			forgotPasswordResponse.setMessage(EMAIL_MESSAGE_ERROR);
 		}
-
 		return forgotPasswordResponse;
 	}
 
