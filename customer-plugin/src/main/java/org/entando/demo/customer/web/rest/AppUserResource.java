@@ -3,8 +3,13 @@ package org.entando.demo.customer.web.rest;
 import io.github.jhipster.web.util.HeaderUtil;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+
 import javax.validation.Valid;
 import javax.ws.rs.core.Response;
+
 import org.entando.demo.customer.domain.AppUser;
 import org.keycloak.OAuth2Constants;
 import org.keycloak.admin.client.Keycloak;
@@ -19,9 +24,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -46,6 +53,11 @@ public class AppUserResource {
 
     @Value("${keycloak.credentials.secret}")
     private String CLIENT_SECRET;
+    	
+	private static final String FORGOT_PASSWORD = "forgotPassword";
+	private static final String EMAIL_MESSAGE_SUCCESS = "Email has been sent successfully";
+	private static final String EMAIL_MESSAGE_ERROR = "User does not exist with given email";
+
 
     public AppUserResource() {
 
@@ -143,4 +155,44 @@ public class AppUserResource {
 
     }
 
+    /**
+	 * {@code GET  /reset-password} : reset password for existing user.
+	 * 
+	 * @param email Id of existing user.
+	 * @return the {@link ForgotPasswordResponse} with status
+	 *         {@code 200 (if user exist and email sent)} and with
+	 *         ForgotPasswordResponse, or with status {@code 404 (Bad Request)} if
+	 *         the User does not exist.
+	 * @throws URISyntaxException if the Location URI syntax is incorrect.
+	 */
+	@CrossOrigin(origins = "*")
+	@GetMapping("/reset-password")
+	public ResponseEntity<?> resetPassword(@Valid @RequestParam String email) throws URISyntaxException {
+		/**
+		 * making connection with Keyclock with provided credentials
+		 */
+		Keycloak keycloak = KeycloakBuilder.builder().serverUrl(ADMIN_CLIENT_SERVER_URL).realm(REALM)
+				.grantType(OAuth2Constants.CLIENT_CREDENTIALS).clientId(CLIENT_ID).clientSecret(CLIENT_SECRET).build();
+		// making connection with keycloack REALM
+		RealmResource realmResource = keycloak.realm(REALM);
+
+		UsersResource usersRessource = realmResource.users();
+
+		// Getting all list of users from keycloack realm
+		List<UserRepresentation> userAll = usersRessource.list();
+
+		// filtering user with given email id
+		Optional<UserRepresentation> user = userAll.stream()
+				.filter((usr) -> (usr.getEmail() != null && usr.getEmail().equalsIgnoreCase(email))).findFirst();
+
+		if (user.isPresent()) {
+			// sending reset password mail
+			usersRessource.get(user.get().getId()).executeActionsEmail(Arrays.asList("UPDATE_PASSWORD"));
+			return ResponseEntity.status(200).headers(HeaderUtil.createAlert(applicationName, EMAIL_MESSAGE_SUCCESS, email))
+					.body(EMAIL_MESSAGE_SUCCESS);
+		} else {
+			return ResponseEntity.status(404).headers(HeaderUtil.createFailureAlert(applicationName, true,
+					FORGOT_PASSWORD, String.valueOf(404), EMAIL_MESSAGE_ERROR)).body(EMAIL_MESSAGE_ERROR);
+		}
+	}
 }
