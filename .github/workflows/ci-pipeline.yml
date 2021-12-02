@@ -35,6 +35,6 @@ jobs:
           node-version: '14.15.0'
       - name: Run tests
         run: |
-          cd "$GITHUB_WORKSPACE/ui/widgets/banking-widgets/${{ matrix.widget }}"
+          cd "$GITHUB_WORKSPACE/banking-plugin/ui/widgets/banking-widgets/${{ matrix.widget }}"
           npm install
           npm test
