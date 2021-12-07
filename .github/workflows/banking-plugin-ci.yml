@@ -5,10 +5,6 @@ env:
 jobs:
   backend:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
-    env:
-      SPRING_OUTPUT_ANSI_ENABLED: DETECT
-      SPRING_JPA_SHOW_SQL: false
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
@@ -18,7 +14,7 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE/$PROJECT_NAME
           chmod +x mvnw
-          ./mvnw -ntp clean verify
+          ./mvnw -ntp clean test
       - name: Package application
         run: |
           cd $GITHUB_WORKSPACE/$PROJECT_NAME
@@ -26,7 +22,6 @@ jobs:
   micro-frontends:
     name: ${{ matrix.widget }} micro frontend
     runs-on: ubuntu-latest
-    timeout-minutes: 40
     strategy:
       fail-fast: false
       matrix:
