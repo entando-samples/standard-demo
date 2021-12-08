@@ -8,14 +8,14 @@ import SeedscardtransactionTable from 'components/SeedscardtransactionTable';
 describe('SeedscardtransactionTable', () => {
   it('shows seedscardtransactions', () => {
     const { getByText } = render(<SeedscardtransactionTable items={seedscardtransactionMocks} />);
-    expect(getByText('2003-07-27')).toBeInTheDocument();
-    expect(getByText('2007-06-30')).toBeInTheDocument();
+    expect(getByText('7/27/2003')).toBeInTheDocument();
+    expect(getByText('6/30/2007')).toBeInTheDocument();
   });
 
   it('shows no seedscardtransactions message', () => {
     const { queryByText } = render(<SeedscardtransactionTable items={[]} />);
-    expect(queryByText('2003-07-27')).not.toBeInTheDocument();
-    expect(queryByText('2007-06-30')).not.toBeInTheDocument();
+    expect(queryByText('7/27/2003')).not.toBeInTheDocument();
+    expect(queryByText('6/30/2007')).not.toBeInTheDocument();
 
     expect(queryByText('entities.seedscardtransaction.noItems')).toBeInTheDocument();
   });
@@ -25,7 +25,7 @@ describe('SeedscardtransactionTable', () => {
     const { getByText } = render(
       <SeedscardtransactionTable items={seedscardtransactionMocks} onSelect={onSelectMock} />
     );
-    fireEvent.click(getByText('2003-07-27'));
+    fireEvent.click(getByText('7/27/2003'));
     expect(onSelectMock).toHaveBeenCalledTimes(1);
   });
 });
