@@ -40,4 +40,9 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE/$PROJECT_NAME/ui/widgets/banking-widgets/${{ matrix.widget }}
           npm install
-          npm test
+          if [${{ matrix.widget }} == "dashboard-card-angular"]
+          then
+            npm run test-ci
+          else
+            npm test
+          fi
