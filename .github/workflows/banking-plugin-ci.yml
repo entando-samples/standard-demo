@@ -31,6 +31,9 @@ jobs:
           - dashboard-card-config
           - dashboard-card-react
           - transaction-table
+        include:
+          - widget: dashboard-card-angular
+            testcommand: test-ci
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2.1.4
@@ -40,9 +43,4 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE/$PROJECT_NAME/ui/widgets/banking-widgets/${{ matrix.widget }}
           npm install
-          if [${{ matrix.widget }} == "dashboard-card-angular"]
-          then
-            npm run test-ci
-          else
-            npm test
-          fi
+          npm run ${{ matrix.testcommand || 'test' }}
