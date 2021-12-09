@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build --configuration=production",
     "test": "ng test",
+    "test-ci": "ng test --browsers=ChromeHeadless --watch=false",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
