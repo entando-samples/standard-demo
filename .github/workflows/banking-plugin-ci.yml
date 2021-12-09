@@ -33,7 +33,7 @@ jobs:
           - transaction-table
         include:
           - widget: dashboard-card-angular
-            testcommand: test-ci
+            test-script-name: test-ci
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2.1.4
@@ -43,4 +43,4 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE/$PROJECT_NAME/ui/widgets/banking-widgets/${{ matrix.widget }}
           npm install
-          npm run ${{ matrix.testcommand || 'test' }}
+          npm run ${{ matrix.test-script-name || 'test' }}
