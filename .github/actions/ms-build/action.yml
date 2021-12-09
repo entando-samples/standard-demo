@@ -1,0 +1,15 @@
+name: 'Build Microservice backend application'
+description: 'Package a backend Spring boot application'
+inputs:
+  path:
+    description: the project path
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Package application
+      shell: bash
+      run: |
+        cd ${{inputs.path}}
+        chmod +x mvnw
+        ./mvnw -ntp package -Pprod -DskipTests
