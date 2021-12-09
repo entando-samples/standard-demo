@@ -10,7 +10,7 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: '11.x'
-      - uses: ./standard-demo/.github/actions/ms-tests
+      - uses: ./standard-demo/.github/actions/ms-unit-tests
         with:
           path: $GITHUB_WORKSPACE/$PROJECT_NAME
       - uses: ./standard-demo/.github/actions/ms-build
