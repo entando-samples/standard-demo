@@ -10,15 +10,12 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: '11.x'
-      - name: Run backend test
-        run: |
-          cd $GITHUB_WORKSPACE/$PROJECT_NAME
-          chmod +x mvnw
-          ./mvnw -ntp clean test
-      - name: Package application
-        run: |
-          cd $GITHUB_WORKSPACE/$PROJECT_NAME
-          ./mvnw -ntp package -Pprod -DskipTests
+      - uses: ./standard-demo/.github/actions/ms-tests
+        with:
+          path: $GITHUB_WORKSPACE/$PROJECT_NAME
+      - uses: ./standard-demo/.github/actions/ms-build
+        with:
+          path: $GITHUB_WORKSPACE/$PROJECT_NAME
   micro-frontends:
     name: ${{ matrix.widget }} micro frontend
     runs-on: ubuntu-latest
