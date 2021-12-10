@@ -20,4 +20,5 @@ jobs:
       - name: Build project
         run: |
           source "$HOME/.entando/activate"
+          cd $GITHUB_WORKSPACE/$PROJECT_NAME
           ent prj build
