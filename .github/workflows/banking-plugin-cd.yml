@@ -17,6 +17,7 @@ jobs:
         run: |
           source "$HOME/.entando/activate"
           ent check-env develop
-      - name: ENT Check-env
+      - name: Build project
         run: |
+          source "$HOME/.entando/activate"
           ent prj build
