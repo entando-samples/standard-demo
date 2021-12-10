@@ -25,7 +25,7 @@ jest.mock('auth/KeycloakContext', () => {
   return { withKeycloak };
 });
 
-describe('SeedscardtransactionTableContainer', () => {
+describe.skip('SeedscardtransactionTableContainer', () => {
   const errorMessageKey = 'error.dataLoading';
 
   afterEach(() => {
