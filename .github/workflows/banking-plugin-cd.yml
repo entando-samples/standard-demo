@@ -15,4 +15,5 @@ jobs:
       - run: |
           source "$HOME/.entando/activate"
       - run: |
+          source "$HOME/.entando/activate"
           ent check-env develop
