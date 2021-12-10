@@ -10,10 +10,13 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: '11.x'
-      - run: |
+      - name: Install ENT CLI
+        run: |
           curl -L https://get.entando.org/cli | bash
-      - run: |
-          source "$HOME/.entando/activate"
-      - run: |
+      - name: ENT Check-env
+        run: |
           source "$HOME/.entando/activate"
           ent check-env develop
+      - name: ENT Check-env
+        run: |
+          ent prj build
