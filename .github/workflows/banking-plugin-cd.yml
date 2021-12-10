@@ -1,0 +1,16 @@
+name: Banking Plugin CD
+on: push
+env:
+  PROJECT_NAME: banking-plugin
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '11.x'
+      - run: |
+          curl -L https://get.entando.org/cli | bash
+      - run: |
+          ent check-env develop
