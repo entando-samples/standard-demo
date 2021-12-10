@@ -13,4 +13,6 @@ jobs:
       - run: |
           curl -L https://get.entando.org/cli | bash
       - run: |
+          source "$HOME/.entando/activate"
+      - run: |
           ent check-env develop
