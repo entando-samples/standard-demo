@@ -2,7 +2,7 @@ name: 'Unit testing micro frontend application'
 description: 'Run unit tests for MFE applications'
 inputs:
   path:
-    description: the project path
+    description: the project path, should end by "/"
     required: true
   widget-name:
     description: the main folder name
@@ -17,6 +17,6 @@ runs:
     - name: Run tests
       shell: bash
       run: |
-        cd ${{ inputs.path }}/ui/widgets/banking-widgets/${{ inputs.widget-name }}
+        cd ${{ inputs.path }}${{ inputs.widget-name }}
         npm install
         npm run ${{ inputs.test-script-name }}
