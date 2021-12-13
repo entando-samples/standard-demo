@@ -1,0 +1,17 @@
+name: Manager Users CI
+on: push
+env:
+  PROJECT_NAME: manage-users
+jobs:
+  micro-frontends:
+    name: manageusers table widget micro frontend
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2.1.4
+        with:
+          node-version: '14.15.0'
+      - uses: ./.github/actions/mfe-unit-tests
+        with:
+          path: $GITHUB_WORKSPACE/$PROJECT_NAME/ui/widgets/manageusers/
+          widget-name: tableWidget
