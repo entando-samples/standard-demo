@@ -36,8 +36,8 @@ jobs:
       - uses: actions/setup-node@v2.1.4
         with:
           node-version: '14.15.0'
-      - name: Run tests
-        run: |
-          cd $GITHUB_WORKSPACE/$PROJECT_NAME/ui/widgets/banking-widgets/${{ matrix.widget }}
-          npm install
-          npm run ${{ matrix.test-script-name || 'test' }}
+      - uses: ./.github/actions/mfe-unit-tests
+        with:
+          path: $GITHUB_WORKSPACE/$PROJECT_NAME
+          widget-name: ${{ matrix.widget }}
+          test-script-name: ${{ matrix.test-script-name }}
