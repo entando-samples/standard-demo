@@ -38,6 +38,6 @@ jobs:
           node-version: '14.15.0'
       - uses: ./.github/actions/mfe-unit-tests
         with:
-          path: $GITHUB_WORKSPACE/$PROJECT_NAME $GITHUB_WORKSPACE/$PROJECT_NAME/ui/banking-widgets/
+          path: $GITHUB_WORKSPACE/$PROJECT_NAME/ui/banking-widgets/
           widget-name: ${{ matrix.widget }}
           test-script-name: ${{ matrix.test-script-name }}
