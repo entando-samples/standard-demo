@@ -117,15 +117,6 @@ attributes:
   - code: attaches
     value: null
     values: {}
-    elements:
-      - code: attaches
-        value: null
-        values:
-          en:
-            correlationCode: '205'
-            name: Entando_Admin_Console_Overview_4.3.3_EN.pdf
-        elements: []
-        compositeelements: []
-        listelements: {}
+    elements: []
     compositeelements: []
     listelements: {}
