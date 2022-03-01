@@ -1,6 +1,6 @@
 id: 5
 contentType: SDB
-description: Banner  dark green background
+description: SD Banner dark green background
 contentShape: |-
   <div class="main-banner-darkgreen ">
       <div class="row">

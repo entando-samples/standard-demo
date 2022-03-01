@@ -1,6 +1,6 @@
 id: 101
 contentType: MPC
-description: Multi-Purpose Centered
+description: SD Multi-Purpose Centered
 contentShape: |-
   <div class="insurance-centered-content" style="background: url($content.image.getImagePath('0'))">
       <div class="row no-gutters">

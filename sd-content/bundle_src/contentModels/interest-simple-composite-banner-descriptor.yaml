@@ -1,6 +1,6 @@
 id: 10
 contentType: SDB
-description: 'Interest simple composite banner  '
+description: SD Interest simple composite banner
 contentShape: |-
   <div class="interests-composite">
       <div class="row">

@@ -1,6 +1,6 @@
 id: 1
 contentType: SDB
-description: Main Banner
+description: SD Main Banner
 contentShape: |-
   <div class="main-banner">
       <div class="row">
