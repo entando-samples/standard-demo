@@ -1,6 +1,6 @@
 id: 106
 contentType: MPC
-description: SD Multi-Purpose Card 3 Columns  List with categories
+description: SD Multi-Purpose Card 3 Cols with categories
 contentShape: |-
   <div class="card-insurance with-categories">
   <a href="$content.getContentOnPageLink('products_detail')&modelId=105" class="card-clickable">
