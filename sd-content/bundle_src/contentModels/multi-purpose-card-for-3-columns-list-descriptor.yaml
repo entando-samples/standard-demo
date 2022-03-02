@@ -1,6 +1,6 @@
 id: 103
 contentType: MPC
-description: Multi-Purpose Card for 3 Columns  List
+description: SD Multi-Purpose Card for 3 Columns  List
 contentShape: |-
   <div class="card-insurance">
       <img src="$content.image.getImagePath('0')"  alt="$content.image.text">

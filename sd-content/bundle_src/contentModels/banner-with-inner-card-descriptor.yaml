@@ -1,6 +1,6 @@
 id: 3
 contentType: SDB
-description: Banner with inner card
+description: SD Banner with inner card
 contentShape: |-
   <div class="main-banner-12">
       <div class="main-banner-12-inner-wrapper">

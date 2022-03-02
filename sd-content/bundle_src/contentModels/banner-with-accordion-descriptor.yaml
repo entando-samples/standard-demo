@@ -1,6 +1,6 @@
 id: 4
 contentType: SDB
-description: Banner with accordion
+description: SD Banner with accordion
 contentShape: |-
   <div class="main-banner-accordion">
       <div class="row">

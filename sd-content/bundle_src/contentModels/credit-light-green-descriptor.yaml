@@ -1,6 +1,6 @@
 id: 7
 contentType: SDB
-description: "Credit light green\t"
+description: SD Credit light green
 contentShape: |-
   <div class="credit-banner-green">
       <div class="row">

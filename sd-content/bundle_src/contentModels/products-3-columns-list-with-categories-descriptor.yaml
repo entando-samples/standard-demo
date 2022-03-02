@@ -1,6 +1,6 @@
 id: 107
 contentType: PRD
-description: Products 3 Columns  List with categories
+description: SD Products 3 Columns List with categories
 contentShape: |-
   <div class="card-insurance with-categories">
       <a href="$content.getContentOnPageLink('product_details')&modelId=108" class="card-clickable">

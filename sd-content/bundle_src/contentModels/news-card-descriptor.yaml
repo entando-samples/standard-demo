@@ -1,6 +1,6 @@
 id: 18
 contentType: SDN
-description: news card
+description: SD News Card
 contentShape: |-
   <div class="card card-dim" >
     <img class="card-img-top" src="$content.img.getImagePath('0')" alt="$content.img.text" />

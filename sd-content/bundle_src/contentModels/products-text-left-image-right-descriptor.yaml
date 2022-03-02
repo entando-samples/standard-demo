@@ -1,6 +1,6 @@
 id: 109
 contentType: PRD
-description: Products Text Left  - Image Right
+description: SD Products Text Left - Image Right
 contentShape: |-
   <section class="image-on-right products" style="background:#fff">
       <div class="content-text-wrapper">
