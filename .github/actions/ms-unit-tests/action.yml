@@ -1,0 +1,15 @@
+name: 'Unit testing Microservice backend application'
+description: 'Run unit tests for a backend Spring boot application'
+inputs:
+  path:
+    description: the project path
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Run backend tests
+      shell: bash
+      run: |
+        cd ${{inputs.path}}
+        chmod +x mvnw
+        ./mvnw -ntp clean test
