@@ -84,10 +84,6 @@
                         </li>
                     </#if>
                 </ul>
-                <div class="d-block d-sm-block d-md-none">
-                    <@wp.show frame=2 />
-                    <@wp.show frame=3 />
-                </div>
             </div>
             <div class="d-none d-lg-block d-xl-block">
                 <@wp.show frame=2 />

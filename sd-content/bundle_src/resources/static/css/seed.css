@@ -1098,6 +1098,7 @@ div.dataTables_paginate .pagination {
 
 .bar-content-edit {
     position:absolute;
+    z-index: 2000;
 }
 
 .breadcrumb span{
