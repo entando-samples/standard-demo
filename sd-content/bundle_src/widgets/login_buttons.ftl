@@ -1,28 +1,18 @@
 <#assign wp=JspTaglibs["/aps-core"]>
-    <script nonce="<@wp.cspNonce />">
-        function login() {
-            window.entando.keycloak.login();
-        }
-        document.addEventListener('DOMContentLoaded', function() {
-            const loginElement = document.getElementById('login-button');
-            if (loginElement) {
-                loginElement.addEventListener('click', login);
-            }
-        });
-    </script>
+<#if (Session.currentUser !="guest" )>
     <script nonce="<@wp.cspNonce />">
         function logout() {
             const redirectUri = '<@wp.info key="systemParam" paramName="applicationBaseURL" />';
             window.entando.keycloak.logout({redirectUri:redirectUri});
         }
-        window.addEventListener('load', function() {
+
+        document.addEventListener('DOMContentLoaded', function() {
             const logoutElement = document.getElementById('logout-button');
             if (logoutElement) {
                 logoutElement.addEventListener('click', logout);
             }
         });
     </script>
-<#if (Session.currentUser !="guest" )>
     <div class="btn-group login-group">
         <button type="button" class="btn login dropdown-toggle px-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             ${Session.currentUser}
@@ -51,10 +41,13 @@
         </span></a>
 <#else>
     <script nonce="<@wp.cspNonce />">
-        window.addEventListener("user.form.login", (evt) => {
-            if (evt.detail.payload) {
-                console.log("executing on user.form.login evt");
-                login();
+        function login() {
+            window.entando.keycloak.login();
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginElement = document.getElementById('login-button');
+            if (loginElement) {
+                loginElement.addEventListener('click', login);
             }
         });
     </script>
