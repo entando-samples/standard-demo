@@ -15,7 +15,7 @@ const getKeycloakInstance = () =>
   };
 
 const ATTRIBUTES = {
-  cardname: 'cardname',
+  config: 'config',
 };
 
 class SeedscardDetailsElement extends HTMLElement {
@@ -33,9 +33,9 @@ class SeedscardDetailsElement extends HTMLElement {
     return Object.values(ATTRIBUTES);
   }
 
-  attributeChangedCallback(cardname, oldValue, newValue) {
-    if (!Object.values(ATTRIBUTES).includes(cardname)) {
-      throw new Error(`Untracked changed attribute: ${cardname}`);
+  attributeChangedCallback(attribute, oldValue, newValue) {
+    if (!SeedscardDetailsElement.observedAttributes.includes(attribute)) {
+      throw new Error(`Untracked changed attributes: ${attribute}`);
     }
     if (this.mountPoint && newValue !== oldValue) {
       this.render();
@@ -61,7 +61,8 @@ class SeedscardDetailsElement extends HTMLElement {
 
   render() {
     const customEventPrefix = 'seedscard.details.';
-    const cardname = this.getAttribute(ATTRIBUTES.cardname);
+    const attributeConfig = this.getAttribute(ATTRIBUTES.config);
+    const config = attributeConfig && JSON.parse(attributeConfig);
 
     const onError = error => {
       const customEvent = new CustomEvent(`${customEventPrefix}error`, {
@@ -74,7 +75,7 @@ class SeedscardDetailsElement extends HTMLElement {
 
     ReactDOM.render(
       <KeycloakContext.Provider value={this.keycloak}>
-        <SeedscardDetailsContainer cardname={cardname} onError={onError} onDetail={this.onDetail} />
+        <SeedscardDetailsContainer onError={onError} onDetail={this.onDetail} config={config} />
       </KeycloakContext.Provider>,
       this.mountPoint
     );

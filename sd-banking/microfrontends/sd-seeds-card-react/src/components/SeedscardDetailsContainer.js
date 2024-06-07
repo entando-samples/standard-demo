@@ -14,7 +14,6 @@ import { getSeedscardByUserID } from 'api/seedscard';
 class SeedscardDetailsContainer extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       loading: true,
       account: null,
@@ -48,7 +47,9 @@ class SeedscardDetailsContainer extends React.Component {
   }
 
   fetchData({ firstCall }) {
-    const { onError, t, keycloak, cardname, onDetail } = this.props;
+    const { onError, t, keycloak, onDetail, config } = this.props;
+    const { params } = config || {};
+    const { cardname } = params || {};
     const authenticated = keycloak.initialized && keycloak.authenticated;
     const userID = keycloak.idTokenParsed.preferred_username;
 
@@ -92,7 +93,9 @@ class SeedscardDetailsContainer extends React.Component {
 
   render() {
     const { account, notificationStatus, notificationMessage, loading } = this.state;
-    const { t, keycloak, onDetail, cardname } = this.props;
+    const { t, keycloak, onDetail, config } = this.props;
+    const { params } = config || {};
+    const { cardname } = params || {};
 
     return (
       <ThemeProvider theme={this.theme}>
@@ -120,7 +123,7 @@ SeedscardDetailsContainer.propTypes = {
   t: PropTypes.func.isRequired,
   keycloak: keycloakType.isRequired,
   onDetail: PropTypes.func.isRequired,
-  cardname: PropTypes.string.isRequired,
+  config: PropTypes.string.isRequired,
 };
 
 SeedscardDetailsContainer.defaultProps = {
