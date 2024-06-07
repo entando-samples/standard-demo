@@ -87,6 +87,6 @@ class SeedscardDetailsElement extends HTMLElement {
   }
 }
 
-if (!customElements.get('sd-seeds-card-details')) {
-  customElements.define('sd-seeds-card-details', SeedscardDetailsElement);
+if (!customElements.get('sd-seeds-card-react')) {
+  customElements.define('sd-seeds-card-react', SeedscardDetailsElement);
 }

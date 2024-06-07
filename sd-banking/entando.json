@@ -1,41 +1,45 @@
 {
-    "microservices": [
-        {
-            "name": "sd-banking-ms",
-            "roles": [
-                "task-list"
-            ],
-            "dbms": "none",
-            "healthCheckPath": "/management/health",
-            "permissions": [],
-            "ingressPath": "/banking",
-            "stack": "spring-boot",
-            "version": "0.0.1"
-        }
-    ],
-    "microfrontends": [
-        {
-            "name": "sd-alert-bar-icon",
-            "customElement": "sd-alert-bar-icon",
-            "stack": "react",
-            "type": "widget",
-            "group": "free",
-            "publicFolder": "public",
-            "titles": {
-                "en": "SD Alert Icon",
-                "it": "SD Icona di avviso"
-            }
-        }
-    ],
-    "svc": [
-        "app",
-        "keycloak",
-        "monitoring",
-        "postgresql",
-        "sonar"
-    ],
-    "name": "sd-banking",
-    "version": "0.3.0",
-    "description": "SD Banking bundle",
-    "type": "bundle"
+  "microservices": [
+    {
+      "name": "sd-banking-ms",
+      "roles": ["task-list"],
+      "dbms": "none",
+      "healthCheckPath": "/management/health",
+      "permissions": [],
+      "ingressPath": "/banking",
+      "stack": "spring-boot",
+      "version": "0.0.1"
+    }
+  ],
+  "microfrontends": [
+    {
+      "name": "sd-alert-bar-icon",
+      "customElement": "sd-alert-bar-icon",
+      "stack": "react",
+      "type": "widget",
+      "group": "free",
+      "publicFolder": "public",
+      "titles": {
+        "en": "SD Alert Icon",
+        "it": "SD Icona di avviso"
+      }
+    },
+    {
+      "name": "sd-seeds-card-react",
+      "customElement": "sd-seeds-card-react",
+      "stack": "react",
+      "type": "widget",
+      "group": "free",
+      "publicFolder": "public",
+      "titles": {
+        "en": "SD Seeds Card",
+        "it": "SD Seeds Card"
+      }
+    }
+  ],
+  "svc": ["app", "keycloak", "monitoring", "postgresql", "sonar"],
+  "name": "sd-banking",
+  "version": "0.3.0",
+  "description": "SD Banking bundle",
+  "type": "bundle"
 }
