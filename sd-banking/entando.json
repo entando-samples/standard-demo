@@ -61,7 +61,7 @@
   ],
   "svc": ["app", "keycloak", "monitoring", "postgresql", "sonar"],
   "name": "sd-banking",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "SD Banking bundle",
   "type": "bundle"
 }

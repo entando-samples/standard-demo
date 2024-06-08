@@ -48,14 +48,16 @@ class SeedscardDetailsContainer extends React.Component {
 
   fetchData({ firstCall }) {
     const { onError, t, keycloak, onDetail, config } = this.props;
-    const { params } = config || {};
+    const { params, systemParams } = config || {};
+    const { api } = systemParams || {};
+    const url = api && api['sd-banking-api'].url;
     const { cardname } = params || {};
     const authenticated = keycloak.initialized && keycloak.authenticated;
     const userID = keycloak.idTokenParsed.preferred_username;
 
     if (authenticated) {
       if (userID) {
-        getSeedscardByUserID({ userID, cardname })
+        getSeedscardByUserID({ url, userID, cardname })
           .then(account => {
             this.setState({
               notificationStatus: null,
@@ -123,7 +125,8 @@ SeedscardDetailsContainer.propTypes = {
   t: PropTypes.func.isRequired,
   keycloak: keycloakType.isRequired,
   onDetail: PropTypes.func.isRequired,
-  config: PropTypes.string.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  config: PropTypes.object.isRequired,
 };
 
 SeedscardDetailsContainer.defaultProps = {

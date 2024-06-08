@@ -1,5 +1,3 @@
-import { DOMAIN } from 'api/constants';
-
 const getKeycloakToken = () => {
   if (
     window &&
@@ -39,17 +37,17 @@ const executeFetch = (params = {}) => {
 };
 
 export const getSeedscard = (params = {}) => {
-  const { id, options, cardname } = params;
+  const { url: base, id, options, cardname } = params;
 
-  const url = `${DOMAIN}${DOMAIN.endsWith('/') ? '' : '/'}banking/api/${cardname}s/${id}`;
+  const url = `${base}/api/${cardname}s/${id}`;
 
   return executeFetch({ url, options });
 };
 
 export const getSeedscardByUserID = (params = {}) => {
-  const { userID, options, cardname } = params;
+  const { url: base, userID, options, cardname } = params;
 
-  const url = `${DOMAIN}${DOMAIN.endsWith('/') ? '' : '/'}banking/api/${cardname}s/user/${userID}`;
+  const url = `${base}/api/${cardname}s/user/${userID}`;
 
   return executeFetch({ url, options });
 };
