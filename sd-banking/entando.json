@@ -1,67 +1,94 @@
 {
-  "microservices": [
-    {
-      "name": "sd-banking-ms",
-      "roles": ["task-list"],
-      "dbms": "none",
-      "healthCheckPath": "/management/health",
-      "permissions": [],
-      "ingressPath": "/banking",
-      "stack": "spring-boot",
-      "version": "0.0.1"
-    }
-  ],
-  "microfrontends": [
-    {
-      "name": "sd-alert-bar-icon",
-      "customElement": "sd-alert-bar-icon",
-      "stack": "react",
-      "type": "widget",
-      "group": "free",
-      "publicFolder": "public",
-      "titles": {
-        "en": "SD Alert Icon",
-        "it": "SD Icona di avviso"
-      }
-    },
-    {
-      "name": "sd-seeds-card-react",
-      "customElement": "sd-seeds-card-react",
-      "stack": "react",
-      "type": "widget",
-      "group": "free",
-      "publicFolder": "public",
-      "titles": {
-        "en": "SD Seeds Card",
-        "it": "SD Seeds Card"
-      },
-      "configMfe": "sd-seeds-card-config",
-      "params": [
+    "microservices": [
         {
-          "name": "cardname",
-          "description": "The type of the Seeds Card to display, e.g. checking, savings, creditcard"
+            "name": "sd-banking-ms",
+            "roles": [
+                "task-list"
+            ],
+            "dbms": "none",
+            "healthCheckPath": "/management/health",
+            "permissions": [],
+            "ingressPath": "/banking",
+            "stack": "spring-boot",
+            "version": "0.0.1"
         }
-      ],
-      "apiClaims": [
+    ],
+    "microfrontends": [
         {
-          "name": "sd-banking-api",
-          "type": "internal",
-          "serviceName": "sd-banking-ms"
+            "name": "sd-alert-bar-icon",
+            "customElement": "sd-alert-bar-icon",
+            "stack": "react",
+            "type": "widget",
+            "group": "free",
+            "publicFolder": "public",
+            "titles": {
+                "en": "SD Alert Icon",
+                "it": "SD Icona di avviso"
+            }
+        },
+        {
+            "name": "sd-seeds-card-react",
+            "customElement": "sd-seeds-card-react",
+            "stack": "react",
+            "type": "widget",
+            "group": "free",
+            "publicFolder": "public",
+            "titles": {
+                "en": "SD Seeds Card",
+                "it": "SD Seeds Card"
+            },
+            "configMfe": "sd-seeds-card-config",
+            "params": [
+                {
+                    "name": "cardname",
+                    "description": "The type of the Seeds Card to display, e.g. checking, savings, creditcard"
+                }
+            ],
+            "apiClaims": [
+                {
+                    "name": "sd-banking-api",
+                    "type": "internal",
+                    "serviceName": "sd-banking-ms"
+                }
+            ]
+        },
+        {
+            "name": "sd-seeds-card-config",
+            "customElement": "sd-seeds-card-config",
+            "stack": "react",
+            "type": "widget-config",
+            "group": "free",
+            "publicFolder": "public"
+        },
+        {
+            "name": "sd-transaction-table",
+            "customElement": "sd-seeds-card-transaction-table",
+            "stack": "react",
+            "type": "widget",
+            "group": "free",
+            "publicFolder": "public",
+            "titles": {
+                "en": "SD Seeds Card Transaction Table",
+                "it": "SD Seeds Card Transaction Table"
+            },
+            "apiClaims": [
+              {
+                  "name": "sd-banking-api",
+                  "type": "internal",
+                  "serviceName": "sd-banking-ms"
+              }
+          ]
         }
-      ]
-    },
-    {
-      "name": "sd-seeds-card-config",
-      "customElement": "sd-seeds-card-config",
-      "stack": "react",
-      "type": "widget-config",
-      "group": "free",
-      "publicFolder": "public"
-    }
-  ],
-  "svc": ["app", "keycloak", "monitoring", "postgresql", "sonar"],
-  "name": "sd-banking",
-  "version": "0.3.2",
-  "description": "SD Banking bundle",
-  "type": "bundle"
+    ],
+    "svc": [
+        "app",
+        "keycloak",
+        "monitoring",
+        "postgresql",
+        "sonar"
+    ],
+    "name": "sd-banking",
+    "version": "0.3.2",
+    "description": "SD Banking bundle",
+    "type": "bundle"
 }

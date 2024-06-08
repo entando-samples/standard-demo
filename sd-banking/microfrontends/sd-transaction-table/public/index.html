@@ -80,6 +80,17 @@
         </div>
         <div>
             <sd-seeds-card-transaction-table pagination-mode="pagination" />
+            <script>
+                function injectConfigIntoMfe() {
+                fetch('%PUBLIC_URL%/mfe-config.json').then(async response => {
+                    const config = await response.text();
+                    const mfeEl = document.getElementsByTagName('sd-seeds-card-transaction-table')[0];
+                    mfeEl.setAttribute('config', config);
+                });
+                }
+
+                injectConfigIntoMfe();
+            </script>
         </div>
         <!--
       This HTML file is a template.
