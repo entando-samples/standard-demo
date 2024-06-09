@@ -1,4 +1,3 @@
-import { DOMAIN } from 'api/constants';
 import { getFilterQuery } from 'components/filters/utils';
 
 const getKeycloakToken = () => {
@@ -40,8 +39,8 @@ const getUrl = (url, filters = '', pagination = '') => {
   return `${url}${hasQuery ? `?${parameters}` : ''}`;
 };
 
-export const apiSeedscardtransactionsDelete = async id => {
-  const url = `${DOMAIN}/seedscardtransactions/${id}`;
+export const apiSeedscardtransactionsDelete = async ({ baseurl, id }) => {
+  const url = `${baseurl}/seedscardtransactions/${id}`;
   const options = {
     ...getDefaultOptions(),
     method: 'DELETE',
@@ -49,7 +48,13 @@ export const apiSeedscardtransactionsDelete = async id => {
   return request(url, options);
 };
 
-export const apiSeedscardtransactionsGet = async ({ filters = [], pagination, mode, cardname }) => {
+export const apiSeedscardtransactionsGet = async ({
+  baseurl,
+  filters = [],
+  pagination,
+  mode,
+  cardname,
+}) => {
   const filterQuery = getFilterQuery(filters);
 
   const paginationQuery = pagination
@@ -59,9 +64,7 @@ export const apiSeedscardtransactionsGet = async ({ filters = [], pagination, mo
   const param = cardname.replace(/\s+/g, '');
 
   const url = getUrl(
-    `${DOMAIN}${DOMAIN.endsWith('/') ? '' : '/'}banking/api/${param}transactions${
-      mode === 'count' ? '/count' : ''
-    }`,
+    `${baseurl}/api/${param}transactions${mode === 'count' ? '/count' : ''}`,
     filterQuery,
     paginationQuery
   );

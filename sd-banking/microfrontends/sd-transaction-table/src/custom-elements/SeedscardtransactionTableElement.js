@@ -33,6 +33,7 @@ const ATTRIBUTES = {
   locale: 'locale',
   paginationMode: 'pagination-mode',
   disableDefaultEventHandler: 'disable-default-event-handler', // custom element attribute names MUST be written in kebab-case
+  config: 'config',
 };
 
 class SeedscardtransactionTableElement extends HTMLElement {
@@ -141,6 +142,8 @@ class SeedscardtransactionTableElement extends HTMLElement {
     if (hidden) {
       return;
     }
+    const attributeConfig = this.getAttribute(ATTRIBUTES.config);
+    const config = attributeConfig && JSON.parse(attributeConfig);
 
     const locale = this.getAttribute(ATTRIBUTES.locale);
     setLocale(locale);
@@ -177,6 +180,7 @@ class SeedscardtransactionTableElement extends HTMLElement {
                 onSelect={this.onSelect}
                 onError={this.onError}
                 paginationMode={paginationMode}
+                config={config}
               />
             </PaginationProvider>
           </ThemeProvider>

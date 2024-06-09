@@ -173,7 +173,10 @@ class SeedscardtransactionTableContainer extends Component {
 
   async fetchData() {
     const { items, descriptionFilter, rangeFilter } = this.state;
-    const { keycloak, paginationMode, pagination, detail } = this.props;
+    const { keycloak, paginationMode, pagination, detail, config } = this.props;
+    const { systemParams } = config || {};
+    const { api } = systemParams || {};
+    const baseurl = api && api['sd-banking-api'].url;
     const authenticated = keycloak.initialized && keycloak.authenticated;
     const receivedDetail = detail && detail.cardname && detail.accountID;
 
@@ -219,6 +222,7 @@ class SeedscardtransactionTableContainer extends Component {
                 },
               }),
           cardname: detail.cardname,
+          baseurl,
         };
 
         const { seedscardtransactions, headers } = await apiSeedscardtransactionsGet(
@@ -288,12 +292,15 @@ class SeedscardtransactionTableContainer extends Component {
   }
 
   async handleDelete(item) {
-    const { onDelete, keycloak } = this.props;
+    const { onDelete, keycloak, config } = this.props;
+    const { systemParams } = config || {};
+    const { api } = systemParams || {};
+    const baseurl = api && api['sd-banking-api'].url;
     const authenticated = keycloak.initialized && keycloak.authenticated;
 
     if (authenticated) {
       try {
-        await apiSeedscardtransactionsDelete(item.id);
+        await apiSeedscardtransactionsDelete(baseurl, item.id);
         onDelete(item);
         this.dispatch({ type: DELETE, payload: { id: item.id } });
       } catch (err) {
@@ -424,6 +431,8 @@ SeedscardtransactionTableContainer.propTypes = {
     cardname: PropTypes.string,
     accountID: PropTypes.string,
   }),
+  // eslint-disable-next-line react/forbid-prop-types
+  config: PropTypes.object.isRequired,
 };
 
 SeedscardtransactionTableContainer.defaultProps = {
