@@ -12,8 +12,9 @@ import { CardService } from './card.service';
 export class CardComponent implements OnInit {
   env = environment;
   firstCall = true;
+  cardName;
 
-  @Input() cardName: string;
+  @Input() config;
   @Input() keycloak;
 
   seedCard: SeedCard;
@@ -22,8 +23,13 @@ export class CardComponent implements OnInit {
 
   ngOnInit() {
     const userID = this.keycloak.idTokenParsed.preferred_username;
+    const { params, systemParams } = this.config || {};
+    const { cardname } = params || {};
+    this.cardName = cardname;
+    const { api } = systemParams || {};
+    const url = api && api['sd-banking-api'].url;
 
-    this.cardService.getSeedsCardByUserID(userID, this.cardName).subscribe(
+    this.cardService.getSeedsCardByUserID(url, userID, this.cardName).subscribe(
       (response: SeedCard) => {
         this.seedCard = response;
         if (this.cardName === 'checking' && this.firstCall) {

@@ -52,18 +52,19 @@
     </script>
   </head>
   <body onLoad="onLoad();">
-    <sd-seeds-card-angular/>    
-    <script>
-      function injectConfigIntoMfe() {
-        fetch('/mfe-config.json').then(async response => {
-          const config = await response.text();
-          const mfeEl = document.getElementsByTagName('sd-seeds-card-angular')[0];
-          mfeEl.setAttribute('config', config);
-        });
+    <sd-seeds-card-angular config='
+    {
+      "params": {
+        "cardname": "savings"
+      },
+      "systemParams": {
+        "api": {
+          "sd-banking-api": {
+            "url": "http://localhost:8081/banking"
+          }
+        }
       }
-
-      injectConfigIntoMfe();
-    </script>
-
+    }    
+    '/> 
   </body>
 </html>

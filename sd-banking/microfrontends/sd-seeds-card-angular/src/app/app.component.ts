@@ -19,13 +19,15 @@ const getKeycloakInstance = () =>
 export class AppComponent implements OnInit, OnDestroy {
   keycloak = getKeycloakInstance();
   unsubscribeFromKeycloakEvent = null;
+  config: any;
 
-  @Input('cardname') cardname: string;
+  @Input('config') configJson: string;
 
   constructor(private widgetEventService: WidgetEventService) {}
 
   ngOnInit() {
     this.keycloak = { ...getKeycloakInstance(), initialized: true };
+    this.config = this.configJson ? JSON.parse(this.configJson) : {};
 
     this.unsubscribeFromKeycloakEvent = this.widgetEventService.subscribeToWidgetEvent(
       EVENT_KEY.KEYCLOAK_EVENT_TYPE,

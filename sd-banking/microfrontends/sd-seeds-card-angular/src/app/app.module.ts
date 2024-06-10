@@ -38,9 +38,9 @@ export class AppModule {
   constructor(private injector: Injector) {}
 
   ngDoBootstrap() {
-    if (!customElements.get('sd-seeds-card-details-ng')) {
+    if (!customElements.get('sd-seeds-card-angular')) {
       const el = createCustomElement(AppComponent, { injector: this.injector });
-      customElements.define('sd-seeds-card-details-ng', el);
+      customElements.define('sd-seeds-card-angular', el);
     }
   }
 }
