@@ -52,6 +52,18 @@
     </script>
   </head>
   <body onLoad="onLoad();">
-    <sd-seeds-card-details-ng cardname="savings" />
+    <sd-seeds-card-angular/>    
+    <script>
+      function injectConfigIntoMfe() {
+        fetch('/mfe-config.json').then(async response => {
+          const config = await response.text();
+          const mfeEl = document.getElementsByTagName('sd-seeds-card-angular')[0];
+          mfeEl.setAttribute('config', config);
+        });
+      }
+
+      injectConfigIntoMfe();
+    </script>
+
   </body>
 </html>
