@@ -115,7 +115,7 @@
         "sonar"
     ],
     "name": "sd-banking",
-    "version": "0.3.3",
+    "version": "0.3.4",
     "description": "SD Banking bundle",
     "type": "bundle"
 }
