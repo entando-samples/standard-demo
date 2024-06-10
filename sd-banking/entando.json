@@ -72,12 +72,24 @@
                 "it": "SD Seeds Card Transaction Table"
             },
             "apiClaims": [
-              {
-                  "name": "sd-banking-api",
-                  "type": "internal",
-                  "serviceName": "sd-banking-ms"
-              }
-          ]
+                {
+                    "name": "sd-banking-api",
+                    "type": "internal",
+                    "serviceName": "sd-banking-ms"
+                }
+            ]
+        },
+        {
+            "name": "sd-seeds-card-angular",
+            "customElement": "sd-seeds-card-angular",
+            "stack": "react",
+            "type": "widget",
+            "group": "free",
+            "publicFolder": "public",
+            "titles": {
+                "en": "sd-seeds-card-angular",
+                "it": "sd-seeds-card-angular"
+            }
         }
     ],
     "svc": [
