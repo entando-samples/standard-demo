@@ -104,7 +104,10 @@
                     "type": "internal",
                     "serviceName": "sd-banking-ms"
                 }
-            ]
+            ],
+            "commands": {
+              "pack": "npm run build; node rename-polyfills.js"
+            }
         }
     ],
     "svc": [
@@ -115,7 +118,7 @@
         "sonar"
     ],
     "name": "sd-banking",
-    "version": "0.3.4",
+    "version": "0.3.5",
     "description": "SD Banking bundle",
     "type": "bundle"
 }
