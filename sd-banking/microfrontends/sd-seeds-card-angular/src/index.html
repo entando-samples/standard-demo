@@ -46,6 +46,13 @@
           const silentCheckSsoRedirectUri = window.location.origin + '/silent-check-sso.html';
 
           window.entando.keycloak.init({ onLoad, silentCheckSsoRedirectUri }).success(onInit);
+
+          //Simulate assetsPath as well
+          window.entando.widgets = {
+            "sd-seeds-card-angular": {
+              "basePath": "/"
+            }
+          };
         }
         return initKeycloak;
       })();

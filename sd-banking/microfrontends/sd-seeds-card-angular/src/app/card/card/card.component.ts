@@ -11,6 +11,7 @@ import { CardService } from './card.service';
 })
 export class CardComponent implements OnInit {
   env = environment;
+  assetsPath = "";
   firstCall = true;
   cardName;
 
@@ -28,6 +29,12 @@ export class CardComponent implements OnInit {
     this.cardName = cardname;
     const { api } = systemParams || {};
     const url = api && api['sd-banking-api'].url;
+
+    this.assetsPath = environment.assetsPath;
+    let publicpath = window.entando?.widgets['sd-seeds-card-angular']?.basePath;
+    if (publicpath && publicpath.slice(-1) !== '/') {
+      this.assetsPath = `${publicpath}/${environment.assetsPath}`;
+    }
 
     this.cardService.getSeedsCardByUserID(url, userID, this.cardName).subscribe(
       (response: SeedCard) => {
