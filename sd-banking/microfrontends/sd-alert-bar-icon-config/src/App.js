@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {svgTypes} from '../../assets/svg/svg'
+import {svgTypes} from './assets/svg/svg'
 
-class AlertBarIconConfig extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -40,4 +40,4 @@ class AlertBarIconConfig extends Component {
   }
 }
 
-export default AlertBarIconConfig;
+export default App;

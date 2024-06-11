@@ -106,8 +106,16 @@
                 }
             ],
             "commands": {
-              "pack": "npm run build; node rename-polyfills.js"
+                "pack": "npm run build; node rename-polyfills.js"
             }
+        },
+        {
+            "name": "sd-alert-bar-icon-config",
+            "customElement": "sd-alert-bar-icon-config",
+            "stack": "react",
+            "type": "widget-config",
+            "group": "free",
+            "publicFolder": "public"
         }
     ],
     "svc": [
