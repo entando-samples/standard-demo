@@ -21,7 +21,20 @@
             ]
         }
     ],
-    "microfrontends": [],
+    "microfrontends": [
+        {
+            "name": "sd-user-form",
+            "customElement": "sd-user-form",
+            "stack": "react",
+            "type": "widget",
+            "group": "free",
+            "publicFolder": "public",
+            "titles": {
+                "en": "sd-user-form",
+                "it": "sd-user-form"
+            }
+        }
+    ],
     "svc": [
         "keycloak"
     ],
