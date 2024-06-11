@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import i18next from 'i18next';
-import './public-path.js';
 
 import { KeycloakContext } from 'auth/KeycloakContext';
 import SeedscardDetailsContainer from 'components/SeedscardDetailsContainer';
