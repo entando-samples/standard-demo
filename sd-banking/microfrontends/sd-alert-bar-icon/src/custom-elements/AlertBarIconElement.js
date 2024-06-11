@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './public-path.js';
 
 import { KeycloakContext } from 'auth/KeycloakContext';
 import AppContainer from 'AppContainer';
@@ -15,9 +16,7 @@ const getKeycloakInstance = () =>
   };
 
 const ATTRIBUTES = {
-  icon: 'icon',
-  title: 'title',
-  serviceUrl: 'service-url',
+  config: 'config'
 };
 
 class AlertBarIconElement extends HTMLElement {
@@ -33,9 +32,9 @@ class AlertBarIconElement extends HTMLElement {
     return Object.values(ATTRIBUTES);
   }
 
-  attributeChangedCallback(name, oldValue, newValue) {
-    if (!Object.values(ATTRIBUTES).includes(name)) {
-      throw new Error(`Untracked changed attribute: ${name}`);
+  attributeChangedCallback(attribute, oldValue, newValue) {
+    if (!Object.values(ATTRIBUTES).includes(attribute)) {
+      throw new Error(`Untracked changed attribute: ${attribute}`);
     }
     if (this.mountPoint && newValue !== oldValue) {
       this.render();
@@ -60,13 +59,12 @@ class AlertBarIconElement extends HTMLElement {
   }
 
   render() {
-    const serviceUrl = this.getAttribute(ATTRIBUTES.serviceUrl);
-    const icon = this.getAttribute(ATTRIBUTES.icon);
-    const title = this.getAttribute(ATTRIBUTES.title);
-
+    const attributeConfig = this.getAttribute(ATTRIBUTES.config);
+    const config = attributeConfig && JSON.parse(attributeConfig);
+    
     ReactDOM.render(
       <KeycloakContext.Provider value={this.keycloak}>
-        <AppContainer serviceUrl={serviceUrl} icon={icon} title={title} />
+        <AppContainer config={config}/>
       </KeycloakContext.Provider>,
       this.mountPoint
     );

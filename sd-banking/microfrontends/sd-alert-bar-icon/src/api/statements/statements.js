@@ -64,7 +64,7 @@ export const apiStatementsGet = async (serviceUrl, { filters = [], pagination })
   const paginationQuery = pagination
     ? `page=${pagination.page}&size=${pagination.rowsPerPage}`
     : '';
-  const url = getUrl(`${serviceUrl}/${resource}`, filterQuery, paginationQuery);
+  const url = getUrl(`${serviceUrl}/api/${resource}`, filterQuery, paginationQuery);
   const options = {
     ...getDefaultOptions(),
     method: 'GET',

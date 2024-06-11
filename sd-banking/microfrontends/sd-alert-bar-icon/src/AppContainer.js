@@ -52,8 +52,13 @@ class AppContainer extends React.PureComponent {
   }
 
   onMount = () => {
-    const { icon, onError, t, keycloak, serviceUrl } = this.props;
+    const { config, onError, t, keycloak } = this.props;
+    const { params, systemParams } = config || {};
+    const { icon } = params || {};
     const { descriptionFilter, rangeFilter } = this.state;
+    const { api } = systemParams || {};
+    const serviceUrl = api && api['sd-banking-api'].url;
+
     const apiCall = getApiContext(icon);
     const authenticated = keycloak.initialized && keycloak.authenticated;
     const userId = keycloak.idTokenParsed.preferred_username;
@@ -152,7 +157,12 @@ class AppContainer extends React.PureComponent {
   }
 
   async putDocumentRead(document) {
-    const { icon, t, serviceUrl } = this.props;
+    const { config, t } = this.props;
+    const { params, systemParams } = config || {};
+    const { icon } = params || {};
+    const { api } = systemParams || {};
+    const serviceUrl = api && api['sd-banking-api'].url;
+
     const apiCall = putApiContext(icon);
     try {
       const updated = await apiCall(serviceUrl, document);
@@ -172,8 +182,11 @@ class AppContainer extends React.PureComponent {
   }
 
   render() {
-    const { icon, title, keycloak, t } = this.props;
+    const { config, keycloak, t } = this.props;
     const { modalOpen, data, loading, notificationStatus, notificationMessage } = this.state;
+    const { params } = config || {};
+    const { icon, title } = params || {};
+
     return (
       <ThemeProvider theme={this.theme}>
         <UnauthenticatedView keycloak={keycloak}>
@@ -205,16 +218,14 @@ class AppContainer extends React.PureComponent {
 }
 
 AppContainer.propTypes = {
-  icon: PropTypes.string,
-  title: PropTypes.string,
   onError: PropTypes.func,
   keycloak: keycloakType.isRequired,
   t: PropTypes.func.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  config: PropTypes.object,
 };
 
 AppContainer.defaultProps = {
-  icon: '',
-  title: '',
   onError: () => {},
 };
 

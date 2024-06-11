@@ -64,18 +64,20 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div style="padding:50px;">
         <div>
-            <sd-alert-bar-icon service-url="%REACT_APP_SERVICE_URL%" icon="viewstatements" title="View statements" />
-        </div>
-        <div>
-            <sd-alert-bar-icon-config icon="viewstatements" title="View the statements"/>
+            <sd-alert-bar-icon/>
         </div>
     </div>
-
-    <!--
-      This HTML file holds the test widgets for the Customer Portal.
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <script>
+       function injectConfigIntoMfe() {
+         fetch('%PUBLIC_URL%/mfe-config.json').then(async response => {
+           const config = await response.text()
+           const mfeEl = document.getElementsByTagName('sd-alert-bar-icon')[0]
+           mfeEl.setAttribute('config', config)
+         })
+       }
+       
+       injectConfigIntoMfe()
+    </script>
 </body>
 </html>
 
