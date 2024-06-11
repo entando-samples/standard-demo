@@ -26,6 +26,8 @@ spring:
       - swagger
       # Uncomment to activate TLS for the dev profile
       #- tls
+  swagger:
+    enabled: true
   devtools:
     restart:
       enabled: true

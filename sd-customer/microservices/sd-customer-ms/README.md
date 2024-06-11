@@ -2,19 +2,31 @@
 
 With this configuration, you can use the ent cli (https://dev.entando.org/next/docs/reference/entando-cli.html) to perform the full deployment sequence:
 
-### Setup the project directory.
+# Deployment and installation
 
-1. Prepare the bundle directory: `cp -r bundle_src bundle`
-2. Initialize the project: `ent prj init`
-3. Initialize publication: `ent prj pbs-init` (requires the git bundle repo url)
+With this configuration, you can use the ent cli (https://dev.entando.org/next/docs/reference/entando-cli.html) to perform the full deployment sequence:
 
-### Publish the bundle.
+## Prerequisites
 
-1. Build: `ent prj build` (build the frontend and backend) or `ent prj fe-build -a` (to just build the frontend, including changes from bundle_src)
-2. Publish: `ent prj pub` or `ent prj fe-push` (publish all or just the frontend)
-3. Deploy (after connecting to k8s): `ent prj deploy`
-4. Install the bundle via 1) App Builder, 2) `ent prj install`, or 3) `ent prj install --conflict-strategy=OVERRIDE` on subsequent installs.
-5. Iterate steps 1-4 to publish new versions.
+1. Docker account
+2. attach ent to an Entando platform (e.g. ent attach-kubeconfig config-file)
+
+## Build and publish steps
+
+1. ent bundle pack
+2. ent bundle publish
+3. ent bundle deploy
+4. ent bundle install
+
+See https://developer.entando.com for more information.
+
+# Development tips for local testing
+
+- Start keycloak - `ent bundle svc start keycloak`
+- The keycloak admin UI is available at http://localhost:9080. User admin/admin can be used for testing
+- Start the microservice - `ent bundle run sd-customer-ms`. The dev profile uses an in-memory H2 database. It will fail to startup if keycloak is not available
+- The MS Swagger UI is available at `http://localhost:8081/customer/swagger-ui.html?urls.primaryName=entando` Note: the default swagger_ui client is not auto-configured so the Swagger UI may not be fully functional
+- Start the MFE - `ent bundle run sd-user-form`. Make sure you copy env.local.template to env.local and modify it to match your local settings.
 
 # Customer
 

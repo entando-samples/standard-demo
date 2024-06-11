@@ -24,8 +24,6 @@ See https://developer.entando.com for more information.
 - The MS Swagger UI is available at `http://localhost:8081/banking/`
 - Start the MFE of your choice - `ent bundle run sd-cards-react`. Make sure you copy env.local.template to env.local and modify it to match your local settings.
 
-* The Swagger UI is available in development mode (run `./mvnw` or `ent prj be-test-run`) and accessible from `
-
 # Banking
 
 This application was generated using JHipster 6.9.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.9.0](https://www.jhipster.tech/documentation-archive/v6.9.0).
