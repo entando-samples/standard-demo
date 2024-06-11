@@ -1,5 +1,3 @@
-import { DOMAIN } from 'api/constants';
-
 const getDefaultOptions = () => ({
   headers: new Headers({
     'Content-Type': 'application/json',
@@ -16,31 +14,31 @@ const request = async (url, options) => {
     : Promise.reject(new Error(response.status || response.statusText));
 };
 
-export const apiUserGet = async id => {
-  const url = `${DOMAIN}/${resource}/${id}`;
+export const apiUserGet = async (url, id) => {
+  const fullUrl = `${url}/${resource}/${id}`;
   const options = {
     ...getDefaultOptions(),
     method: 'GET',
   };
-  return request(url, options);
+  return request(fullUrl, options);
 };
 
-export const apiUserPost = async user => {
-  const url = `${DOMAIN}/${resource}`;
+export const apiUserPost = async (url, user) => {
+  const fullUrl = `${url}/${resource}`;
   const options = {
     ...getDefaultOptions(),
     method: 'POST',
     body: user ? JSON.stringify(user) : null,
   };
-  return request(url, options);
+  return request(fullUrl, options);
 };
 
-export const apiUserPut = async user => {
-  const url = `${DOMAIN}/${resource}`;
+export const apiUserPut = async (url, user) => {
+  const fullUrl = `${url}/${resource}`;
   const options = {
     ...getDefaultOptions(),
     method: 'PUT',
     body: user ? JSON.stringify(user) : null,
   };
-  return request(url, options);
+  return request(fullUrl, options);
 };

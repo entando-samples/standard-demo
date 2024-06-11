@@ -325,7 +325,8 @@ class UserForm extends PureComponent {
                   />
                 </a>
               </Grid>
-              <Grid item xs={12} md={12} spacing={3} className={classes.UserForm__divider}>
+              {/* Remove? spacing={3} */}
+              <Grid item xs={12} md={12} className={classes.UserForm__divider}>
                 <Divider />
               </Grid>
             </Grid>

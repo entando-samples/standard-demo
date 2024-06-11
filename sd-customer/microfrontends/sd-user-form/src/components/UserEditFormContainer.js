@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
+import { CUSTOMER_API } from 'api/constants';
 
 import keycloakType from 'components/__types__/keycloak';
 import { withKeycloak } from 'auth/KeycloakContext';
@@ -47,12 +48,16 @@ class UserEditFormContainer extends PureComponent {
   }
 
   async fetchData() {
-    const { keycloak, id } = this.props;
+    const { keycloak, id, config } = this.props;
+    const { systemParams } = config || {};
+    const { api } = systemParams || {};
+    const url = api && api[CUSTOMER_API].url;
+
     const authenticated = keycloak.initialized && keycloak.authenticated;
 
     if (authenticated && id) {
       try {
-        const user = await apiUserGet(id);
+        const user = await apiUserGet(url, id);
         this.setState(() => ({
           user,
         }));
@@ -67,12 +72,16 @@ class UserEditFormContainer extends PureComponent {
   }
 
   async handleSubmit(user) {
-    const { t, onUpdate, keycloak } = this.props;
+    const { t, onUpdate, keycloak, config } = this.props;
+    const { systemParams } = config || {};
+    const { api } = systemParams || {};
+    const url = api && api[CUSTOMER_API].url;
+
     const authenticated = keycloak.initialized && keycloak.authenticated;
 
     if (authenticated) {
       try {
-        const updatedUser = await apiUserPut(user);
+        const updatedUser = await apiUserPut(url, user);
         onUpdate(updatedUser);
 
         this.setState({
@@ -140,11 +149,14 @@ UserEditFormContainer.propTypes = {
   onUpdate: PropTypes.func,
   t: PropTypes.func.isRequired,
   keycloak: keycloakType.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  config: PropTypes.object,
 };
 
 UserEditFormContainer.defaultProps = {
   onUpdate: () => {},
   onError: () => {},
+  config: {},
 };
 
 export default withKeycloak(withTranslation()(UserEditFormContainer));

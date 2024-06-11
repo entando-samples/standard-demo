@@ -1,0 +1,9 @@
+{
+  "systemParams": {
+    "api": {
+      "sd-customer-api": {
+        "url": "http://localhost:8081/customer"
+      }
+    }
+  }
+}

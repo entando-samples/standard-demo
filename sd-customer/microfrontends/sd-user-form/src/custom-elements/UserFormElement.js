@@ -33,6 +33,7 @@ const ATTRIBUTES = {
   id: 'id',
   hidden: 'hidden',
   locale: 'locale',
+  config: 'config',
   disableDefaultEventHandler: 'disable-default-event-handler', // custom element attribute names MUST be written in kebab-case
 };
 
@@ -137,6 +138,8 @@ class UserFormElement extends HTMLElement {
 
   render() {
     const hidden = this.getAttribute(ATTRIBUTES.hidden) === 'true';
+    const attributeConfig = this.getAttribute(ATTRIBUTES.config);
+    const config = attributeConfig && JSON.parse(attributeConfig);
     if (hidden) {
       ReactDOM.render(<></>);
       return;
@@ -179,6 +182,7 @@ class UserFormElement extends HTMLElement {
             onCreate: this.onCreate,
             onError: this.onErrorCreate,
             onLogin: this.onLogin,
+            config,
           },
           null
         );

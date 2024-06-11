@@ -1,45 +1,41 @@
 {
-    "microservices": [
+  "microservices": [
+    {
+      "name": "sd-customer-ms",
+      "stack": "spring-boot",
+      "dbms": "none",
+      "healthCheckPath": "/management/health",
+      "version": "0.1.0",
+      "roles": ["customer-list"],
+      "permissions": [
         {
-            "name": "sd-customer-ms",
-            "stack": "spring-boot",
-            "dbms": "none",
-            "healthCheckPath": "/management/health",
-            "version": "0.1.0",
-            "roles": [
-                "customer-list"
-            ],
-            "permissions": [
-                {
-                    "clientId": "realm-management",
-                    "role": "manage-users"
-                },
-                {
-                    "clientId": "realm-management",
-                    "role": "view-users"
-                }
-            ]
-        }
-    ],
-    "microfrontends": [
+          "clientId": "realm-management",
+          "role": "manage-users"
+        },
         {
-            "name": "sd-user-form",
-            "customElement": "sd-user-form",
-            "stack": "react",
-            "type": "widget",
-            "group": "free",
-            "publicFolder": "public",
-            "titles": {
-                "en": "sd-user-form",
-                "it": "sd-user-form"
-            }
+          "clientId": "realm-management",
+          "role": "view-users"
         }
-    ],
-    "svc": [
-        "keycloak"
-    ],
-    "name": "sd-customer",
-    "version": "0.1.0",
-    "description": "SD Customer Bundle",
-    "type": "bundle"
+      ]
+    }
+  ],
+  "microfrontends": [
+    {
+      "name": "sd-user-form",
+      "customElement": "sd-user-form",
+      "stack": "react",
+      "type": "widget",
+      "group": "free",
+      "publicFolder": "public",
+      "titles": {
+        "en": "SD User Management Form",
+        "it": "SD User Management Form"
+      }
+    }
+  ],
+  "svc": ["keycloak"],
+  "name": "sd-customer",
+  "version": "0.1.0",
+  "description": "SD Customer Bundle",
+  "type": "bundle"
 }

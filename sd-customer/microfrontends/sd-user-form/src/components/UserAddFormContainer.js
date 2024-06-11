@@ -1,6 +1,7 @@
-import React, { Fragment, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
+import { CUSTOMER_API } from 'api/constants';
 
 import { withKeycloak } from 'auth/KeycloakContext';
 import { apiUserPost } from 'api/users';
@@ -48,10 +49,14 @@ class UserAddFormContainer extends PureComponent {
   }
 
   async handleSubmit(user) {
-    const { t, onCreate } = this.props;
+    const { t, onCreate, config } = this.props;
+    const { systemParams } = config || {};
+    const { api } = systemParams || {};
+    const url = api && api[CUSTOMER_API].url;
+
     this.setState({ loading: true });
     try {
-      const createdUser = await apiUserPost(user);
+      const createdUser = await apiUserPost(url, user);
 
       let accountNumber = '';
       while (accountNumber.length !== 12) {
@@ -142,7 +147,8 @@ class UserAddFormContainer extends PureComponent {
         });
 
     return (
-      <Fragment style={{ position: 'relative' }}>
+      // Remove?style={{ position: 'relative' }}
+      <>
         {Page}
         <Notification
           status={notificationStatus}
@@ -150,7 +156,7 @@ class UserAddFormContainer extends PureComponent {
           onClose={this.closeNotification}
         />
         {loading && <Spinner />}
-      </Fragment>
+      </>
     );
   }
 }
@@ -160,12 +166,15 @@ UserAddFormContainer.propTypes = {
   onCreate: PropTypes.func,
   onLogin: PropTypes.func,
   t: PropTypes.func.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  config: PropTypes.object,
 };
 
 UserAddFormContainer.defaultProps = {
   onError: () => {},
   onCreate: () => {},
   onLogin: () => {},
+  config: {},
 };
 
 export default withKeycloak(withTranslation()(UserAddFormContainer));
