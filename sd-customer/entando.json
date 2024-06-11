@@ -1,0 +1,24 @@
+{
+    "microservices": [],
+    "microfrontends": [
+        {
+            "name": "sd-customer-ms",
+            "customElement": "sd-customer-ms",
+            "stack": "react",
+            "type": "widget",
+            "group": "free",
+            "publicFolder": "public",
+            "titles": {
+                "en": "sd-customer-ms",
+                "it": "sd-customer-ms"
+            }
+        }
+    ],
+    "svc": [
+        "keycloak"
+    ],
+    "name": "sd-customer",
+    "version": "0.0.1",
+    "description": "SD Customer Bundle",
+    "type": "bundle"
+}
