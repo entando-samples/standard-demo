@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import { getSvg } from 'assets/svg/svg';
 
 const Icon = ({ icon, className, style }) => {
-  const imgPath = '..';
-  const imgSrc = `${imgPath}${getSvg(icon)}`;
-
+  const imgSrc = `${getSvg(icon)}`;
   return <img id="my-icon" src={imgSrc} style={style} className={className} alt="icon" />;
 };
 
