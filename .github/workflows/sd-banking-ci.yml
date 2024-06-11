@@ -12,12 +12,12 @@ jobs:
           java-version: '11.x'
       - name: Run backend test
         run: |
-          cd $GITHUB_WORKSPACE/$PROJECT_NAME
+          cd $GITHUB_WORKSPACE/$PROJECT_NAME/microservices/sd-banking-ms
           chmod +x mvnw
           ./mvnw -ntp clean test
       - name: Package application
         run: |
-          cd $GITHUB_WORKSPACE/$PROJECT_NAME
+          cd $GITHUB_WORKSPACE/$PROJECT_NAME/microservices/sd-banking-ms
           ./mvnw -ntp package -Pprod -DskipTests
   micro-frontends:
     name: ${{ matrix.widget }} micro frontend
