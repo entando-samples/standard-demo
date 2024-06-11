@@ -1,24 +1,32 @@
 {
-    "microservices": [],
-    "microfrontends": [
+    "microservices": [
         {
             "name": "sd-customer-ms",
-            "customElement": "sd-customer-ms",
-            "stack": "react",
-            "type": "widget",
-            "group": "free",
-            "publicFolder": "public",
-            "titles": {
-                "en": "sd-customer-ms",
-                "it": "sd-customer-ms"
-            }
+            "stack": "spring-boot",
+            "dbms": "none",
+            "healthCheckPath": "/management/health",
+            "version": "0.1.0",
+            "roles": [
+                "customer-list"
+            ],
+            "permissions": [
+                {
+                    "clientId": "realm-management",
+                    "role": "manage-users"
+                },
+                {
+                    "clientId": "realm-management",
+                    "role": "view-users"
+                }
+            ]
         }
     ],
+    "microfrontends": [],
     "svc": [
         "keycloak"
     ],
     "name": "sd-customer",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "description": "SD Customer Bundle",
     "type": "bundle"
 }

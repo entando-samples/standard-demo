@@ -137,11 +137,7 @@
         }
     ],
     "svc": [
-        "app",
-        "keycloak",
-        "monitoring",
-        "postgresql",
-        "sonar"
+        "keycloak"
     ],
     "name": "sd-banking",
     "version": "0.3.7",

@@ -124,11 +124,11 @@ spring:
       client:
         provider:
           oidc:
-            issuer-uri: http://quickstart-kc-flex.apps.rd.entando.org/auth/realms/entando
+            issuer-uri: http://localhost:9080/auth/realms/jhipster
         registration:
           oidc:
-            client-id: std-demo-customer-server
-            client-secret: 74ef191a-2326-46ef-bb86-260c907f1b2b
+            client-id: internal
+            client-secret: internal
 
 server:
   servlet:
@@ -172,6 +172,10 @@ jhipster:
     contact-email:
     license:
     license-url:
+
+swagger-ui:
+  client-id: swagger_ui
+  client-secret: swagger_ui
 # ===================================================================
 # Application specific properties
 # Add your own application properties here, see the ApplicationProperties class
