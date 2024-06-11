@@ -1,0 +1,47 @@
+name: SD Banking CI
+on: push
+env:
+  PROJECT_NAME: sd-banking
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '11.x'
+      - name: Run backend test
+        run: |
+          cd $GITHUB_WORKSPACE/$PROJECT_NAME/microservices/sd-banking-ms
+          chmod +x mvnw
+          ./mvnw -ntp clean test
+      - name: Package application
+        run: |
+          cd $GITHUB_WORKSPACE/$PROJECT_NAME/microservices/sd-banking-ms
+          ./mvnw -ntp package -Pprod -DskipTests
+  micro-frontends:
+    name: ${{ matrix.widget }} micro frontend
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        widget:
+          - sd-alert-bar-icon
+          - sd-alert-bar-icon-config
+          - sd-seeds-card-angular
+          - sd-seeds-card-config
+          - sd-seeds-card-react
+          - sd-transaction-table
+        include:
+          - widget: sd-seeds-card-angular
+            test-script-name: test-ci
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2.1.4
+        with:
+          node-version: '14.15.0'
+      - name: Run tests
+        run: |
+          cd $GITHUB_WORKSPACE/$PROJECT_NAME/microfrontends/${{ matrix.widget }}
+          npm install
+          npm run ${{ matrix.test-script-name || 'test' }}

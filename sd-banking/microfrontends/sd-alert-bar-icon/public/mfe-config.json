@@ -1,0 +1,14 @@
+{
+    "params": {
+        "icon": "viewstatements",
+        "title": "View statements"
+    },
+    "systemParams": {
+      "api": {
+        "sd-banking-api": {
+          "url": "http://localhost:8081/banking"
+        }
+      }
+    }
+  }
+  

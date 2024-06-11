@@ -5,7 +5,7 @@ See <https://dev.entando.org/next/tutorials/samples/install-standard-demo.html> 
 
 ## Bundles
 There are currently 4 sub-projects used to set up the Standard Banking Demo. The first three can be installed in any order but all four need to be installed to get the full functionality applied to an Entando Application. See the README files for each bundle for information on building/installing them from source.
-1. `banking-plugin` 
+1. `sd-banking` 
 2. `customer-plugin`
 3. `manage-users`
 4. `sd-content`
