@@ -1,7 +1,7 @@
-name: Banking Plugin CI
+name: SD Banking CI
 on: push
 env:
-  PROJECT_NAME: banking-plugin
+  PROJECT_NAME: sd-banking
 jobs:
   backend:
     runs-on: ubuntu-latest
@@ -26,13 +26,14 @@ jobs:
       fail-fast: false
       matrix:
         widget:
-          - alert-bar-icon-react
-          - dashboard-card-angular
-          - dashboard-card-config
-          - dashboard-card-react
-          - transaction-table
+          - sd-alert-bar-icon
+          - sd-alert-bar-icon-config
+          - sd-seeds-card-angular
+          - sd-seeds-card-config
+          - sd-seeds-card-react
+          - sd-transaction-table
         include:
-          - widget: dashboard-card-angular
+          - widget: sd-seeds-card-angular
             test-script-name: test-ci
     steps:
       - uses: actions/checkout@v2
@@ -41,6 +42,6 @@ jobs:
           node-version: '14.15.0'
       - name: Run tests
         run: |
-          cd $GITHUB_WORKSPACE/$PROJECT_NAME/ui/widgets/banking-widgets/${{ matrix.widget }}
+          cd $GITHUB_WORKSPACE/$PROJECT_NAME/microfrontends/${{ matrix.widget }}
           npm install
           npm run ${{ matrix.test-script-name || 'test' }}
