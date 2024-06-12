@@ -1,14 +1,14 @@
 @font-face {
     font-family: Merriweather-Black;
-    src: url("../../../static/fonts/Merriweather-Black.ttf");
+    src: url("../../../../../static/fonts/Merriweather-Black.ttf");
 }
 @font-face {
     font-family: Cabin-Medium;
-    src: url("../../../static/fonts/Cabin-Medium.ttf");
+    src: url("../../../../../static/fonts/Cabin-Medium.ttf");
 }
 @font-face {
     font-family: Cabin-Regular;
-    src: url("../../../static/fonts/Cabin-Regular.ttf");
+    src: url("../../../../../static/fonts/Cabin-Regular.ttf");
 }
 * {
     box-sizing: border-box;

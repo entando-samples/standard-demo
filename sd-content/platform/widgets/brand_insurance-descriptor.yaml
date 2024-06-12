@@ -3,4 +3,4 @@ titles:
   en: Insurance logo
   it: Insurance logo
 group: free
-customUi: '<#assign wp=JspTaglibs["/aps-core"]><@wp.currentWidget param="config" configParam="name" var="configName" /><a class="logo-insurance navbar-brand" href="<@wp.url page="homepagesd" />" name="insurance-logo.svg" >        <img src="<@wp.resourceURL />standard-demo/static/img/insurance-logo.svg" />  </a>'
+customUi: '<#assign wp=JspTaglibs["/aps-core"]><@wp.currentWidget param="config" configParam="name" var="configName" /><a class="logo-insurance navbar-brand" href="<@wp.url page="homepagesd" />" name="insurance-logo.svg" >        <img src="<@wp.resourceURL />bundles/sd-content-7d1d7104/resources/static/img/insurance-logo.svg" />  </a>'
