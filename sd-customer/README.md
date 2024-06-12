@@ -1,10 +1,8 @@
 # Deployment and installation
 
-With this configuration, you can use the ent cli (https://dev.entando.org/next/docs/reference/entando-cli.html) to perform the full deployment sequence:
+With this configuration, you can use the ent cli (https://dev.entando.org/next/docs/reference/entando-cli.html) to perform the full deployment sequence.
 
-# Deployment and installation
-
-With this configuration, you can use the ent cli (https://dev.entando.org/next/docs/reference/entando-cli.html) to perform the full deployment sequence:
+Note: In the current implementation, this form can be used to 1) create a user account in k8s, and 2) create its initial checking details, but 3) the full set of alerts and enablement of the SD Dashboard is not functional.
 
 ## Prerequisites
 
@@ -29,6 +27,7 @@ See https://developer.entando.com for more information.
 - Start the microservice - `ent bundle run sd-customer-ms`. The dev profile uses an in-memory H2 database. It will fail to startup if keycloak is not available
 - The MS Swagger UI is available at `http://localhost:8082/customer/swagger-ui.html?urls.primaryName=entando`. Note this MS runs on 8082 in Dev but the standard 8081 in prod. To test the full user-form, both the sd-customer-ms and sd-banking-ms services need to be running.
 - Start the MFE - `ent bundle run sd-user-form`. Make sure you copy env.local.template to env.local and modify it to match your local settings.
+
 
 # Customer
 
