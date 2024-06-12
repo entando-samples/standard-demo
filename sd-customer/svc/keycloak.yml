@@ -1,0 +1,25 @@
+services:
+  keycloak:
+    image: entando/entando-keycloak:6.0.15
+    command: [
+        "-b",
+        "0.0.0.0",
+        "-Dkeycloak.profile.feature.scripts=enabled",
+        "-Dkeycloak.profile.feature.upload_scripts=enabled",
+        "-Dkeycloak.migration.action=import",
+        "-Dkeycloak.migration.provider=dir",
+        "-Dkeycloak.migration.dir=/opt/jboss/keycloak/realm-config",
+        "-Dkeycloak.migration.strategy=IGNORE_EXISTING", # use 'OVERWRITE_EXISTING' instead if you want to reset your current configuration
+        "-Djboss.socket.binding.port-offset=1000",
+      ]
+    volumes:
+      - ./realm-config:/opt/jboss/keycloak/realm-config
+      - ./keycloak-db:/opt/jboss/keycloak/standalone/data
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=admin
+      - DB_VENDOR=h2
+    ports:
+      - 9080:9080
+      - 9443:9443
+      - 10990:10990

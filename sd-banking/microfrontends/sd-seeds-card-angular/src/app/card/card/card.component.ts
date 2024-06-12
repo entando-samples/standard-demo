@@ -51,7 +51,6 @@ export class CardComponent implements OnInit {
   onDetail() {
     if (this.seedCard && this.seedCard.id) {
       const payload = { cardname: this.cardName, accountID: this.seedCard.id };
-      console.log(payload);
       this.widgetEventService.createWidgetEventPublisher(EVENT_KEY.OUTPUT_EVENT_TYPES.transactionsDetail, payload);
     }
   }
