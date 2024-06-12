@@ -17,6 +17,6 @@ widgets:
   - code: Login_buttons
     config: null
     pos: 2
-  - code: sd_user_form
+  - code: sd-user-form-df3983c2
     config: null
     pos: 4
