@@ -1,6 +1,0 @@
-code: sd_user_form
-titles:
-    en: SD User Registration
-    it: SD Registrazione
-group: free
-customUiPath: user-form.ftl

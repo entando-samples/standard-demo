@@ -28,8 +28,8 @@
       "group": "free",
       "publicFolder": "public",
       "titles": {
-        "en": "SD User Management Form",
-        "it": "SD User Management Form"
+        "en": "SD User Registration",
+        "it": "SD Registrazione"
       },
       "apiClaims": [
         {
