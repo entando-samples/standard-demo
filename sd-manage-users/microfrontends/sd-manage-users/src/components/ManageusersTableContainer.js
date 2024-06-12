@@ -231,7 +231,7 @@ class ManageusersTableContainer extends Component {
     const userid = item.username;
     let account = await apiAccountGet({
       serviceUrl,
-      userid: userid,
+      userid,
       account: accountName,
     });
 
@@ -273,7 +273,7 @@ class ManageusersTableContainer extends Component {
     const userid = item.username;
     let notifications = await apiNotificationsGet({
       serviceUrl,
-      userid: userid,
+      userid,
       notificationName,
     });
     if (!notifications || (notifications && notifications.length < 1)) {

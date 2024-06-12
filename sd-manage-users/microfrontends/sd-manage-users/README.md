@@ -1,47 +1,74 @@
-# Table Widget
+# Deployment and installation
 
-## Running locally
+With this configuration, you can use the ent cli (https://dev.entando.org/next/docs/reference/entando-cli.html) to perform the full deployment sequence:
+
+## Prerequisites
+
+1. Docker account
+2. attach ent to an Entando platform (e.g. ent attach-kubeconfig config-file)
+
+## Build and publish steps
+
+1. ent bundle pack
+2. ent bundle publish
+3. ent bundle deploy
+4. ent bundle install
+
+See https://developer.entando.com for more information.
+
+# Development tips for local testing
+
+- See the sd-banking README on how to start keycloak and the sd-banking-ms microservices.
+- Keycloak be running at `http://localhost:9080`. User admin/admin can be used for testing
+- The banking MS should be available at `http://localhost:8081/banking/`.
+- Make sure your user (typically admin) has the realm-management:manage-users Role mapped to gain access to the users table
+- Start the MFE - `ent bundle run sd-manage-users`.
+- Make sure you copy env.local.template to env.local and modify it to match your local settings.
+
+# (DEPRECATED/OLD) Table Widget
+
+## (OLD) Running locally
 
 Widgets use Keycloak for authentication. To use widget locally follow these steps (where prompted for port, use defaults):
 
 1. Download and install Keycloak standalone server (this widget has been tested with Keycloak 7.0.1) from https://www.keycloak.org/downloads.html
 1. Go to <KEYCLOAK_SERVER_FOLDER>/bin and run `./standalone.sh -Djboss.socket.binding.port-offset=1000` - this will offset the Keycloak port to 9080 (which is a default port JHipster uses)
 1. Setup Keycloak by visiting http://localhost:9080/auth/ (administrator login `admin/admin`)
-    1. Create realm named `jhipster`
-    1. Add client with
-        - name - `jhipster-entando-react-client`
-        - client protocol - `openid-connect`
-        - root URL - `http://localhost:3000/`
-        - valid redirect URIs - `http://localhost:3000/*`
-    1. Add user with all roles assigned
+   1. Create realm named `jhipster`
+   1. Add client with
+      - name - `jhipster-entando-react-client`
+      - client protocol - `openid-connect`
+      - root URL - `http://localhost:3000/`
+      - valid redirect URIs - `http://localhost:3000/*`
+   1. Add user with all roles assigned
 1. Create microservice application, add entity (this should create the widgets) and start the application.
 1. If needed (should be automated in future releases), update SecurityConfiguration.java file (<MICROSERVICE_FOLDER>/src/main/java/<PACKAGE_NAME_FOLDERS>/config/SecurityConfiguration.java) to allow OPTIONS requests by adding:
-    1. `import org.springframework.http.HttpMethod;` at the top
-    1. `.antMatchers(HttpMethod.OPTIONS,"/api/**").permitAll()` after `.antMatchers("/api/auth-info").permitAll()`
+   1. `import org.springframework.http.HttpMethod;` at the top
+   1. `.antMatchers(HttpMethod.OPTIONS,"/api/**").permitAll()` after `.antMatchers("/api/auth-info").permitAll()`
 1. If needed (should be automated in future releases), uncomment CORS configurations at `<MICROSERVICE_FOLDER>/src/main/resources/config/application-dev.yml` and/or `<MICROSERVICE_FOLDER>/src/main/resources/config/application.yml`
 1. Authenticate at http://localhost:9080/auth/realms/jhipster/account/ using the user you have created.
 1. Go to widget source (<MICROSERVICE_FOLDER>/ui/widgets/manageusers/tableWidget/>):
-    1. Run `npm i`
-    1. Add `.env` file with `REACT_APP_DOMAIN=http://localhost:<MICROSERICE_PORT=8081>/services/<MICROSERVICE_APPLICATION_NAME>/api`
-    1. Run `npm start`
+   1. Run `npm i`
+   1. Add `.env` file with `REACT_APP_DOMAIN=http://localhost:<MICROSERICE_PORT=8081>/services/<MICROSERVICE_APPLICATION_NAME>/api`
+   1. Run `npm start`
 
 ## API
 
 ### Attributes
 
--   **locale** (default: `en`)
--   **pagination-mode** (default: `''`), `''` | `'infinite-scroll'` | `'pagination'`
+- **locale** (default: `en`)
+- **pagination-mode** (default: `''`), `''` | `'infinite-scroll'` | `'pagination'`
 
 ### Environment variables
 
 There are several environment variables used in the widget that provide initial configuration of the widget. To set that up, create `.env` file in the root folder following constants:
 
--   REACT_APP_DOMAIN - API endpoint for data (e.g., http://localhost:8081/services/jhipster/api)
+- REACT_APP_DOMAIN - API endpoint for data (e.g., http://localhost:8081/services/jhipster/api)
 
 ### Custom Events
 
--   **manageusers.table.error** (fired when an error occurs)
--   **manageusers.table.select** (fired when a table row is selected)
+- **manageusers.table.error** (fired when an error occurs)
+- **manageusers.table.select** (fired when a table row is selected)
 
 ## Filters
 
@@ -55,11 +82,11 @@ For filters to work, entities have to be built with this functionality enabled. 
 
 To add a new locale:
 
--   add _[newLocaleName]_ under `options.lng` in `i18next-scanner-config.js` script
--   run `npm run i18n` from the terminal to add a new empty language file under `src/i18n/locales/[newLocaleName].json`
--   edit `src/i18n/locales.js`
-    -   import the newly generated JSON file (use the en language import as a reference)
-    -   export it alongside the other languages
+- add _[newLocaleName]_ under `options.lng` in `i18next-scanner-config.js` script
+- run `npm run i18n` from the terminal to add a new empty language file under `src/i18n/locales/[newLocaleName].json`
+- edit `src/i18n/locales.js`
+  - import the newly generated JSON file (use the en language import as a reference)
+  - export it alongside the other languages
 
 ## Available Scripts
 
@@ -107,24 +134,24 @@ This project is extending the [Airbnb Style Guide](https://github.com/airbnb/jav
 
 ## Folder structure
 
--   ./src
-    -   ./assets `--> place to store assets like images, fonts, custom icons, etc.`
-    -   ./api `--> api calls, grouped by feature: the structure should mimic the api call itself`
-    -   ./components
-        -   ./\_\_tests\_\_ `sample test folder`
-            -   App.test.js `--> this way test files are closer to other ones, but in a separate folder in order to keep the folder structure cleaner`
-        -   ./common `--> folder containing common components`
-            -   CommonComponent.js
-        -   ./App `--> example of component that could have container`
-            -   App.css
-            -   App.js `--> keep the same name as component folder so we can find it easily when doing a file search`
-            -   AppContainer.js `--> container for the App component, adds state`
--   ./custom-elements `--> custom element wrapper of the whole application`
-    -   ./state `--> application state (e.g. redux), if any`
-        -   ./sample-feature `--> grouping by feature`
-            -   sample-feature.actions.js
-            -   sample-feature.reducer.js
-            -   sample-feature.selectors.js
-            -   sample-feature.types.js
-        -   store.js `--> configure redux store`
-    -   index.js `--> entry point`
+- ./src
+  - ./assets `--> place to store assets like images, fonts, custom icons, etc.`
+  - ./api `--> api calls, grouped by feature: the structure should mimic the api call itself`
+  - ./components
+    - ./\_\_tests\_\_ `sample test folder`
+      - App.test.js `--> this way test files are closer to other ones, but in a separate folder in order to keep the folder structure cleaner`
+    - ./common `--> folder containing common components`
+      - CommonComponent.js
+    - ./App `--> example of component that could have container`
+      - App.css
+      - App.js `--> keep the same name as component folder so we can find it easily when doing a file search`
+      - AppContainer.js `--> container for the App component, adds state`
+- ./custom-elements `--> custom element wrapper of the whole application`
+  - ./state `--> application state (e.g. redux), if any`
+    - ./sample-feature `--> grouping by feature`
+      - sample-feature.actions.js
+      - sample-feature.reducer.js
+      - sample-feature.selectors.js
+      - sample-feature.types.js
+    - store.js `--> configure redux store`
+  - index.js `--> entry point`

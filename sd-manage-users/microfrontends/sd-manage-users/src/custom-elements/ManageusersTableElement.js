@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import retargetEvents from 'react-shadow-dom-retarget-events';
+import './public-path';
 
 import { StylesProvider, jssPreset, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { create } from 'jss';
@@ -31,11 +32,8 @@ const getKeycloakInstance = () =>
 const ATTRIBUTES = {
   hidden: 'hidden',
   locale: 'locale',
-  paginationMode: 'pagination-mode',
   disableDefaultEventHandler: 'disable-default-event-handler', // custom element attribute names MUST be written in kebab-case
-  serviceUrl: 'service-url',
-  keycloakUrl: 'keycloak-url',
-  realm: 'realm',
+  config: 'config',
 };
 
 class ManageusersTableElement extends HTMLElement {
@@ -137,8 +135,13 @@ class ManageusersTableElement extends HTMLElement {
     const locale = this.getAttribute(ATTRIBUTES.locale);
     setLocale(locale);
 
-    const paginationMode = this.getAttribute(ATTRIBUTES.paginationMode) || '';
-    const serviceUrl = this.getAttribute(ATTRIBUTES.serviceUrl) || '';
+    const paginationMode = 'pagination';
+
+    const attributeConfig = this.getAttribute(ATTRIBUTES.config);
+    const config = attributeConfig && JSON.parse(attributeConfig);
+    const { systemParams } = config || {};
+    const { api } = systemParams || {};
+    const serviceUrl = api && api['sd-banking-api'].url;
 
     const disableEventHandler = this.getAttribute(ATTRIBUTES.disableDefaultEventHandler) === 'true';
     if (!disableEventHandler) {

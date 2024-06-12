@@ -4,7 +4,7 @@ import { getDefaultOptions, request, getUrl, getDefaultOptionsWithoutToken } fro
 const resource = 'manageusers';
 
 export const apiManageusersDelete = async (serviceUrl, id) => {
-  const url = `${serviceUrl}/${resource}/${id}`;
+  const url = `${serviceUrl}/api/${resource}/${id}`;
   const options = {
     ...getDefaultOptions(),
     method: 'DELETE',
@@ -18,7 +18,7 @@ export const apiManageusersGet = async (serviceUrl, { filters = [], pagination, 
     ? `page=${pagination.page}&size=${pagination.rowsPerPage}`
     : '';
   const url = getUrl(
-    `${serviceUrl}/${resource}${mode === 'count' ? '/count' : ''}`,
+    `${serviceUrl}/api/${resource}${mode === 'count' ? '/count' : ''}`,
     filterQuery,
     paginationQuery
   );
@@ -29,25 +29,6 @@ export const apiManageusersGet = async (serviceUrl, { filters = [], pagination, 
 
   return request(url, options);
 };
-
-// export const apiManageusersReset = async (serviceUrl, { filters = [], pagination, mode }) => {
-//   const filterQuery = getFilterQuery(filters);
-//   const paginationQuery = pagination
-//     ? `page=${pagination.page}&size=${pagination.rowsPerPage}`
-//     : '';
-//   const url = getUrl(
-//     `${serviceUrl}/${resource}${mode === 'count' ? '/count' : ''}`,
-//     filterQuery,
-//     paginationQuery
-//   );
-//   const options = {
-//     ...getDefaultOptions(),
-//     method: 'GET',
-//   };
-//
-//   // return request(url, options);
-//   return console.log(url, options)
-// };
 
 export const apiAccountGet = async ({ serviceUrl, userid, account }) => {
   const url =
