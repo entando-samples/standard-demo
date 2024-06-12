@@ -1,0 +1,9 @@
+{
+    "microservices": [],
+    "microfrontends": [],
+    "svc": [],
+    "name": "sd-content",
+    "version": "0.3.0",
+    "description": "SD Content Bundle",
+    "type": "bundle"
+}
