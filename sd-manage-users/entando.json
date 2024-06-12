@@ -1,0 +1,30 @@
+{
+    "microservices": [],
+    "microfrontends": [
+        {
+            "name": "sd-manage-users",
+            "customElement": "sd-manage-users",
+            "stack": "react",
+            "type": "widget",
+            "group": "free",
+            "publicFolder": "public",
+            "titles": {
+                "en": "SD Manage Users",
+                "it": "SD Gestione Utenti"
+            },
+            "apiClaims": [
+                {
+                    "name": "sd-banking-api",
+                    "type": "external",
+                    "serviceName": "sd-banking-ms",
+                    "bundle": "registry.hub.docker.com/entandodemo/sd-banking"
+                }
+            ]
+        }
+    ],
+    "svc": [],
+    "name": "sd-manage-users",
+    "version": "0.1.0",
+    "description": "SD Manage Users",
+    "type": "bundle"
+}
