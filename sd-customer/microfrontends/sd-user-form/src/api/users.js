@@ -15,7 +15,7 @@ const request = async (url, options) => {
 };
 
 export const apiUserGet = async (url, id) => {
-  const fullUrl = `${url}/${resource}/${id}`;
+  const fullUrl = `${url}/api/${resource}/${id}`;
   const options = {
     ...getDefaultOptions(),
     method: 'GET',
@@ -24,7 +24,7 @@ export const apiUserGet = async (url, id) => {
 };
 
 export const apiUserPost = async (url, user) => {
-  const fullUrl = `${url}/${resource}`;
+  const fullUrl = `${url}/api/${resource}`;
   const options = {
     ...getDefaultOptions(),
     method: 'POST',
@@ -34,7 +34,7 @@ export const apiUserPost = async (url, user) => {
 };
 
 export const apiUserPut = async (url, user) => {
-  const fullUrl = `${url}/${resource}`;
+  const fullUrl = `${url}/api/${resource}`;
   const options = {
     ...getDefaultOptions(),
     method: 'PUT',

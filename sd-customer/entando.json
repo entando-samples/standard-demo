@@ -30,7 +30,14 @@
       "titles": {
         "en": "SD User Management Form",
         "it": "SD User Management Form"
-      }
+      },
+      "apiClaims": [
+        {
+          "name": "sd-customer-api",
+          "type": "internal",
+          "serviceName": "sd-customer-ms"
+        }
+      ]
     }
   ],
   "svc": ["keycloak"],
