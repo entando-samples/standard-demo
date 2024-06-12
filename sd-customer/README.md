@@ -23,11 +23,12 @@ See https://developer.entando.com for more information.
 # Development tips for local testing
 
 - Start keycloak - `ent bundle svc start keycloak`
-- The keycloak admin UI is available at http://localhost:9080. User admin/admin can be used for testing
+- The keycloak admin UI is available at http://localhost:9080.
+  - User admin/admin can be used for testing
+  - Grant ROLE_ADMIN and realm-management:manage-users permission to the internal client in order to test locally.
 - Start the microservice - `ent bundle run sd-customer-ms`. The dev profile uses an in-memory H2 database. It will fail to startup if keycloak is not available
-- The MS Swagger UI is available at `http://localhost:8081/customer/swagger-ui.html?urls.primaryName=entando`
+- The MS Swagger UI is available at `http://localhost:8082/customer/swagger-ui.html?urls.primaryName=entando`. Note this MS runs on 8082 in Dev but the standard 8081 in prod. To test the full user-form, both the sd-customer-ms and sd-banking-ms services need to be running.
 - Start the MFE - `ent bundle run sd-user-form`. Make sure you copy env.local.template to env.local and modify it to match your local settings.
-- Grant realm-management:manage-users permission to the internal client in order to test locally.
 
 # Customer
 

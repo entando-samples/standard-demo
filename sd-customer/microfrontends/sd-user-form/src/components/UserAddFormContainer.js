@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
-import { CUSTOMER_API } from 'api/constants';
+import { BANKING_API, CUSTOMER_API } from 'api/constants';
 
 import { withKeycloak } from 'auth/KeycloakContext';
 import { apiUserPost } from 'api/users';
@@ -52,11 +52,12 @@ class UserAddFormContainer extends PureComponent {
     const { t, onCreate, config } = this.props;
     const { systemParams } = config || {};
     const { api } = systemParams || {};
-    const url = api && api[CUSTOMER_API].url;
+    const bankingUrl = api && api[BANKING_API].url;
+    const customerUrl = api && api[CUSTOMER_API].url;
 
     this.setState({ loading: true });
     try {
-      const createdUser = await apiUserPost(url, user);
+      const createdUser = await apiUserPost(customerUrl, user);
 
       let accountNumber = '';
       while (accountNumber.length !== 12) {
@@ -70,20 +71,25 @@ class UserAddFormContainer extends PureComponent {
       };
 
       try {
-        await apiSeedscardtransactionsAccountPost({ checkingAccount });
+        await apiSeedscardtransactionsAccountPost({ bankingUrl, checkingAccount });
         await apiSeedsdashboardAlertPost({
-          alertObj: this.buildObj({ description: 'Welcome in your bank', id: createdUser.id }),
+          bankingUrl,
+          alertObj: this.buildObj({ description: 'Welcome to your bank', id: createdUser.id }),
         });
         await apiSeedsdashboardAlertPost({
+          bankingUrl,
           alertObj: this.buildObj({ description: 'Checking account created', id: createdUser.id }),
         });
         await apiSeedsdashboardAlertPost({
+          bankingUrl,
           alertObj: this.buildObj({ description: 'Internet banking ACTIVE', id: createdUser.id }),
         });
         await apiSeedsdashboardAlertPost({
+          bankingUrl,
           alertObj: this.buildObj({ description: 'Info banking', id: createdUser.id }),
         });
         await apiSeedsdashboardStatementPost({
+          bankingUrl,
           statementObj: this.buildObj({ description: 'First Statement', id: createdUser.id }),
         });
       } catch (err) {

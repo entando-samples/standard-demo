@@ -1,5 +1,3 @@
-import { DOMAIN } from 'api/constants';
-
 const getDefaultOptions = () => ({
   headers: new Headers({
     'Content-Type': 'application/json',
@@ -14,11 +12,8 @@ const request = async (url, options) => {
     : Promise.reject(new Error(response.status || response.statusText));
 };
 
-export const apiSeedscardtransactionsAccountPost = async ({ checkingAccount }) => {
-  const checking = 'checking';
-  const baseUrl = DOMAIN.replace('signup/api', checking);
-
-  const url = `${baseUrl}${baseUrl.endsWith('/') ? '' : '/'}add/${checking}s`;
+export const apiSeedscardtransactionsAccountPost = async ({ bankingUrl, checkingAccount }) => {
+  const url = `${bankingUrl}/add/checkings`;
 
   const options = {
     ...getDefaultOptions(),
@@ -28,12 +23,8 @@ export const apiSeedscardtransactionsAccountPost = async ({ checkingAccount }) =
   return request(url, options);
 };
 
-export const apiSeedsdashboardAlertPost = async ({ alertObj }) => {
-  const seedsdashboard = 'seedsdashboard';
-  const alert = 'alert';
-  const baseUrl = DOMAIN.replace('signup', seedsdashboard);
-
-  const url = `${baseUrl}${baseUrl.endsWith('/') ? '' : '/'}${alert}s`;
+export const apiSeedsdashboardAlertPost = async ({ bankingUrl, alertObj }) => {
+  const url = `${bankingUrl}/api/alerts`;
 
   const options = {
     ...getDefaultOptions(),
@@ -43,12 +34,8 @@ export const apiSeedsdashboardAlertPost = async ({ alertObj }) => {
   return request(url, options);
 };
 
-export const apiSeedsdashboardStatementPost = async ({ statementObj }) => {
-  const seedsdashboard = 'seedsdashboard';
-  const statement = 'statement';
-  const baseUrl = DOMAIN.replace('signup', seedsdashboard);
-
-  const url = `${baseUrl}${baseUrl.endsWith('/') ? '' : '/'}${statement}s`;
+export const apiSeedsdashboardStatementPost = async ({ bankingUrl, statementObj }) => {
+  const url = `${bankingUrl}/api/statements`;
 
   const options = {
     ...getDefaultOptions(),

@@ -81,7 +81,7 @@ spring:
         enabled: true
 
 server:
-  port: 8081
+  port: 8082
 
 # ===================================================================
 # JHipster specific properties
@@ -97,10 +97,10 @@ jhipster:
   # CORS is disabled by default on microservices, as you should access them through a gateway.
   # If you want to enable it, please uncomment the configuration below.
   cors:
-    allowed-origins: '*'
-    allowed-methods: '*'
-    allowed-headers: '*'
-    exposed-headers: 'Authorization,Link,X-Total-Count'
+    allowed-origins: "*"
+    allowed-methods: "*"
+    allowed-headers: "*"
+    exposed-headers: "Authorization,Link,X-Total-Count"
     allow-credentials: true
     max-age: 1800
   mail: # specific JHipster mail property, for standard properties see MailProperties
