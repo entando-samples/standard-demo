@@ -25,6 +25,6 @@
     "svc": [],
     "name": "sd-manage-users",
     "version": "0.1.0",
-    "description": "Standard Demo Manage Users",
+    "description": "SD Manage Users",
     "type": "bundle"
 }
