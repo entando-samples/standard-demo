@@ -3,7 +3,7 @@
     "microfrontends": [],
     "svc": [],
     "name": "sd-content",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "description": "SD Content Bundle",
     "type": "bundle"
 }
