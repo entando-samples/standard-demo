@@ -140,6 +140,6 @@
     ],
     "name": "sd-banking",
     "version": "0.3.8",
-    "description": "SD Banking bundle",
+    "description": "SD Banking Bundle",
     "type": "bundle"
 }
