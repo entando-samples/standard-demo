@@ -48,7 +48,7 @@
   ],
   "svc": ["keycloak"],
   "name": "sd-customer",
-  "version": "0.1.2",
-  "description": "SD Customer Bundle",
+  "version": "0.1.3",
+  "description": "SD Customer Bundle - #2 of 4",
   "type": "bundle"
 }
