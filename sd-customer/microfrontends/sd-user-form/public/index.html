@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>App User form</title>
+    <script src="%REACT_APP_KEYCLOAK_URL%/js/keycloak.js"></script>
+    <script>
+      const onLoad = (function() {
+        function createKcDispatcher(payload) {
+          return () => window.dispatchEvent(new CustomEvent('keycloak', { detail: payload }));
+        }
+
+        function initKeycloak() {
+          const keycloak = Keycloak({
+            url: '%REACT_APP_KEYCLOAK_URL%',
+            realm: '%REACT_APP_KEYCLOAK_REALM%',
+            clientId: '%REACT_APP_KEYCLOAK_CLIENT_ID%',
+          });
+
+          keycloak.onReady = createKcDispatcher({ eventType: 'onReady' });
+          keycloak.onAuthSuccess = createKcDispatcher({ eventType: 'onAuthSuccess' });
+          keycloak.onAuthError = createKcDispatcher({ eventType: 'onAuthError' });
+          keycloak.onAuthRefreshSuccess = createKcDispatcher({
+            eventType: 'onAuthRefreshSuccess',
+          });
+          keycloak.onAuthRefreshError = createKcDispatcher({
+            eventType: 'onAuthRefreshError',
+          });
+          keycloak.onAuthLogout = createKcDispatcher({ eventType: 'onAuthLogout' });
+          keycloak.onTokenExpired = createKcDispatcher({ eventType: 'onTokenExpired' });
+          const onInit = createKcDispatcher({ eventType: 'onInit' });
+
+          window.entando = {
+            ...(window.entando || {}),
+            keycloak,
+          };
+
+          const onLoad = 'check-sso';
+          window.entando.keycloak.init({ onLoad }).success(onInit);
+        }
+        return initKeycloak;
+      })();
+    </script>
+  </head>
+  <body onLoad="onLoad();">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <sd-user-form />
+    <script>
+      function injectConfigIntoMfe() {
+        fetch('%PUBLIC_URL%/mfe-config.json').then(async response => {
+          const config = await response.text();
+          const mfeEl = document.getElementsByTagName('sd-user-form')[0];
+          mfeEl.setAttribute('config', config);
+        });
+      }
+
+      injectConfigIntoMfe();
+    </script>
+  </body>
+</html>

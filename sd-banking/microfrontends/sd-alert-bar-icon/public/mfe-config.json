@@ -1,0 +1,14 @@
+{
+    "params": {
+        "icon": "managealerts",
+        "title": "Alerts"
+    },
+    "systemParams": {
+      "api": {
+        "sd-banking-api": {
+          "url": "http://localhost:8081/banking"
+        }
+      }
+    }
+  }
+  

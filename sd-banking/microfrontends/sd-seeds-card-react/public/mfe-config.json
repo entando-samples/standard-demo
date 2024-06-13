@@ -1,0 +1,12 @@
+{
+  "params": {
+    "cardname": "creditcard"
+  },
+  "systemParams": {
+    "api": {
+      "sd-banking-api": {
+        "url": "http://localhost:8081/banking"
+      }
+    }
+  }
+}

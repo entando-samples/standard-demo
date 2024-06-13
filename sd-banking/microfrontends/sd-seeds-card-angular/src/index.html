@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Seedcards details</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <script src="http://localhost:9080/auth/js/keycloak.js"></script>
+    <script>
+      const onLoad = (function() {
+        function createKcDispatcher(payload) {
+          return () => window.dispatchEvent(new CustomEvent('keycloak', { detail: payload }));
+        }
+
+        function initKeycloak() {
+          const keycloak = Keycloak({
+            url: 'http://localhost:9080/auth',
+            realm: 'jhipster',
+            clientId: 'web_app'
+          });
+
+          keycloak.onReady = createKcDispatcher({ eventType: 'onReady' });
+          keycloak.onAuthSuccess = createKcDispatcher({ eventType: 'onAuthSuccess' });
+          keycloak.onAuthError = createKcDispatcher({ eventType: 'onAuthError' });
+          keycloak.onAuthRefreshSuccess = createKcDispatcher({
+            eventType: 'onAuthRefreshSuccess'
+          });
+          keycloak.onAuthRefreshError = createKcDispatcher({
+            eventType: 'onAuthRefreshError'
+          });
+          keycloak.onAuthLogout = createKcDispatcher({ eventType: 'onAuthLogout' });
+          keycloak.onTokenExpired = createKcDispatcher({ eventType: 'onTokenExpired' });
+          const onInit = createKcDispatcher({ eventType: 'onInit' });
+
+          window.entando = {
+            ...(window.entando || {}),
+            keycloak
+          };
+
+          //If you are locally running the widget in isolation and you are not logged in,
+          //you are automatically redirected to keycloak login page to speed up development.
+
+          const onLoad = window.location.hostname === 'localhost' ? 'login-required' : 'check-sso';
+          const silentCheckSsoRedirectUri = window.location.origin + '/silent-check-sso.html';
+
+          window.entando.keycloak.init({ onLoad, silentCheckSsoRedirectUri }).success(onInit);
+
+          //Simulate assetsPath as well
+          window.entando.widgets = {
+            "sd-seeds-card-angular": {
+              "basePath": "/"
+            }
+          };
+        }
+        return initKeycloak;
+      })();
+    </script>
+  </head>
+  <body onLoad="onLoad();">
+    <sd-seeds-card-angular config='
+    {
+      "params": {
+        "cardname": "savings"
+      },
+      "systemParams": {
+        "api": {
+          "sd-banking-api": {
+            "url": "http://localhost:8081/banking"
+          }
+        }
+      }
+    }    
+    '/> 
+  </body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "systemParams": {
+    "api": {
+      "sd-banking-api": {
+        "url": "http://localhost:8081/banking"
+      },
+      "sd-customer-api": {
+        "url": "http://localhost:8082/customer"
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+<div (click)="onDetail()">
+  <div class="seeds-card">
+    <div class="seeds-card-header">
+      <img
+        class="seeds-card-icon"
+        [src]="assetsPath + '/Framecredit-card.png'"
+      />
+      <div class="seeds-card-title">
+        {{ "label.common." + cardName | translate }}
+      </div>
+      <div class="seeds-card-value">
+        {{ seedCard?.accountNumber | creditCard }}
+      </div>
+      <div class="seeds-card-action">
+        <i class="fas fa-ellipsis-v"></i>
+      </div>
+    </div>
+
+    <div *ngIf="seedCard" class="seeds-card-body">
+      <p class="seeds-card-balance">
+        {{ seedCard?.balance | currency }}
+      </p>
+      <p class="seeds-card-balance-caption">
+        {{ "label.common.balance" | translate }}
+      </p>
+
+      <p *ngIf="seedCard?.rewardPoints" class="seeds-card-balance-reward">
+        {{ "label.common.rewardPoints" | translate }}:
+        <span class="seeds-card-balance-reward-value">
+          {{ seedCard.rewardPoints }}
+        </span>
+      </p>
+    </div>
+
+    <div *ngIf="!seedCard">
+      <p class="seeds-card-balance-caption">
+        {{
+          "label.common.noCheckingAccount" | translate: { cardName: cardName }
+        }}
+      </p>
+    </div>
+  </div>
+</div>
