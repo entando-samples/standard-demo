@@ -1,8 +1,8 @@
-code: sign_up
+code: manage_users
 parentCode: homepagesd
 titles:
-  en: Sign up
-  it: Sign up
+  en: Manage Users
+  it: Manage Users
 pageModel: seed_home
 ownerGroup: free
 joinGroups: []
@@ -17,6 +17,6 @@ widgets:
   - code: Login_buttons
     config: null
     pos: 2
-  - code: sd_user_form
+  - code: sd-manage-users-ba6a402d
     config: null
-    pos: 4
+    pos: 5

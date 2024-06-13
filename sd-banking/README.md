@@ -1,6 +1,6 @@
 # Deployment and installation
 
-With this configuration, you can use the ent cli (https://dev.entando.org/next/docs/reference/entando-cli.html) to perform the full deployment sequence:
+With this configuration, you can use the ent cli (https://developer.entando.com/next/docs/getting-started/entando-cli.html) to perform the full deployment sequence:
 
 ## Prerequisites
 

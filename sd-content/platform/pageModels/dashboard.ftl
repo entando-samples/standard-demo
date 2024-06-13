@@ -106,17 +106,17 @@
                     <div class="NotificationBar__btn">
                         <@wp.show frame=7 />
                     </div>
-                    <div class="NotificationBar__btn"><img class="CheckingCard__icon" src="<@wp.resourceURL />standard-demo/static/img/dashboard/Framepay.png"/>
+                    <div class="NotificationBar__btn"><img class="CheckingCard__icon" src="<@wp.resourceURL />bundles/sd-content-7d1d7104/resources/static/img/dashboard/Framepay.png"/>
                         Pay bills
                     </div>
-                    <div class="NotificationBar__btn"><img class="CheckingCard__icon" src="<@wp.resourceURL />standard-demo/static/img/dashboard/Framemoney.png"/>
+                    <div class="NotificationBar__btn"><img class="CheckingCard__icon" src="<@wp.resourceURL />bundles/sd-content-7d1d7104/resources/static/img/dashboard/Framemoney.png"/>
                         Send money
                     </div>
-                    <div class="NotificationBar__btn"><img class="CheckingCard__icon" src="<@wp.resourceURL />standard-demo/static/img/dashboard/Frameinvest.png"/>
+                    <div class="NotificationBar__btn"><img class="CheckingCard__icon" src="<@wp.resourceURL />bundles/sd-content-7d1d7104/resources/static/img/dashboard/Frameinvest.png"/>
                         Investments
                     </div>
                     <div class="NotificationBar__btn"> <@wp.show frame=11 /> </div>
-                    <div class="NotificationBar__btn">  <img class="CheckingCard__icon" src="<@wp.resourceURL />standard-demo/static/img/dashboard/Frametransfer.png"/>
+                    <div class="NotificationBar__btn">  <img class="CheckingCard__icon" src="<@wp.resourceURL />bundles/sd-content-7d1d7104/resources/static/img/dashboard/Frametransfer.png"/>
                         Transfers
                     </div>
                 </div>

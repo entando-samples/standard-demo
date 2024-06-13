@@ -139,7 +139,7 @@
         "keycloak"
     ],
     "name": "sd-banking",
-    "version": "0.3.7",
-    "description": "SD Banking bundle",
+    "version": "0.3.8",
+    "description": "SD Banking Bundle - #1 of 4",
     "type": "bundle"
 }

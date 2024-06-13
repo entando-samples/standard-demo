@@ -65,7 +65,7 @@ export const apiAlertsGet = async (serviceUrl, { filters = [], pagination }) => 
   const paginationQuery = pagination
     ? `page=${pagination.page}&size=${pagination.rowsPerPage}`
     : '';
-  const url = getUrl(`${serviceUrl}/${resource}`, filterQuery, paginationQuery);
+  const url = getUrl(`${serviceUrl}/api/${resource}`, filterQuery, paginationQuery);
   const options = {
     ...getDefaultOptions(),
     method: 'GET',
@@ -74,7 +74,7 @@ export const apiAlertsGet = async (serviceUrl, { filters = [], pagination }) => 
 };
 
 export const apiAlertsPut = async (serviceUrl, statement) => {
-  const url = `${serviceUrl}/${resource}`;
+  const url = `${serviceUrl}/api/${resource}`;
   const options = {
     ...getDefaultOptions(),
     method: 'PUT',

@@ -1,14 +1,34 @@
+######################
+# Entando
+######################
 
-########
-.ent/ent-state
+.entando
 
+######################
+# Build folders
+######################
 
-####
-bundle/
+**/node_modules
+**/target
+**/build
 
-########
-.ent/ent-state
+######################
+# IntelliJ IDEA
+######################
 
+.idea
+*.iws
+*.iml
+*.ipr
 
-####
-bundle/
+######################
+# Keycloak DB files
+######################
+
+/svc/keycloak/keycloak-db/*
+
+######################
+# Files to keep
+######################
+
+!.gitkeep
