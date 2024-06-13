@@ -1,7 +1,7 @@
 {
     "params": {
-        "icon": "viewstatements",
-        "title": "View statements"
+        "icon": "managealerts",
+        "title": "Alerts"
     },
     "systemParams": {
       "api": {
