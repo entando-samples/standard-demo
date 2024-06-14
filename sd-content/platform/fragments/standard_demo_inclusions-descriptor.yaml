@@ -6,6 +6,6 @@ guiCode: '
 <link href="<@wp.resourceURL />static/css/mdb.min.css" rel="stylesheet">
 <script type="text/javascript" src="<@wp.resourceURL />static/js/jquery.min.js"></script>
 <!-- Custom includes -->
-<link rel="stylesheet" href="<@wp.resourceURL />bundles/sd-content-7d1d7104/resources/static/css/seed.css" rel="stylesheet">
-<link rel="stylesheet" href="<@wp.resourceURL />bundles/sd-content-7d1d7104/resources/static/css/media-queries.css" rel="stylesheet">
+<link rel="stylesheet" href="<@wp.resourceURL />bundles/sd-content-bundle-20d9c12f/resources/static/css/seed.css" rel="stylesheet">
+<link rel="stylesheet" href="<@wp.resourceURL />bundles/sd-content-bundle-20d9c12f/resources/static/css/media-queries.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>'

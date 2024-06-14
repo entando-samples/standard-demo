@@ -138,8 +138,8 @@
     "svc": [
         "keycloak"
     ],
-    "name": "sd-banking",
-    "version": "0.3.8",
+    "name": "sd-banking-bundle",
+    "version": "0.3.9",
     "description": "SD Banking Bundle - #1 of 4",
     "type": "bundle"
 }

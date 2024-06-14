@@ -17,6 +17,6 @@ widgets:
   - code: Login_buttons
     config: null
     pos: 2
-  - code: sd-manage-users-ba6a402d
+  - code: sd-manage-users-953ade37
     config: null
     pos: 5
