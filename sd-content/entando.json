@@ -2,8 +2,8 @@
     "microservices": [],
     "microfrontends": [],
     "svc": [],
-    "name": "sd-content",
-    "version": "0.3.2",
+    "name": "sd-content-bundle",
+    "version": "0.3.5",
     "description": "SD Content Bundle - #4 of 4",
     "type": "bundle"
 }

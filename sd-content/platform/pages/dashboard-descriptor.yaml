@@ -17,28 +17,28 @@ widgets:
   - code: Login_buttons
     config: null
     pos: 2
-  - code: sd-seeds-card-react-2f9a1555
+  - code: sd-seeds-card-react-ceb320f3
     config:
       cardname: checking
     pos: 4
-  - code: sd-seeds-card-angular-2f9a1555
+  - code: sd-seeds-card-angular-ceb320f3
     config:
       cardname: savings
     pos: 5
-  - code: sd-seeds-card-react-2f9a1555
+  - code: sd-seeds-card-react-ceb320f3
     config:
       cardname: creditcard
     pos: 6
-  - code: sd-alert-bar-icon-2f9a1555
+  - code: sd-alert-bar-icon-ceb320f3
     config:
       icon: managealerts
       title: Alerts
     pos: 7
-  - code: sd-alert-bar-icon-2f9a1555
+  - code: sd-alert-bar-icon-ceb320f3
     config:
       icon: viewstatements
       title: View Statements
     pos: 11
-  - code: sd-transaction-table-2f9a1555
+  - code: sd-transaction-table-ceb320f3
     config: null
     pos: 13

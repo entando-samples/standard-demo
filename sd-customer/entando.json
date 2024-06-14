@@ -41,14 +41,14 @@
           "name": "sd-banking-api",
           "type": "external",
           "serviceName": "sd-banking-ms",
-          "bundle": "registry.hub.docker.com/entandodemo/sd-banking"
+          "bundle": "registry.hub.docker.com/entandodemo/sd-banking-bundle"
         }
       ]
     }
   ],
   "svc": ["keycloak"],
-  "name": "sd-customer",
-  "version": "0.1.3",
+  "name": "sd-customer-bundle",
+  "version": "0.1.4",
   "description": "SD Customer Bundle - #2 of 4",
   "type": "bundle"
 }
