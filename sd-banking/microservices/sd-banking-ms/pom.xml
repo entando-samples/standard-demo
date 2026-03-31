@@ -5,7 +5,7 @@
 
     <groupId>org.entando.demo.banking</groupId>
     <artifactId>sd-banking-ms</artifactId>
-    <version>0.3.0</version>
+    <version>0.3.10</version>
     <packaging>jar</packaging>
     <name>Standard Demo Banking</name>
 
