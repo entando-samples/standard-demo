@@ -32,7 +32,7 @@ customUi: |
             <#if langsVar?? && (langsVar?size > 0)>
                 <#list langsVar as curLangVar>
                  <a class="dropdown-item <#if (curLangVar.code == currentLangVar)>active</#if>"
-                        href="<@wp.url lang=" ${curLangVar.code}" paramRepeat=true />">
+                        href="<@wp.url lang=curLangVar.code paramRepeat=true />">
                     <@wp.i18n key="SD_ESLC_LANG_${curLangVar.code}" /> </a>
                 </#list>
             </#if>
