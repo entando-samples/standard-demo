@@ -5,7 +5,7 @@
       "stack": "spring-boot",
       "dbms": "none",
       "healthCheckPath": "/management/health",
-      "version": "0.1.0",
+      "version": "0.1.5",
       "roles": ["customer-list"],
       "permissions": [
         {
@@ -48,7 +48,7 @@
   ],
   "svc": ["keycloak"],
   "name": "sd-customer-bundle",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "SD Customer Bundle - #2 of 4",
   "type": "bundle"
 }
