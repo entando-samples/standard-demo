@@ -5,7 +5,7 @@
 
     <groupId>org.entando.demo.banking</groupId>
     <artifactId>sd-banking-ms</artifactId>
-    <version>0.3.10</version>
+    <version>0.3.11</version>
     <packaging>jar</packaging>
     <name>Standard Demo Banking</name>
 
@@ -57,7 +57,7 @@
         <javassist.version>3.23.2-GA</javassist.version>
         <!-- The liquibase version should match the one managed by
         https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/${spring-boot.version} -->
-        <liquibase.version>3.7.0</liquibase.version>
+        <liquibase.version>3.10.3</liquibase.version>
         <liquibase-hibernate5.version>3.7</liquibase-hibernate5.version>
         <!-- The hibernate version to be used to override default version of liquibase maven plugin -->
         <hibernate-core.version>5.3.8.Final</hibernate-core.version>
@@ -110,6 +110,12 @@
         <dependency>
             <groupId>io.github.jhipster</groupId>
             <artifactId>jhipster-framework</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.liquibase</groupId>
+                    <artifactId>liquibase-core</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -221,6 +227,7 @@
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
+            <version>${liquibase.version}</version>
         </dependency>
         <dependency>
             <groupId>net.logstash.logback</groupId>

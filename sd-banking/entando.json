@@ -9,7 +9,7 @@
             "healthCheckPath": "/management/health",
             "permissions": [],
             "stack": "spring-boot",
-            "version": "0.0.3"
+            "version": "0.3.11"
         }
     ],
     "microfrontends": [
@@ -139,7 +139,7 @@
         "keycloak"
     ],
     "name": "sd-banking-bundle",
-    "version": "0.3.10",
+    "version": "0.3.11",
     "description": "SD Banking Bundle - #1 of 4",
     "type": "bundle"
 }
